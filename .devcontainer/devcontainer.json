@@ -12,7 +12,8 @@
       "userUid": "1000",
       "userGid": "1000",
       "upgradePackages": "true"
-    }
+    },
+    "./local-features/user-config": "latest"
   },
 
   "forwardPorts": [80],

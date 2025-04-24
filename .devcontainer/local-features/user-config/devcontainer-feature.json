@@ -1,0 +1,5 @@
+{
+  "id": "user-config",
+  "name": "User configuration",
+  "installsAfter": ["ghcr.io/devcontainers/features/common-utils"]
+}
