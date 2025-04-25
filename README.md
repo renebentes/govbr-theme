@@ -1,8 +1,11 @@
-# Portal Padrão em Joomla! CMS para o Design System do Governo Brasileiro
+# govbr-ds
 
-> Portal implementado em Joomla! CMS conforme o Padrão Digital de Governo instituído pela [Portaria Nº 540, de 8 de setembro de 2020 - Secretaria de Governo/Presidência da República](https://www.in.gov.br/en/web/dou/-/portaria-n-540-de-8-de-setembro-de-2020-276907456).
+> Template para Joomla! CMS para o Design System do Governo Brasileiro.
 
-Este portal aplica as especificações dispostas no [Design System Padrão de Governo](https://www.gov.br/ds/).
+Template desenvolvido para Joomla! CMS conforme o Padrão Digital de Governo instituído pela [Portaria Nº 540, de 8 de setembro de 2020 - Secretaria de Governo/Presidência da República](https://www.in.gov.br/en/web/dou/-/portaria-n-540-de-8-de-setembro-de-2020-276907456).
+
+> [!IMPORTANT]
+> Este template aplica as especificações dispostas no [Design System Padrão de Governo](https://www.gov.br/ds/).
 
 ## Requisitos
 
@@ -46,7 +49,7 @@ Copyright (c) 2024 Rene Bentes Pinto
 
 Este projeto está sob a licença **GNU GPL v2.0**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-[repo]: http://github.com/renebentes/repository
+[repo]: http://github.com/8becnst/joomla-govbr-ds
 [issues]: ../../issues
 [pulls]: ../../pulls
 [changelog]: ../../commits
