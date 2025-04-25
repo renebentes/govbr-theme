@@ -33,6 +33,7 @@
       "extensions": [
         "bmewburn.vscode-intelephense-client",
         "EditorConfig.EditorConfig",
+        "esbenp.prettier-vscode",
         "xdebug.php-debug"
       ]
     }
