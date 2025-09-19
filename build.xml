@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="govbr" default="dev">
+    <property name="sourcedir" value="${project.basedir}/src" />
+    <property name="webdir" value="/var/www/html" />
+
+    <target name="dev" description="Prepare files to development">
+        <copy todir="${webdir}/templates/govbr" overwrite="true">
+            <fileset dir="${sourcedir}">
+                <include name="*.php" />
+                <include name="*.xml" />
+                <exclude name="language/**" />
+            </fileset>
+        </copy>
+        <copy todir="${webdir}/language/en-GB/" overwrite="true">
+            <fileset dir="${sourcedir}/language/en-GB">
+                <include name="*.ini" />
+            </fileset>
+        </copy>
+    </target>
+</project>
