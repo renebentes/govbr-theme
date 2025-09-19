@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="template" method="upgrade" client="site">
+    <name>govbr</name>
+    <creationDate>May 2025</creationDate>
+    <author>Rene Bentes Pinto</author>
+    <authorEmail>renebentes@yahoo.com.br</authorEmail>
+    <copyright>Copyright (C) 2025 Rene Bentes Pinto. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE</license>
+    <version>0.1.0</version>
+    <description>TPL_GOVBR_XML_DESCRIPTION</description>
+    <namespace>ReneBentes\Templates\Govbr</namespace>
+    <inheritable>1</inheritable>
+    <files>
+        <filename>index.php</filename>
+        <filename>templateDetails.xml</filename>
+    </files>
+
+    <languages folder="language">
+        <language tag="en-GB">en-GB/tpl_govbr.ini</language>
+        <language tag="en-GB">en-GB/tpl_govbr.sys.ini</language>
+    </languages>
+</extension>
