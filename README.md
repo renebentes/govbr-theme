@@ -1,11 +1,11 @@
 # govbr
 
-> Template para Joomla! CMS para o Design System do Governo Brasileiro.
+> Tema para Joomla! CMS para o Padrão Digital do Governo Brasileiro.
 
-Template desenvolvido para Joomla! CMS conforme o Padrão Digital de Governo instituído pela [Portaria Nº 540, de 8 de setembro de 2020 - Secretaria de Governo/Presidência da República](https://www.in.gov.br/en/web/dou/-/portaria-n-540-de-8-de-setembro-de-2020-276907456).
+Tema desenvolvido para Joomla! CMS conforme o Padrão Digital de Governo instituído pela [Portaria Nº 540, de 8 de setembro de 2020 - Secretaria de Governo/Presidência da República](https://www.in.gov.br/en/web/dou/-/portaria-n-540-de-8-de-setembro-de-2020-276907456).
 
 > [!IMPORTANT]
-> Este template aplica as especificações dispostas no [Design System Padrão de Governo](https://www.gov.br/ds/).
+> Este tema aplica as especificações dispostas no [Design System Padrão de Governo](https://www.gov.br/ds/).
 
 ## Requisitos
 
