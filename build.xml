@@ -11,9 +11,9 @@
                 <exclude name="language/**" />
             </fileset>
         </copy>
-        <copy todir="${webdir}/language/en-GB/" overwrite="true">
-            <fileset dir="${sourcedir}/language/en-GB">
-                <include name="*.ini" />
+        <copy todir="${webdir}/language" overwrite="true">
+            <fileset dir="${sourcedir}/language">
+                <include name="**/*.ini" />
             </fileset>
         </copy>
     </target>
