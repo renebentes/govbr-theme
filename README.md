@@ -1,4 +1,4 @@
-# govbr-ds
+# govbr
 
 > Template para Joomla! CMS para o Design System do Governo Brasileiro.
 
@@ -45,11 +45,11 @@ Você pode [ver as notas de lançamento aqui][changelog].
 
 ## Licença
 
-Copyright (c) 2024 Rene Bentes Pinto
+Copyright (c) 2024-2025 Rene Bentes Pinto
 
 Este projeto está sob a licença **GNU GPL v2.0**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-[repo]: http://github.com/8becnst/joomla-govbr-ds
+[repo]: http://github.com/8becnst/joomla-govbr-theme
 [issues]: ../../issues
 [pulls]: ../../pulls
 [changelog]: ../../commits
