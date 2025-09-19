@@ -22,5 +22,5 @@ fi
 sudo su -c "${JOOMLA_CLI} config:set debug=true"
 sudo su -c "${JOOMLA_CLI} config:set error_reporting=maximum"
 
+echo "Please, go to http://localhost:8080/administrator/index.php?option=com_templates&view=styles to enable the template as default."
 echo "Done!"
-
