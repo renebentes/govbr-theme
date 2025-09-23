@@ -12,14 +12,17 @@ sudo chmod a+x "${BASE_DIR}"
 composer update
 npm install
 
+# Wait for the web server to be available
+while [ $(curl -sk "http://localhost:8080" -o /dev/null -w "%{http_code}") -ne 200 ]; do
+    sleep 5
+done
+
 sudo vendor/bin/phing
 
-if [ -e ${TEMPLATE_PATH} ]; then
-    sudo chown -R ${USERNAME}:www-data ${WEB_DIR}
+sudo chown -R ${USERNAME}:www-data ${WEB_DIR}
 
-    ${JOOMLA_CLI} extension:discover
-    ${JOOMLA_CLI} extension:discover:install
-fi
+${JOOMLA_CLI} extension:discover
+${JOOMLA_CLI} extension:discover:install
 
 sudo su -c "${JOOMLA_CLI} config:set debug=true"
 sudo su -c "${JOOMLA_CLI} config:set error_reporting=maximum"
