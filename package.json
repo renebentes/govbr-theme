@@ -1,0 +1,29 @@
+{
+  "name": "govbr",
+  "version": "1.0.0",
+  "description": "Tema para Joomla! CMS para o Padrão Digital do Governo Brasileiro.",
+  "main": "index.js",
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.1.0"
+  },
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "gulp dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renebentes/joomla-govbr-theme.git"
+  },
+  "author": "Rene B. Pinto",
+  "license": "GPL-2.0-or-later",
+  "bugs": {
+    "url": "https://github.com/renebentes/joomla-govbr-theme/issues"
+  },
+  "homepage": "https://github.com/renebentes/joomla-govbr-theme#readme",
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "execa": "^9.6.0",
+    "gulp": "^5.0.1"
+  }
+}

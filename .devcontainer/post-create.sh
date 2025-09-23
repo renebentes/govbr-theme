@@ -9,7 +9,9 @@ JOOMLA_CLI=${WEB_DIR}/cli/joomla.php
 
 sudo chmod a+x "${BASE_DIR}"
 
-composer install
+composer update
+npm install
+
 sudo vendor/bin/phing
 
 if [ -e ${TEMPLATE_PATH} ]; then
