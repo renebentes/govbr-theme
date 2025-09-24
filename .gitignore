@@ -108,7 +108,6 @@ Temporary Items
 /.htaccess
 /web.config
 /.php-cs-fixer.cache
-/media
 data
 logs
 
@@ -257,3 +256,5 @@ dist
 .pnp.*
 
 /vendor/
+**/media/
+!/media

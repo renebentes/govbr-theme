@@ -2,14 +2,16 @@
   "name": "govbr",
   "version": "1.0.0",
   "description": "Tema para Joomla! CMS para o Padrão Digital do Governo Brasileiro.",
-  "main": "index.js",
+  "main": "vite.config.js",
   "engines": {
     "node": ">=20.0.0",
     "npm": ">=10.1.0"
   },
   "scripts": {
-    "start": "npm run dev",
-    "dev": "gulp dev"
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "serve": "node browsersync.js",
+    "start": "concurrently \"npm run dev\" \"npm run serve\""
   },
   "repository": {
     "type": "git",
@@ -20,10 +22,12 @@
   "bugs": {
     "url": "https://github.com/renebentes/joomla-govbr-theme/issues"
   },
+  "type": "module",
   "homepage": "https://github.com/renebentes/joomla-govbr-theme#readme",
   "devDependencies": {
     "browser-sync": "^3.0.4",
-    "execa": "^9.6.0",
-    "gulp": "^5.0.1"
+    "concurrently": "^9.2.1",
+    "sass-embedded": "^1.93.2",
+    "vite": "^7.1.7"
   }
 }

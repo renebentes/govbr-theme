@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="govbr" default="dev">
-    <property name="sourcedir" value="${project.basedir}/src" />
+    <property name="sourcedir" value="${project.basedir}/govbr" />
     <property name="webdir" value="/var/www/html" />
 
     <target name="dev" description="Prepare files to development">
