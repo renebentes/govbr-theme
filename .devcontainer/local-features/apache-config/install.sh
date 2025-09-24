@@ -7,6 +7,6 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
-sed -i -e "s/Listen 80/Listen 80\\nListen 8080/g" /etc/apache2/ports.conf
+sed -i -e "s/Listen 80$/Listen 8080/g" /etc/apache2/ports.conf
 
 echo "Done!"

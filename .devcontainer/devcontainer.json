@@ -1,5 +1,5 @@
 {
-  "name": "Joomla & MariaDB",
+  "name": "GovBR",
   "dockerComposeFile": "compose.yml",
   "service": "app",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
