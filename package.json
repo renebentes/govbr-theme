@@ -28,6 +28,7 @@
     "browser-sync": "^3.0.4",
     "concurrently": "^9.2.1",
     "sass-embedded": "^1.93.2",
-    "vite": "^7.1.7"
+    "vite": "^7.1.7",
+    "vite-plugin-static-copy": "^3.1.2"
   }
 }

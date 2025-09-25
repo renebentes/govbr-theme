@@ -1,5 +1,6 @@
 import path from 'path';
 import { defineConfig } from 'vite';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
   build: {
@@ -16,6 +17,19 @@ export default defineConfig({
       }
     }
   },
+  plugins: [
+    viteStaticCopy({
+      targets: [
+        {
+          src: path.resolve(
+            __dirname,
+            'node_modules/@govbr-ds/core/dist/core.min.js'
+          ),
+          dest: path.resolve(__dirname, 'govbr/media/js')
+        }
+      ]
+    })
+  ],
   server: {
     watch: {
       usePolling: true
