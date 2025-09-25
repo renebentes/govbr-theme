@@ -20,14 +20,10 @@ bs.init({
 bs.watch([...files]).on('change', () => {
   exec('vendor/bin/phing dev', (err, stdout, stderr) => {
     if (err) {
-      console.error(`exec error: ${err}`);
-      return;
-    }
-    if (stderr) {
-      console.error(`stderr: ${stderr}`);
-      return;
+      throw err;
     }
     console.log(stdout);
+    console.error(`stderr: ${stderr}`);
     bs.reload();
   });
 });

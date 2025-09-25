@@ -2,7 +2,7 @@
 set -e
 
 USERNAME="vscode"
-BASE_DIR=$(pwd)/src
+BASE_DIR=$(pwd)/govbr
 WEB_DIR=/var/www/html
 TEMPLATE_PATH=${WEB_DIR}/templates/govbr
 JOOMLA_CLI=${WEB_DIR}/cli/joomla.php
