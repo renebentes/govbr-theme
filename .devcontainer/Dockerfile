@@ -1,6 +1,10 @@
 ARG VARIANT=5.2-php8.2-apache
 FROM joomla:${VARIANT}
 
+# Install goodies
+RUN apt-get update; \
+    apt-get install -y mc htop
+
 # Install composer
 RUN curl -sSL https://getcomposer.org/installer | php \
     && chmod +x composer.phar \
