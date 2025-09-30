@@ -1,0 +1,32 @@
+@use 'sass:map';
+@use 'sass:string';
+@use 'variables' as v;
+
+@mixin font-face(
+  $font-family: v.$font-family,
+  $file-name,
+  $font-weight: 400,
+  $font-style: normal
+) {
+  @font-face {
+    font-family: string.quote($font-family);
+    src: url('#{v.$font-path}/#{$file-name}.woff2') format('woff2');
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-display: swap;
+  }
+}
+
+$font-styles: (100, normal), (100, italic), (200, normal), (200, italic),
+  (300, normal), (300, italic), (400, normal), (400, italic), (500, normal),
+  (500, italic), (600, normal), (600, italic), (700, normal), (700, italic),
+  (800, normal), (800, italic), (900, normal), (900, italic);
+
+@each $weight, $style in $font-styles {
+  @include font-face(
+    v.$font-family,
+    'rawline-#{$weight}#{if($style == italic, 'i', '')}',
+    $weight,
+    $style
+  );
+}
