@@ -8,12 +8,24 @@
             <fileset dir="${sourcedir}">
                 <include name="*.php" />
                 <include name="*.xml" />
+                <include name="*.json" />
                 <exclude name="language/**" />
+                <exclude name="media/**" />
             </fileset>
         </copy>
         <copy todir="${webdir}/language" overwrite="true">
             <fileset dir="${sourcedir}/language">
                 <include name="**/*.ini" />
+            </fileset>
+        </copy>
+
+        <copy todir="${webdir}/media/templates/site/govbr" overwrite="true">
+            <fileset dir="${sourcedir}/media">
+                <include name="**/*.css" />
+                <include name="**/*.js" />
+                <include name="**/*.png" />
+                <include name="**/*.svg" />
+                <include name="**/*.woff2" />
             </fileset>
         </copy>
     </target>

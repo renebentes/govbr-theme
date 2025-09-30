@@ -2,13 +2,8 @@ import browserSync from 'browser-sync';
 import { exec } from 'child_process';
 
 const bs = browserSync.create();
-const files = [
-  'govbr/**/*.php',
-  'govbr/**/*.ini',
-  'govbr/*.xml',
-  'src/**/*.js',
-  'src/**/*.scss'
-];
+
+const files = ['govbr/**/*'];
 
 bs.init({
   proxy: 'http://localhost:8080',
