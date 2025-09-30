@@ -1,7 +1,35 @@
 {
   "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
   "name": "govbr",
-  "version": "__DEPLOY_VERSION__",
+  "version": "0.1.0",
   "description": "This file contains details of the assets used by GovBR, the template for the Digital Standard of the Brazilian Government according to the Design System available at https://www.gov.br/ds/",
-  "license": "GPL-2.0-or-later"
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "name": "template.govbr",
+      "description": "The css file for the GovBR template.",
+      "type": "style",
+      "uri": "template.min.css",
+      "dependencies": ["fontawesome"]
+    },
+    {
+      "name": "template.govbr.scripts",
+      "description": "The file containing the javascript for this template.",
+      "type": "script",
+      "uri": "main.min.js",
+      "attributes": {
+        "type": "module"
+      },
+      "dependencies": ["govbr.core"]
+    },
+    {
+      "name": "govbr.core",
+      "description": "The javascript file for the GovBR Design System.",
+      "type": "script",
+      "uri": "core.min.js",
+      "attributes": {
+        "type": "module"
+      }
+    }
+  ]
 }

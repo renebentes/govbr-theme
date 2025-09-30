@@ -22,16 +22,18 @@
         <filename>templateDetails.xml</filename>
         <!-- <folder>html</folder> -->
     </files>
-    <!-- <media destination="templates/site/govbr_ds" folder="media">
+    <media destination="templates/site/govbr_ds" folder="media">
         <folder>css</folder>
         <folder>fonts</folder>
-        <folder>images</folder>
+        <!-- <folder>images</folder> -->
         <folder>js</folder>
-    </media> -->
+    </media>
 
     <languages folder="language">
         <language tag="en-GB">en-GB/tpl_govbr.ini</language>
         <language tag="en-GB">en-GB/tpl_govbr.sys.ini</language>
+        <language tag="pt-BR">pt-BR/tpl_govbr.ini</language>
+        <language tag="pt-BR">pt-BR/tpl_govbr.sys.ini</language>
     </languages>
 
     <positions>

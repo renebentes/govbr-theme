@@ -48,6 +48,9 @@ $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 //     . ($task ? ' task-' . $task : ' no-task')
 //     . ($itemid ? ' itemid-' . $itemid : '')
 
+$wa->useStyle('template.govbr')
+   ->useScript('template.govbr.scripts');
+
 ?>
 
 <!DOCTYPE html>
