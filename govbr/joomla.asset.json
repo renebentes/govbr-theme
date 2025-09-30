@@ -30,6 +30,11 @@
       "attributes": {
         "type": "module"
       }
+    },
+    {
+      "name": "fontawesome",
+      "type": "style",
+      "uri": "all.min.css"
     }
   ]
 }
