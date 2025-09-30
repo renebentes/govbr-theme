@@ -13,7 +13,14 @@ export default defineConfig({
       },
       output: {
         entryFileNames: 'js/[name].min.js',
-        assetFileNames: '[ext]/[name][extname]'
+        assetFileNames: ({ names }) => {
+          const name = names ? names[0] : undefined;
+
+          if (name && /\.(woff2?|ttf|eot|otf)$/.test(name))
+            return 'fonts/[name][extname]';
+
+          return '[ext]/[name].min[extname]';
+        }
       }
     }
   },
