@@ -4,6 +4,14 @@
     <property name="webdir" value="/var/www/html" />
 
     <target name="dev" description="Prepare files to development">
+        <delete dir="${webdir}/templates/govbr" quiet="true" />
+        <delete dir="${webdir}/media/templates/site/govbr" quiet="true" />
+        <delete>
+            <fileset dir="${webdir}/language">
+                <include name="**/*tpl_govbr*.ini" />
+            </fileset>
+        </delete>
+
         <copy todir="${webdir}/templates/govbr" overwrite="true">
             <fileset dir="${sourcedir}">
                 <include name="*.php" />
@@ -13,6 +21,7 @@
                 <exclude name="media/**" />
             </fileset>
         </copy>
+
         <copy todir="${webdir}/language" overwrite="true">
             <fileset dir="${sourcedir}/language">
                 <include name="**/*.ini" />
