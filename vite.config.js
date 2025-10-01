@@ -32,21 +32,21 @@ export default defineConfig({
             __dirname,
             'node_modules/@govbr-ds/core/dist/core.min.js'
           ),
-          dest: path.resolve(__dirname, 'govbr/media/js')
+          dest: 'js'
         },
         {
           src: path.resolve(
             __dirname,
             'node_modules/@fortawesome/fontawesome-free/css/all.min.css'
           ),
-          dest: path.resolve(__dirname, 'govbr/media/css')
+          dest: 'css'
         },
         {
           src: path.resolve(
             __dirname,
             'node_modules/@fortawesome/fontawesome-free/webfonts/*.woff2'
           ),
-          dest: path.resolve(__dirname, 'govbr/media/webfonts')
+          dest: 'webfonts'
         }
       ]
     })
