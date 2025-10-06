@@ -25,8 +25,9 @@ $input = $app->getInput();
 $wa    = $this->getWebAssetManager();
 
 // Browsers support SVG favicons
-$this->addHeadLink(HTMLHelper::_('image', 'media/templates/site/govbr/favicon.svg', '', [], true, 1), 'icon', 'rel', ['type' => 'image/svg+xml']);
+$this->addHeadLink(HTMLHelper::_('image', 'favicon.svg', '', [], true, 1), 'icon', 'rel', ['type' => 'image/svg+xml']);
 $this->addHeadLink(HTMLHelper::_('image', 'favicon.ico', '', [], true, 1), 'alternate icon', 'rel', ['type' => 'image/vnd.microsoft.icon']);
+$this->addHeadLink(HTMLHelper::_('image', 'apple-icon-touch', '', [], true, 1), 'apple-icon-touch', 'rel', ['type' => 'image/png']);
 $this->addHeadLink(HTMLHelper::_('image', 'safari-pinned-tab.svg', '', [], true, 1), 'mask-icon', 'rel', ['color' => '#00a300']);
 
 // Detecting Active Variables

@@ -47,6 +47,10 @@ export default defineConfig({
             'node_modules/@fortawesome/fontawesome-free/webfonts/*.woff2'
           ),
           dest: 'webfonts'
+        },
+        {
+          src: path.resolve(__dirname, 'media/images/*'),
+          dest: 'images'
         }
       ]
     })
