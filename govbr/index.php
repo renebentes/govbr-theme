@@ -58,11 +58,12 @@ $wa->useStyle('template.govbr')
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 
 <head>
+    <jdoc:include type="metas" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&amp;display=swap" />
 
-    <jdoc:include type="metas" />
     <jdoc:include type="styles" />
 </head>
 
