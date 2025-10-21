@@ -26,14 +26,16 @@
     "vscode": {
       // Set *default* container specific settings.json values on container create.
       "settings": {
+        "intelephense.environment.documentRoot": "/var/www/html",
         "php.validate.executablePath": "/usr/local/bin/php",
-        "intelephense.environment.documentRoot": "/var/www/html"
+        "php-cs-fixer.executablePath": "${workspaceFolder}/vendor/bin/php-cs-fixer"
       },
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
         "bmewburn.vscode-intelephense-client",
         "EditorConfig.EditorConfig",
         "esbenp.prettier-vscode",
+        "junstyle.php-cs-fixer",
         "xdebug.php-debug"
       ]
     }
