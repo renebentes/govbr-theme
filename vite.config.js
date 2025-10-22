@@ -24,6 +24,14 @@ export default defineConfig({
       }
     }
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // TODO: avaliar a necessidade de silenciar estes avisos do GOVBR DS
+        silenceDeprecations: ['import', 'color-functions', 'global-builtin']
+      }
+    }
+  },
   plugins: [
     viteStaticCopy({
       targets: [
