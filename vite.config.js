@@ -1,6 +1,30 @@
 import path from 'path';
 import { defineConfig } from 'vite';
+import { exec } from 'child_process';
+import VitePluginBrowserSync from 'vite-plugin-browser-sync';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+
+const runPhing = () => ({
+  name: 'run-phing',
+  apply: 'build',
+  closeBundle() {
+    console.log(`🔧 Runing Phing...`);
+    exec('vendor/bin/phing dev', (error, stdout, stderr) => {
+      if (error) {
+        console.error(`❌ Phing error: ${error.message}`);
+        return;
+      }
+
+      if (stdout.trim()) {
+        console.log(stdout);
+      }
+
+      if (stderr.trim()) {
+        console.error(`⚠️ stderr: ${stderr}`);
+      }
+    });
+  }
+});
 
 export default defineConfig({
   build: {
@@ -22,7 +46,8 @@ export default defineConfig({
           return '[ext]/[name].min[extname]';
         }
       }
-    }
+    },
+    sourcemap: true
   },
   css: {
     preprocessorOptions: {
@@ -36,36 +61,59 @@ export default defineConfig({
     viteStaticCopy({
       targets: [
         {
-          src: path.resolve(
-            __dirname,
-            'node_modules/@govbr-ds/core/dist/core.min.js'
-          ),
+          src: 'node_modules/@govbr-ds/core/dist/core.min.js',
           dest: 'js'
         },
         {
-          src: path.resolve(
-            __dirname,
-            'node_modules/@fortawesome/fontawesome-free/css/all.min.css'
-          ),
+          src: 'node_modules/@fortawesome/fontawesome-free/css/all.min.css',
           dest: 'css'
         },
         {
-          src: path.resolve(
-            __dirname,
-            'node_modules/@fortawesome/fontawesome-free/webfonts/*.woff2'
-          ),
+          src: 'node_modules/@fortawesome/fontawesome-free/webfonts/*.woff2',
           dest: 'webfonts'
         },
         {
-          src: path.resolve(__dirname, 'media/images/*'),
+          src: 'media/images/*',
           dest: 'images'
         }
       ]
-    })
+    }),
+    VitePluginBrowserSync({
+      dev: {
+        enable: false
+      },
+      preview: {
+        enable: false
+      },
+      buildWatch: {
+        enable: true,
+        bs: {
+          name: 'bs-vite',
+          files: [
+            'govbr/language/**/*.ini',
+            'govbr/media/css/*.css',
+            'govbr/media/js/*.js',
+            'govbr/*.json',
+            'govbr/*.xml',
+            'govbr/**/*.php'
+          ],
+          open: false,
+          proxy: 'http://localhost:8080',
+          reloadDebounce: 1000,
+          reloadDelay: 1000,
+          watchOptions: {
+            usePolling: true,
+            interval: 300
+          }
+        }
+      }
+    }),
+    runPhing()
   ],
   server: {
     watch: {
-      usePolling: true
+      usePolling: true,
+      interval: 100
     }
   }
 });

@@ -9,9 +9,9 @@
   },
   "scripts": {
     "build": "vite build",
-    "dev": "vite build --watch",
-    "serve": "node browsersync.js",
-    "start": "concurrently \"npm run dev\" \"npm run serve\""
+    "dev": "vite build --mode development",
+    "serve": "vite build --watch --mode development",
+    "start": "npm run serve"
   },
   "repository": {
     "type": "git",
@@ -25,10 +25,9 @@
   "type": "module",
   "homepage": "https://github.com/renebentes/joomla-govbr-theme#readme",
   "devDependencies": {
-    "browser-sync": "^3.0.4",
-    "concurrently": "^9.2.1",
     "sass-embedded": "^1.93.2",
     "vite": "^7.1.7",
+    "vite-plugin-browser-sync": "^5.0.0",
     "vite-plugin-static-copy": "^3.1.2"
   },
   "dependencies": {
