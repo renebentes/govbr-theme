@@ -36,6 +36,8 @@
         "EditorConfig.EditorConfig",
         "esbenp.prettier-vscode",
         "junstyle.php-cs-fixer",
+        "ms-azuretools.vscode-containers",
+        "redhat.vscode-xml",
         "xdebug.php-debug"
       ]
     }
