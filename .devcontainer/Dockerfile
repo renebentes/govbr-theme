@@ -1,4 +1,4 @@
-ARG VARIANT=5.2-php8.2-apache
+ARG VARIANT=5.4-php8.2-apache
 FROM joomla:${VARIANT}
 
 # Install goodies
