@@ -4,27 +4,30 @@ import { exec } from 'child_process';
 import VitePluginBrowserSync from 'vite-plugin-browser-sync';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
-const runPhing = () => ({
-  name: 'run-phing',
-  apply: 'build',
-  closeBundle() {
-    console.log(`🔧 Runing Phing...`);
-    exec('vendor/bin/phing dev', (error, stdout, stderr) => {
-      if (error) {
-        console.error(`❌ Phing error: ${error.message}`);
-        return;
-      }
+const runPhing = (context = 'auto') => {
+  console.log(`🔧 Runing Phing (${context})...`);
+  exec('vendor/bin/phing dev', (error, stdout, stderr) => {
+    if (error) {
+      console.error(`❌ Phing error: ${error.message}`);
+      return;
+    }
 
-      if (stdout.trim()) {
-        console.log(stdout);
-      }
+    if (stdout.trim()) {
+      console.log(stdout);
+    }
 
-      if (stderr.trim()) {
-        console.error(`⚠️ stderr: ${stderr}`);
-      }
-    });
-  }
-});
+    if (stderr.trim()) {
+      console.error(`⚠️ stderr: ${stderr}`);
+    }
+  });
+};
+
+const filesToWatch = [
+  'govbr/language/**/*.ini',
+  'govbr/*.json',
+  'govbr/*.xml',
+  'govbr/**/*.php'
+];
 
 export default defineConfig({
   build: {
@@ -90,12 +93,15 @@ export default defineConfig({
         bs: {
           name: 'bs-vite',
           files: [
-            'govbr/language/**/*.ini',
             'govbr/media/css/*.css',
             'govbr/media/js/*.js',
-            'govbr/*.json',
-            'govbr/*.xml',
-            'govbr/**/*.php'
+            ...filesToWatch,
+            {
+              match: [...filesToWatch],
+              fn: (event, file) => {
+                runPhing('browser-sync');
+              }
+            }
           ],
           open: false,
           proxy: 'http://localhost:8080',
@@ -108,12 +114,17 @@ export default defineConfig({
         }
       }
     }),
-    runPhing()
+    {
+      name: 'run-phing',
+      apply: 'build',
+      closeBundle() {
+        runPhing('build');
+      }
+    }
   ],
   server: {
     watch: {
-      usePolling: true,
-      interval: 100
+      usePolling: true
     }
   }
 });
