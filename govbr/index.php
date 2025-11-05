@@ -1,4 +1,4 @@
-<?
+<?php
 
 /**
  * @package     Joomla.Site
@@ -11,7 +11,7 @@
  */
 
 // No direct access.
-defined('_JEXEC') or die('Restricted access!');
+\defined('_JEXEC') or die('Restricted access!');
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
@@ -29,6 +29,20 @@ $this->addHeadLink(HTMLHelper::_('image', 'favicon.svg', '', [], true, 1), 'icon
 $this->addHeadLink(HTMLHelper::_('image', 'favicon.ico', '', [], true, 1), 'alternate icon', 'rel', ['type' => 'image/vnd.microsoft.icon']);
 $this->addHeadLink(HTMLHelper::_('image', 'apple-icon-touch', '', [], true, 1), 'apple-icon-touch', 'rel', ['type' => 'image/png']);
 $this->addHeadLink(HTMLHelper::_('image', 'safari-pinned-tab.svg', '', [], true, 1), 'mask-icon', 'rel', ['color' => '#00a300']);
+
+$ralewayFont='https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&amp;display=swap';
+$this->getPreloadManager()
+    ->preconnect('https://fonts.googleapis.com/', ['crossorigin' => 'anonymous']);
+$this->getPreloadManager()
+    ->preconnect('https://fonts.gstatic.com/', ['crossorigin' => 'anonymous']);
+$this->getPreloadManager()
+    ->preload($ralewayFont, ['as' => 'style', 'crossorigin' => 'anonymous']);
+$wa->registerAndUseStyle(
+    'fonts.raleway',
+    $ralewayFont,
+    [],
+    ['rel' => 'lazy-stylesheet', 'crossorigin' => 'anonymous']
+);
 
 // Detecting Active Variables
 $option   = $input->getCmd('option', '');
@@ -50,20 +64,16 @@ $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 //     . ($itemid ? ' itemid-' . $itemid : '')
 
 $wa->useStyle('template.govbr')
-   ->useScript('template.govbr.scripts');
+    ->useScript('template.govbr.scripts');
 
 ?>
 
 <!DOCTYPE html>
-<html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
+<html lang="<?php echo $this->language; ?>"
+    dir="<?php echo $this->direction; ?>">
 
 <head>
     <jdoc:include type="metas" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&amp;display=swap" />
-
     <jdoc:include type="styles" />
 </head>
 
