@@ -25,12 +25,32 @@ $input = $app->getInput();
 $wa    = $this->getWebAssetManager();
 
 // Browsers support SVG favicons
-$this->addHeadLink(HTMLHelper::_('image', 'favicon.svg', '', [], true, 1), 'icon', 'rel', ['type' => 'image/svg+xml']);
-$this->addHeadLink(HTMLHelper::_('image', 'favicon.ico', '', [], true, 1), 'alternate icon', 'rel', ['type' => 'image/vnd.microsoft.icon']);
-$this->addHeadLink(HTMLHelper::_('image', 'apple-icon-touch', '', [], true, 1), 'apple-icon-touch', 'rel', ['type' => 'image/png']);
-$this->addHeadLink(HTMLHelper::_('image', 'safari-pinned-tab.svg', '', [], true, 1), 'mask-icon', 'rel', ['color' => '#00a300']);
+$this->addHeadLink(
+    HTMLHelper::_('image', 'favicon.svg', '', [], true, 1),
+    'icon',
+    'rel',
+    ['type' => 'image/svg+xml']
+);
+$this->addHeadLink(
+    HTMLHelper::_('image', 'favicon.ico', '', [], true, 1),
+    'alternate icon',
+    'rel',
+    ['type' => 'image/vnd.microsoft.icon']
+);
+$this->addHeadLink(
+    HTMLHelper::_('image', 'apple-icon-touch', '', [], true, 1),
+    'apple-icon-touch',
+    'rel',
+    ['type' => 'image/png']
+);
+$this->addHeadLink(
+    HTMLHelper::_('image', 'safari-pinned-tab.svg', '', [], true, 1),
+    'mask-icon',
+    'rel',
+    ['color' => '#00a300']
+);
 
-$ralewayFont='https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&amp;display=swap';
+$ralewayFont = 'https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&amp;display=swap';
 $this->getPreloadManager()
     ->preconnect('https://fonts.googleapis.com/', ['crossorigin' => 'anonymous']);
 $this->getPreloadManager()
@@ -45,14 +65,59 @@ $wa->registerAndUseStyle(
 );
 
 // Detecting Active Variables
-$option   = $input->getCmd('option', '');
-$view     = $input->getCmd('view', '');
-$layout   = $input->getCmd('layout', '');
-$task     = $input->getCmd('task', '');
-$itemid   = $input->getCmd('Itemid', '');
-$sitename = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
-$menu     = $app->getMenu()->getActive();
-$pageclass = $menu !== null ? $menu->getParams()->get('pageclass_sfx', '') : '';
+$option     = $input->getCmd('option', '');
+$view       = $input->getCmd('view', '');
+$layout     = $input->getCmd('layout', '');
+$task       = $input->getCmd('task', '');
+$itemid     = $input->getCmd('Itemid', '');
+$sitename   = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
+$menu       = $app->getMenu()->getActive();
+$pageclass  = $menu !== null ? $menu->getParams()->get('pageclass_sfx', '') : '';
+
+$logo = HTMLHelper::_('image', 'govbr.svg', $sitename, ['height' => '40px', 'loading' => 'eager', 'decoding' => 'async'], true, 0);
+if ($this->params->get('logo')) {
+    $logo = HTMLHelper::_(
+        'image',
+        Uri::root(false) . htmlspecialchars($this->params->get('logo'), ENT_QUOTES),
+        $sitename,
+        [
+            'height'   => '40px',
+            'loading'  => 'eager',
+            'decoding' => 'async',
+        ],
+        true,
+        0
+    );
+}
+
+$footerLogo = HTMLHelper::_(
+    'image',
+    'govbr-negativa.svg',
+    $sitename,
+    [
+        'height'   => '40px',
+        'loading'  => 'eager',
+        'decoding' => 'async',
+    ],
+    true,
+    0
+);
+
+if ($this->params->get('logo')) {
+    $logo = HTMLHelper::_(
+        'image',
+        Uri::root(false) . htmlspecialchars($this->params->get('logo'), ENT_QUOTES),
+        $sitename,
+        [
+            'height'   => '40px',
+            'loading'  => 'eager',
+            'decoding' => 'async',
+        ],
+        true,
+        0
+    );
+}
+
 
 $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 
@@ -77,9 +142,58 @@ $wa->useStyle('template.govbr')
     <jdoc:include type="styles" />
 </head>
 
-<body class="site<?php echo ($pageclass ? ' ' . $pageclass : ''); ?>">
+<body
+    class="template-base<?php echo $pageclass ? ' ' . $pageclass : ''; ?>">
 
-    <main>
+    <nav class="br-skiplink" role="menubar">
+        <a class="br-item" href="#main-content" role="menuitem" accesskey="1">
+            <?php echo Text::_('TPL_GOVBR_GO_TO_CONTENT'); ?>
+            <span aria-hidden="true">(1/4)</span>
+            <span aria-hidden="true" class="br-tag text ml-1">1</span>
+        </a>
+        <a class="br-item" href="#header-navigation" role="menuitem" accesskey="2">
+            <?php echo Text::_('TPL_GOVBR_GO_TO_MENU'); ?>
+            <span aria-hidden="true">(2/4)</span>
+            <span aria-hidden="true" class="br-tag text ml-1">2</span>
+        </a>
+        <a class="br-item" href="#main-searchbox" role="menuitem" accesskey="3">
+            <?php echo Text::_('TPL_GOVBR_GO_TO_SEARCH'); ?>
+            <span aria-hidden="true">(3/4)</span>
+            <span aria-hidden="true" class="br-tag text ml-1">3</span>
+        </a>
+        <a class="br-item" href="#footer" role="menuitem" accesskey="4">
+            <?php echo Text::_('TPL_GOVBR_GO_TO_FOOTER'); ?>
+            <span aria-hidden="true">(4/4)</span>
+            <span aria-hidden="true" class="br-tag text ml-1">4</span>
+        </a>
+    </nav>
+    <header class="br-header mb-4" id="header">
+        <div class="container-lg">
+            <div class="header-top">
+                <div class="header-logo">
+                    <?php echo $logo; ?>
+
+                    <?php if ($this->params->get('sign', '')) : ?>
+                    <span class="br-divider vertical"></span>
+                    <div class="header-sign">
+                        <?php echo$this->params->get('legal', ''); ?>
+                    </div>
+                    <?php endif; ?>
+
+                </div>
+            </div>
+
+            <div class="header-bottom">
+                <div class="header-info">
+                    <div class="header-title">
+                        <?php echo $this->params->get('title', ''); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content pl-sm-3 mt-4" id="main-content">
         <jdoc:include type="component" />
     </main>
 
