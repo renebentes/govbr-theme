@@ -50,20 +50,6 @@ $this->addHeadLink(
     ['color' => '#00a300']
 );
 
-$ralewayFont = 'https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&amp;display=swap';
-$this->getPreloadManager()
-    ->preconnect('https://fonts.googleapis.com/', ['crossorigin' => 'anonymous']);
-$this->getPreloadManager()
-    ->preconnect('https://fonts.gstatic.com/', ['crossorigin' => 'anonymous']);
-$this->getPreloadManager()
-    ->preload($ralewayFont, ['as' => 'style', 'crossorigin' => 'anonymous']);
-$wa->registerAndUseStyle(
-    'fonts.raleway',
-    $ralewayFont,
-    [],
-    ['rel' => 'lazy-stylesheet', 'crossorigin' => 'anonymous']
-);
-
 // Detecting Active Variables
 $option     = $input->getCmd('option', '');
 $view       = $input->getCmd('view', '');
@@ -139,6 +125,12 @@ $wa->useStyle('template.govbr')
 
 <head>
     <jdoc:include type="metas" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900&amp;display=swap" />
+
     <jdoc:include type="styles" />
 </head>
 
