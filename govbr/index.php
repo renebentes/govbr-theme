@@ -115,7 +115,7 @@ $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 //     . ($itemid ? ' itemid-' . $itemid : '')
 
 $wa->useStyle('template.govbr')
-    ->useScript('template.govbr.scripts');
+   ->useScript('template.govbr.scripts');
 
 ?>
 
@@ -163,22 +163,49 @@ $wa->useStyle('template.govbr')
         <div class="container-lg">
             <div class="header-top">
                 <div class="header-logo">
-                    <?php echo $logo; ?>
+                    <a href="<?php echo $this->baseurl; ?>">
+                        <?php echo $logo; ?>
+                    </a>
 
                     <?php if ($this->params->get('sign', '')) : ?>
                     <span class="br-divider vertical"></span>
                     <div class="header-sign">
-                        <?php echo$this->params->get('legal', ''); ?>
+                        <?php echo $this->params->get('sign'); ?>
                     </div>
                     <?php endif; ?>
-
                 </div>
+
+                <?php if ($this->countModules('header-links') ||
+                    $this->countModules('header-functions')) : ?>
+                <div class="header-actions">
+                    <jdoc:include type="modules" name="header-links" style="header-actions" />
+
+                    <?php if ($this->countModules('header-links') &&
+                        $this->countModules('header-functions')) : ?>
+                    <span class="br-divider vertical mx-half mx-sm-1"></span>
+                    <?php endif; ?>
+
+                    <jdoc:include type="modules" name="header-functions" style="header-actions" />
+                </div>
+                <?php endif; ?>
             </div>
 
             <div class="header-bottom">
-                <div class="header-info">
-                    <div class="header-title">
-                        <?php echo $this->params->get('title', ''); ?>
+                 <div class="header-menu">
+                    <div class="header-menu-trigger">
+                        <button class="br-button small circle" type="button" aria-label="Menu" data-toggle="menu" data-target="#main-navigation" id="navigation">
+                            <span class="fas fa-bars" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                    <div class="header-info">
+                        <div class="header-title">
+                            <?php echo $this->params->get('title', ''); ?>
+                        </div>
+                        <?php if ($this->params->get('subtitle', '')) : ?>
+                        <div class="header-subtitle">
+                            <?php echo $this->params->get('subtitle'); ?>
+                        </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -189,9 +216,23 @@ $wa->useStyle('template.govbr')
         <jdoc:include type="component" />
     </main>
 
-    <footer>
-        <p class="text-center">Template GovBR DS - Padrão Digital do Governo Brasileiro.</p>
+    <footer class="br-footer pt-3" id="footer">
+        <div class="container-lg">
+            <div class="logo"><?php echo $footerLogo; ?></div>
+        </div>
+
+        <?php if ($this->params->get('legal', '')) : ?>
+        <div class="info dark py-3">
+            <?php echo $this->params->get('legal', ''); ?>
+        </div>
+        <?php endif; ?>
     </footer>
+    <nav class="scroll-top">
+        <button type="button" class="br-button primay circle"
+            aria-label="<?php echo Text::_('TPL_GOVBR_GO_TO_TOP'); ?>">
+            <i class="fa fa-chevron-up" aria-hidden="true"></i>
+        </button>
+    </nav>
 
     <jdoc:include type="scripts" />
     <jdoc:include type="modules" name="debug" style="none" />

@@ -20,12 +20,12 @@
         <filename>joomla.asset.json</filename>
         <!--<filename>offline.php</filename> -->
         <filename>templateDetails.xml</filename>
-        <!-- <folder>html</folder> -->
+        <folder>html</folder>
     </files>
-    <media destination="templates/site/govbr_ds" folder="media">
+    <media destination="templates/site/govbr" folder="media">
         <folder>css</folder>
         <folder>fonts</folder>
-        <!-- <folder>images</folder> -->
+        <folder>images</folder>
         <folder>js</folder>
     </media>
 
@@ -37,7 +37,9 @@
     </languages>
 
     <positions>
-        <position>topbar</position>
+        <position>header-links</position>
+        <position>header-functions</position>
+        <position>header-login</position>
     </positions>
 
     <config>
@@ -58,6 +60,7 @@
                     type="text"
                     label="TPL_GOVBR_SIGN_LABEL"
                     description="TPL_GOVBR_SIGN_DESC"
+                    filter="safehtml"
                 />
 
                 <field
@@ -66,6 +69,24 @@
                     label="TPL_GOVBR_TITLE_LABEL"
                     description="TPL_GOVBR_TITLE_DESC"
                     required="true"
+                    filter="string"
+                />
+
+                <field
+                    name="subtitle"
+                    type="text"
+                    label="TPL_GOVBR_SUBTITLE_LABEL"
+                    description="TPL_GOVBR_SUBTITLE_DESC"
+                    filter="string"
+                />
+
+                <field
+                    name="legal"
+                    type="textarea"
+                    label="TPL_GOVBR_LEGAL_LABEL"
+                    description="TPL_GOVBR_LEGAL_DESC"
+                    rows="3"
+                    filter="safehtml"
                 />
             </fieldset>
         </fields>

@@ -14,7 +14,7 @@
 
         <copy todir="${webdir}/templates/govbr" overwrite="true">
             <fileset dir="${sourcedir}">
-                <include name="*.php" />
+                <include name="**/*.php" />
                 <include name="*.xml" />
                 <include name="*.json" />
                 <exclude name="language/**" />

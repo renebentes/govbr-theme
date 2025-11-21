@@ -1,16 +1,15 @@
 @use 'sass:map';
-@use 'sass:string';
 @use '../variables' as v;
 
 @mixin font-face(
-  $font-family: v.$font-family,
-  $file-name,
+  $font-family,
+  $file-path,
   $font-weight: $font-weight-regular,
   $font-style: normal
 ) {
   @font-face {
-    font-family: string.quote($font-family);
-    src: url('#{v.$font-path}/#{$file-name}.woff2') format('woff2');
+    font-family: '#{$font-family}';
+    src: url('#{$file-path}.woff2') format('woff2');
     font-weight: $font-weight;
     font-style: $font-style;
     font-display: swap;
@@ -25,7 +24,7 @@ $font-styles: (100, normal), (100, italic), (200, normal), (200, italic),
 @each $weight, $style in $font-styles {
   @include font-face(
     v.$font-family,
-    'rawline-#{$weight}#{if($style == italic, 'i', '')}',
+    '#{v.$font-path}/rawline-#{$weight}#{if($style == italic, 'i', '')}',
     $weight,
     $style
   );
