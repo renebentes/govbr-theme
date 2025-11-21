@@ -26,6 +26,9 @@
   "homepage": "https://github.com/renebentes/joomla-govbr-theme#readme",
   "devDependencies": {
     "sass-embedded": "^1.93.2",
+    "stylelint": "^16.25.0",
+    "stylelint-config-standard": "^39.0.1",
+    "stylelint-config-standard-scss": "^16.0.0",
     "vite": "^7.1.7",
     "vite-plugin-browser-sync": "^5.0.0",
     "vite-plugin-static-copy": "^3.1.2"

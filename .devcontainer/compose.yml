@@ -1,4 +1,4 @@
-name: joomla-mariadb-devcontainer
+name: govbr-devcontainer
 
 services:
   app:
@@ -27,7 +27,7 @@ services:
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
   db:
-    image: mariadb:10.4
+    image: mariadb:10.6
     restart: unless-stopped
     volumes:
       - mariadb-data:/var/lib/mysql
@@ -39,6 +39,15 @@ services:
 
     # Add "forwardPorts": ["3306"] to **devcontainer.json** to forward MariaDB locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
+
+  adminer:
+    image: adminer:5
+    ports:
+      - "8090:8080"
+    depends_on:
+      - db
+    environment:
+      ADMINER_DEFAULT_SERVER: db
 
 volumes:
   mariadb-data:

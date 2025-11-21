@@ -11,6 +11,7 @@ sudo chmod a+x "${BASE_DIR}"
 
 composer update
 npm install
+npm run build
 
 # Wait for the web server to be available
 while [ $(curl -sk "http://localhost:8080" -o /dev/null -w "%{http_code}") -ne 200 ]; do

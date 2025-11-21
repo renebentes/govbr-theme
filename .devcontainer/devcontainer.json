@@ -18,7 +18,7 @@
     "ghcr.io/devcontainers/features/node:1": "latest"
   },
 
-  "forwardPorts": [8080, 3306],
+  "forwardPorts": [8080, 8090],
 
   // Configure tool-specific properties.
   "customizations": {
@@ -26,18 +26,20 @@
     "vscode": {
       // Set *default* container specific settings.json values on container create.
       "settings": {
-        "intelephense.environment.documentRoot": "/var/www/html",
+        "intelephense.environment.documentRoot": "/var/www/html/",
         "php.validate.executablePath": "/usr/local/bin/php",
         "php-cs-fixer.executablePath": "${workspaceFolder}/vendor/bin/php-cs-fixer"
       },
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
         "bmewburn.vscode-intelephense-client",
+        "dbaeumer.vscode-eslint",
         "EditorConfig.EditorConfig",
         "esbenp.prettier-vscode",
         "junstyle.php-cs-fixer",
         "ms-azuretools.vscode-containers",
         "redhat.vscode-xml",
+        "stylelint.vscode-stylelint",
         "xdebug.php-debug"
       ]
     }
