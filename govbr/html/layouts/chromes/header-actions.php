@@ -2,7 +2,7 @@
 
 /**
  * @package     Joomla.Site
- * @subpackage  Templates.GovBRDS
+ * @subpackage  Templates.GovBR
  *
  * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
  * @copyright   Copyright (C) 2025 Rene Bentes Pinto. All rights reserved.

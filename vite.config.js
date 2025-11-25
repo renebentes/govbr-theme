@@ -1,8 +1,11 @@
-import path from 'path';
+import { exec } from 'node:child_process';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
-import { exec } from 'child_process';
 import VitePluginBrowserSync from 'vite-plugin-browser-sync';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const runPhing = (context = 'auto') => {
   console.log(`🔧 Runing Phing (${context})...`);
@@ -30,13 +33,14 @@ const filesToWatch = [
 ];
 
 export default defineConfig({
+  base: './',
   build: {
     outDir: 'govbr/media',
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: path.resolve(__dirname, 'media/js/template.js'),
-        template: path.resolve(__dirname, 'media/scss/template.scss')
+        main: resolve(__dirname, 'media/js/template.js'),
+        template: resolve(__dirname, 'media/scss/template.scss')
       },
       output: {
         entryFileNames: 'js/[name].min.js',
