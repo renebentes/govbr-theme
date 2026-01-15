@@ -1,0 +1,23 @@
+.br-header {
+  .header-actions {
+    margin-right: var(--spacing-scale-2x);
+  }
+
+  .header-functions,
+  .header-links {
+    .br-list {
+      left: auto;
+      right: 0;
+      a i {
+        color: var(--interactive);
+        margin-right: 10px;
+      }
+    }
+
+    &.dropdown.show {
+      .br-list {
+        min-width: 200px;
+      }
+    }
+  }
+}

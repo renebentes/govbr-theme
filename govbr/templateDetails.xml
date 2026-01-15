@@ -40,6 +40,7 @@
         <position>header-links</position>
         <position>header-functions</position>
         <position>header-login</position>
+        <position>main-navigation</position>
     </positions>
 
     <config>
@@ -79,6 +80,19 @@
                     description="TPL_GOVBR_SUBTITLE_DESC"
                     filter="string"
                 />
+
+                <field
+                    name="menuHeader"
+                    type="radio"
+                    label="TPL_GOVBR_MENUHEADER_LABEL"
+                    description="TPL_GOVBR_MENUHEADER_DESC"
+                    default="0"
+                    layout="joomla.form.field.radio.switcher"
+                    filter="options"
+                >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
 
                 <field
                     name="legal"

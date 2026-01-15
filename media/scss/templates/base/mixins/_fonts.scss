@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use '../variables' as v;
+@use 'sass:string';
 
 @mixin font-face(
   $font-family,
@@ -16,6 +16,8 @@
   }
 }
 
+$font-family: 'Rawline' !default;
+$font-path: '../fonts' !default;
 $font-styles: (100, normal), (100, italic), (200, normal), (200, italic),
   (300, normal), (300, italic), (400, normal), (400, italic), (500, normal),
   (500, italic), (600, normal), (600, italic), (700, normal), (700, italic),
@@ -23,8 +25,8 @@ $font-styles: (100, normal), (100, italic), (200, normal), (200, italic),
 
 @each $weight, $style in $font-styles {
   @include font-face(
-    v.$font-family,
-    '#{v.$font-path}/rawline-#{$weight}#{if($style == italic, 'i', '')}',
+    $font-family,
+    '#{$font-path}/rawline-#{$weight}#{if($style == italic, 'i', '')}',
     $weight,
     $style
   );

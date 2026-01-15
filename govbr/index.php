@@ -212,8 +212,39 @@ $wa->useStyle('template.govbr')
         </div>
     </header>
 
-    <main class="main-content pl-sm-3 mt-4" id="main-content">
-        <jdoc:include type="component" />
+    <main class="d-flex flex-fill mb-5">
+        <div class="container-lg">
+            <div class="row">
+                <div class="br-menu" id="main-navigation">
+                    <div class="menu-container">
+                        <div class="menu-panel">
+                            <?php if ($this->params->get('menuHeader')) : ?>
+                            <div class="menu-header">
+                                <div class="menu-title">
+                                    <?php echo $logo; ?>
+                                    <span><?php echo $this->params->get('title', ''); ?></span>
+                                </div>
+                                <div class="menu-close">
+                                    <button class="br-button circle" type="button" aria-label="Fechar o menu" data-dismiss="menu">
+                                        <i class="fas fa-times" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <?php endif; ?>
+
+                            <jdoc:include type="modules" name="main-navigation" style="none" />
+
+                            <div class="menu-footer"></div>
+                        </div>
+                        <div class="menu-scrim" data-dismiss="menu" tabindex="0"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content pl-sm-3 mt-4" id="main-content">
+                <jdoc:include type="component" />
+            </div>
+        </div>
     </main>
 
     <footer class="br-footer pt-3" id="footer">
