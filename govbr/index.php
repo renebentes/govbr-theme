@@ -60,7 +60,18 @@ $sitename   = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
 $menu       = $app->getMenu()->getActive();
 $pageclass  = $menu !== null ? $menu->getParams()->get('pageclass_sfx', '') : '';
 
-$logo = HTMLHelper::_('image', 'govbr.svg', $sitename, ['height' => '40px', 'loading' => 'eager', 'decoding' => 'async'], true, 0);
+$logo = HTMLHelper::_(
+    'image',
+    'govbr.svg',
+    $sitename,
+    [
+        'height'   => '40px',
+        'loading'  => 'eager',
+        'decoding' => 'async'],
+    true,
+    0
+);
+
 if ($this->params->get('logo')) {
     $logo = HTMLHelper::_(
         'image',
@@ -115,7 +126,7 @@ $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 //     . ($itemid ? ' itemid-' . $itemid : '')
 
 $wa->useStyle('template.govbr')
-   ->useScript('template.govbr.scripts');
+   ->useScript('template.govbr.script');
 
 ?>
 
@@ -174,26 +185,22 @@ $wa->useStyle('template.govbr')
                     </div>
                     <?php endif; ?>
                 </div>
-
-                <?php if ($this->countModules('header-links') ||
-                    $this->countModules('header-functions')) : ?>
                 <div class="header-actions">
                     <jdoc:include type="modules" name="header-links" style="header-actions" />
 
-                    <?php if ($this->countModules('header-links') &&
-                        $this->countModules('header-functions')) : ?>
+                    <?php if ($this->countModules('header-links')): ?>
                     <span class="br-divider vertical mx-half mx-sm-1"></span>
                     <?php endif; ?>
 
                     <jdoc:include type="modules" name="header-functions" style="header-actions" />
                 </div>
-                <?php endif; ?>
             </div>
 
             <div class="header-bottom">
-                 <div class="header-menu">
+                <div class="header-menu">
                     <div class="header-menu-trigger">
-                        <button class="br-button small circle" type="button" aria-label="Menu" data-toggle="menu" data-target="#main-navigation" id="navigation">
+                        <button class="br-button small circle" type="button" aria-label="<?php echo Text::_('TPL_GOVBR_OPEN_MENU'); ?>" data-toggle="menu"
+                            data-target="#main-navigation" id="navigation">
                             <span class="fas fa-bars" aria-hidden="true"></span>
                         </button>
                     </div>
@@ -225,7 +232,8 @@ $wa->useStyle('template.govbr')
                                     <span><?php echo $this->params->get('title', ''); ?></span>
                                 </div>
                                 <div class="menu-close">
-                                    <button class="br-button circle" type="button" aria-label="Fechar o menu" data-dismiss="menu">
+                                    <button class="br-button circle" type="button" aria-label="<?php echo Text::_('TPL_GOVBR_CLOSE_MENU'); ?>"
+                                        data-dismiss="menu">
                                         <i class="fas fa-times" aria-hidden="true"></i>
                                     </button>
                                 </div>

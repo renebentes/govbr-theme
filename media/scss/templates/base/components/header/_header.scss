@@ -3,20 +3,29 @@
     margin-right: var(--spacing-scale-2x);
   }
 
-  .header-functions,
-  .header-links {
-    .br-list {
-      left: auto;
-      right: 0;
-      a i {
-        color: var(--interactive);
-        margin-right: 10px;
+  .header-links,
+  .header-functions {
+    &.dropdown.show {
+      .br-list {
+        left: auto;
+        right: 0;
+        min-width: 150px;
       }
     }
 
-    &.dropdown.show {
-      .br-list {
-        min-width: 200px;
+    .br-item {
+      color: var(--interactive);
+    }
+
+    a i {
+      margin-right: var(--spacing-scale-base);
+    }
+  }
+
+  .header-links {
+    &:not(.show) {
+      a i {
+        display: none;
       }
     }
   }

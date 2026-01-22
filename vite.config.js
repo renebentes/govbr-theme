@@ -72,6 +72,10 @@ export default defineConfig({
           dest: 'js'
         },
         {
+          src: 'node_modules/@govbr-ds/core/dist/core.min.css',
+          dest: 'css'
+        },
+        {
           src: 'node_modules/@fortawesome/fontawesome-free/css/all.min.css',
           dest: 'css'
         },
