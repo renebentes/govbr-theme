@@ -49,7 +49,7 @@ if ($item->anchor_title) {
 }
 
 if ($item->anchor_css) {
-    $attributes['class'] .= $item->anchor_css;
+    $attributes['class'] .= ' ' . trim($item->anchor_css);
 }
 
 if ($item->anchor_rel) {
