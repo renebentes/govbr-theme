@@ -1,29 +1,29 @@
 # govbr
 
-> Tema para Joomla! CMS para o Padrão Digital do Governo Brasileiro.
+> Tema para Joomla CMS para o Padrão Digital do Governo Brasileiro.
 
-Tema desenvolvido para Joomla! CMS conforme o Padrão Digital de Governo instituído pela [Portaria Nº 540, de 8 de setembro de 2020 - Secretaria de Governo/Presidência da República](https://www.in.gov.br/en/web/dou/-/portaria-n-540-de-8-de-setembro-de-2020-276907456).
+Tema desenvolvido para Joomla CMS conforme o Padrão Digital de Governo instituído pela [Portaria Nº 540, de 8 de setembro de 2020 - Secretaria de Governo/Presidência da República](https://www.in.gov.br/en/web/dou/-/portaria-n-540-de-8-de-setembro-de-2020-276907456).
 
 > [!IMPORTANT]
-> Este tema aplica as especificações dispostas no [Design System Padrão de Governo](https://www.gov.br/ds/).
+> Este tema aplica as especificações dispostas no [Design System Padrão de Governo versão 3](https://www.gov.br/ds/).
 
 ## Requisitos
 
-Por ser baseado no Joomla! CMS versão 5, e como tal segue seus requisitos mínimos:
+Por ser baseado no Joomla CMS versão 5, e como tal segue seus requisitos mínimos:
 
 | Software                             | Recomendado | Mínimo | Observações                                                                |
 | ------------------------------------ | ----------- | ------ | -------------------------------------------------------------------------- |
-| [PHP](https://php.net)               | 8.3         | 8.1.0  | Módulos: json, simplexml, dom, zlib, gd, mysqlnd or pdo_mysql or pdo_pgsql |
+| [PHP](https://php.net)               | 8.3         | 8.1.0  | Módulos: json, simplexml, dom, zlib, gd, mysqlnd ou pdo_mysql ou pdo_pgsql |
 | **Banco de dados**                   |             |        |                                                                            |
 | [MySQL](https://mysql.com)           | 8.1         | 8.0.13 |                                                                            |
 | [MariaDB](https://mariadb.com)       | 11.1.0      | 10.4.0 |                                                                            |
 | [PostgreSQL](https://postgresql.org) | 16.0        | 12.0   |                                                                            |
 | **Servidor Web**                     |             |        |                                                                            |
-| [Apache](https://httpd.apache.org)   | 2.4         | 2.4    |                                                                            |
+| [Apache](https://httpd.apache.org)   | 2.4         | 2.4    | Extensão mod_rewrite habilitada para Search Engine Optimization (SEO)      |
 | [Nginx](https://nginx.com)           | 1.25        | 1.21   |                                                                            |
-| [Microsoft IIS](https://www.iis.net) | 10          | 10     |                                                                            |
+| [Microsoft IIS](https://www.iis.net) | 10          | 10     | URL Module Rewrite para Search Engine Optimization (SEO)                   |
 
-Para mais detalhes acesse a [documentação oficial do Joomla!](https://manual.joomla.org/docs/next/get-started/technical-requirements/)
+Para mais detalhes acesse a [documentação oficial do Joomla!](https://manual.joomla.org/docs/5.4/get-started/technical-requirements/)
 
 ## Autor
 
