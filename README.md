@@ -5,25 +5,32 @@
 Tema desenvolvido para Joomla CMS conforme o Padrão Digital de Governo instituído pela [Portaria Nº 540, de 8 de setembro de 2020 - Secretaria de Governo/Presidência da República](https://www.in.gov.br/en/web/dou/-/portaria-n-540-de-8-de-setembro-de-2020-276907456).
 
 > [!IMPORTANT]
-> Este tema aplica as especificações dispostas no [Design System Padrão de Governo versão 3](https://www.gov.br/ds/).
+> Este tema aplica as especificações dispostas no [Design System Padrão de Governo](https://www.gov.br/ds/).
+
+## Funcionalidades
+
+O tema é independente de extensões de terceiros, ou seja, todo o layout é voltado apenas para o núcleo do Joomla por meio de sobrescrita dos componentes, módulos e plugins.
 
 ## Requisitos
 
-Por ser baseado no Joomla CMS versão 5, e como tal segue seus requisitos mínimos:
+- [Joomla 6+](https://joomla.org)
+- [Padrão de Governo 3+](https://gov.br/ds)
 
-| Software                             | Recomendado | Mínimo | Observações                                                                |
-| ------------------------------------ | ----------- | ------ | -------------------------------------------------------------------------- |
-| [PHP](https://php.net)               | 8.3         | 8.1.0  | Módulos: json, simplexml, dom, zlib, gd, mysqlnd ou pdo_mysql ou pdo_pgsql |
-| **Banco de dados**                   |             |        |                                                                            |
-| [MySQL](https://mysql.com)           | 8.1         | 8.0.13 |                                                                            |
-| [MariaDB](https://mariadb.com)       | 11.1.0      | 10.4.0 |                                                                            |
-| [PostgreSQL](https://postgresql.org) | 16.0        | 12.0   |                                                                            |
-| **Servidor Web**                     |             |        |                                                                            |
-| [Apache](https://httpd.apache.org)   | 2.4         | 2.4    | Extensão mod_rewrite habilitada para Search Engine Optimization (SEO)      |
-| [Nginx](https://nginx.com)           | 1.25        | 1.21   |                                                                            |
-| [Microsoft IIS](https://www.iis.net) | 10          | 10     | URL Module Rewrite para Search Engine Optimization (SEO)                   |
+Por ser baseado no Joomla, segue seus requisitos:
 
-Para mais detalhes acesse a [documentação oficial do Joomla!](https://manual.joomla.org/docs/5.4/get-started/technical-requirements/)
+| Software                             | Recomendado | Mínimo | Observações                                                                          |
+| ------------------------------------ | ----------- | ------ | ------------------------------------------------------------------------------------ |
+| [PHP](https://php.net)               | 8.4         | 8.3.0  | Módulos: json, simplexml, dom, zlib, gd, mysqlnd ou pdo_mysql ou pdo_pgsql, mbstring |
+| **Banco de dados**                   |             |        |                                                                                      |
+| [MySQL](https://mysql.com)           | 8.4         | 8.0.13 |                                                                                      |
+| [MariaDB](https://mariadb.com)       | 12.0        | 10.6   |                                                                                      |
+| [PostgreSQL](https://postgresql.org) | 17.6        | 14.0   |                                                                                      |
+| **Servidor Web**                     |             |        |                                                                                      |
+| [Apache](https://httpd.apache.org)   | 2.4         | 2.4    | Módulo mod_rewrite para Search Engine Optimization (SEO)                             |
+| [Nginx](https://nginx.com)           | 1.29        | 1.26   |                                                                                      |
+| [Microsoft IIS](https://www.iis.net) | 10          | 10     | URL Module Rewrite para Search Engine Optimization (SEO)                             |
+
+Para mais detalhes acesse a [documentação oficial do Joomla!](https://manual.joomla.org/docs/get-started/technical-requirements/)
 
 ## Autor
 

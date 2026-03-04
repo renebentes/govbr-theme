@@ -1,9 +1,10 @@
-ARG VARIANT=5.4-php8.2-apache
+ARG VARIANT=6.0-php8.4-apache
 FROM joomla:${VARIANT}
 
 # Install goodies
 RUN apt-get update; \
-    apt-get install -y mc htop
+    apt-get install -y mc htop; \
+    rm -rf /var/lib/apt/lists/*
 
 # Install composer
 RUN curl -sSL https://getcomposer.org/installer | php \
