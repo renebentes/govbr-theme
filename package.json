@@ -8,8 +8,8 @@
     "npm": ">=10.1.0"
   },
   "scripts": {
-    "build": "vite build",
-    "dev": "vite build --mode development",
+    "build": "vite build --mode production && vendor/bin/phing build",
+    "dev": "vite build --mode development --minify false",
     "serve": "vite build --watch --mode development",
     "start": "npm run serve"
   },

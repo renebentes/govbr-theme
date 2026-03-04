@@ -126,7 +126,9 @@ export default defineConfig({
       name: 'run-phing',
       apply: 'build',
       closeBundle() {
-        runPhing('build');
+        if (process.env.NODE_ENV !== 'production') {
+          runPhing('build');
+        }
       }
     }
   ],

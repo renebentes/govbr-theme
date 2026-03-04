@@ -22,12 +22,11 @@ echo "✅ Web server is available."
 
 echo "--> Building the template and running Phing build tasks..."
 npm run build
-sudo vendor/bin/phing
+vendor/bin/phing
 echo "✅ Build completed."
 
 echo "--> Installing and enabling the GovBR template..."
-${JOOMLA_CLI} extension:discover
-${JOOMLA_CLI} extension:discover:install
+sudo su -c "${JOOMLA_CLI} extension:install --path=./govbr.tar.gz"
 echo "✅ GovBR template installed."
 
 echo "--> Applying development settings..."
