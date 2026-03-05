@@ -13,9 +13,9 @@
     <files>
         <!-- <filename>CHANGELOG.md</filename>
         <filename>LICENSE</filename>
-        <filename>README.md</filename>
+        <filename>README.md</filename> -->
         <filename>component.php</filename>
-        <filename>error.php</filename> -->
+        <!-- <filename>error.php</filename> -->
         <filename>index.php</filename>
         <filename>joomla.asset.json</filename>
         <!--<filename>offline.php</filename> -->
