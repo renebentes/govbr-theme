@@ -1,0 +1,14 @@
+@mixin scroll-top-configs {
+  @include scroll-top-default;
+}
+
+@mixin scroll-top-default {
+  bottom: 5px;
+  opacity: 0;
+  position: fixed;
+  right: 5px;
+
+  &.show {
+    opacity: 1;
+  }
+}
