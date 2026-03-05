@@ -51,14 +51,9 @@ $this->addHeadLink(
 );
 
 // Detecting Active Variables
-$option     = $input->getCmd('option', '');
-$view       = $input->getCmd('view', '');
-$layout     = $input->getCmd('layout', '');
-$task       = $input->getCmd('task', '');
-$itemid     = $input->getCmd('Itemid', '');
-$sitename   = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
-$menu       = $app->getMenu()->getActive();
-$pageclass  = $menu !== null ? $menu->getParams()->get('pageclass_sfx', '') : '';
+$sitename  = htmlspecialchars($app->get('sitename'), ENT_QUOTES, 'UTF-8');
+$menu      = $app->getMenu()->getActive();
+$pageclass = $menu !== null ? $menu->getParams()->get('pageclass_sfx', '') : '';
 
 $logo = HTMLHelper::_(
     'image',
@@ -67,7 +62,8 @@ $logo = HTMLHelper::_(
     [
         'height'   => '40px',
         'loading'  => 'eager',
-        'decoding' => 'async'],
+        'decoding' => 'async'
+    ],
     true,
     0
 );
@@ -115,24 +111,15 @@ if ($this->params->get('logo')) {
     );
 }
 
-
 $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 
-
-// $option
-//     . ' view-' . $view
-//     . ($layout ? ' layout-' . $layout : ' no-layout')
-//     . ($task ? ' task-' . $task : ' no-task')
-//     . ($itemid ? ' itemid-' . $itemid : '')
-
 $wa->useStyle('template.govbr')
-   ->useScript('template.govbr.script');
+    ->useScript('template.govbr.script');
 
 ?>
 
 <!DOCTYPE html>
-<html lang="<?php echo $this->language; ?>"
-    dir="<?php echo $this->direction; ?>">
+<html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 
 <head>
     <jdoc:include type="metas" />
@@ -145,8 +132,7 @@ $wa->useStyle('template.govbr')
     <jdoc:include type="styles" />
 </head>
 
-<body
-    class="template-base<?php echo $pageclass ? ' ' . $pageclass : ''; ?>">
+<body class="template-base<?php echo $pageclass ? ' ' . $pageclass : ''; ?>">
 
     <nav class="br-skiplink" role="menubar">
         <a class="br-item" href="#main-content" role="menuitem" accesskey="1">
