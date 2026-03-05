@@ -165,17 +165,17 @@ $wa->useStyle('template.govbr')
                     </a>
 
                     <?php if ($this->params->get('sign', '')) : ?>
-                    <span class="br-divider vertical"></span>
-                    <div class="header-sign">
-                        <?php echo $this->params->get('sign'); ?>
-                    </div>
+                        <span class="br-divider vertical"></span>
+                        <div class="header-sign">
+                            <?php echo $this->params->get('sign'); ?>
+                        </div>
                     <?php endif; ?>
                 </div>
                 <div class="header-actions">
                     <jdoc:include type="modules" name="header-links" style="header-actions" />
 
                     <?php if ($this->countModules('header-links')): ?>
-                    <span class="br-divider vertical mx-half mx-sm-1"></span>
+                        <span class="br-divider vertical mx-half mx-sm-1"></span>
                     <?php endif; ?>
 
                     <jdoc:include type="modules" name="header-functions" style="header-actions" />
@@ -195,12 +195,13 @@ $wa->useStyle('template.govbr')
                             <?php echo $this->params->get('title', ''); ?>
                         </div>
                         <?php if ($this->params->get('subtitle', '')) : ?>
-                        <div class="header-subtitle">
-                            <?php echo $this->params->get('subtitle'); ?>
-                        </div>
+                            <div class="header-subtitle">
+                                <?php echo $this->params->get('subtitle'); ?>
+                            </div>
                         <?php endif; ?>
                     </div>
                 </div>
+                <jdoc:include type="modules" name="header-search" style="none" />
             </div>
         </div>
     </header>
@@ -212,18 +213,18 @@ $wa->useStyle('template.govbr')
                     <div class="menu-container">
                         <div class="menu-panel">
                             <?php if ($this->params->get('menuHeader')) : ?>
-                            <div class="menu-header">
-                                <div class="menu-title">
-                                    <?php echo $logo; ?>
-                                    <span><?php echo $this->params->get('title', ''); ?></span>
+                                <div class="menu-header">
+                                    <div class="menu-title">
+                                        <?php echo $logo; ?>
+                                        <span><?php echo $this->params->get('title', ''); ?></span>
+                                    </div>
+                                    <div class="menu-close">
+                                        <button class="br-button circle" type="button" aria-label="<?php echo Text::_('TPL_GOVBR_CLOSE_MENU'); ?>"
+                                            data-dismiss="menu">
+                                            <i class="fas fa-times" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="menu-close">
-                                    <button class="br-button circle" type="button" aria-label="<?php echo Text::_('TPL_GOVBR_CLOSE_MENU'); ?>"
-                                        data-dismiss="menu">
-                                        <i class="fas fa-times" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                            </div>
                             <?php endif; ?>
 
                             <jdoc:include type="modules" name="main-navigation" style="none" />
@@ -247,9 +248,9 @@ $wa->useStyle('template.govbr')
         </div>
 
         <?php if ($this->params->get('legal', '')) : ?>
-        <div class="info dark py-3">
-            <?php echo $this->params->get('legal', ''); ?>
-        </div>
+            <div class="info dark py-3">
+                <?php echo $this->params->get('legal', ''); ?>
+            </div>
         <?php endif; ?>
     </footer>
     <nav class="scroll-top">
