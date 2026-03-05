@@ -178,6 +178,10 @@ $wa->useStyle('template.govbr')
                         <span class="br-divider vertical mx-half mx-sm-1"></span>
                     <?php endif; ?>
 
+                    <button class="br-button circle small toggle-contrast" type="button" aria-label="<?php echo Text::_('TPL_GOVBR_HIGH_CONTRAST'); ?>">
+                        <i class="fas fa-adjust" aria-hidden="true"></i>
+                    </button>
+
                     <jdoc:include type="modules" name="header-functions" style="header-actions" />
                 </div>
             </div>
