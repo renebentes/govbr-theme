@@ -7,14 +7,14 @@
   "assets": [
     {
       "name": "template.govbr",
-      "description": "The css file for the GovBR template.",
+      "description": "The css file of the GovBR template.",
       "type": "style",
       "uri": "template.min.css",
       "dependencies": ["govbr.core.style", "fontawesome"]
     },
     {
       "name": "template.govbr.script",
-      "description": "The file containing the javascript for this template.",
+      "description": "The javscript file of the GovBR template.",
       "type": "script",
       "uri": "main.min.js",
       "attributes": {
@@ -24,13 +24,13 @@
     },
     {
       "name": "govbr.core.style",
-      "description": "The css file for the GovBR Design System.",
+      "description": "The css file of the GovBR Design System.",
       "type": "style",
       "uri": "core.min.css"
     },
     {
       "name": "govbr.core.script",
-      "description": "The javascript file for the GovBR Design System.",
+      "description": "The javascript file of the GovBR Design System.",
       "type": "script",
       "uri": "core.min.js",
       "attributes": {

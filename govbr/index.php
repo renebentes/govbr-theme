@@ -172,7 +172,7 @@ $wa->useStyle('template.govbr')
                     <?php endif; ?>
                 </div>
                 <div class="header-actions">
-                    <jdoc:include type="modules" name="header-links" style="header-actions" />
+                    <jdoc:include type="modules" name="header-links" style="dropdown" />
 
                     <?php if ($this->countModules('header-links')): ?>
                         <span class="br-divider vertical mx-half mx-sm-1"></span>
@@ -182,7 +182,7 @@ $wa->useStyle('template.govbr')
                         <i class="fas fa-adjust" aria-hidden="true"></i>
                     </button>
 
-                    <jdoc:include type="modules" name="header-functions" style="header-actions" />
+                    <jdoc:include type="modules" name="header-functions" style="dropdown" />
                 </div>
             </div>
 
