@@ -40,6 +40,7 @@
         <position>header-links</position>
         <position>header-functions</position>
         <position>header-login</position>
+        <position>header-search</position>
         <position>main-navigation</position>
     </positions>
 

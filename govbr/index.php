@@ -183,6 +183,13 @@ $wa->useStyle('template.govbr')
                     </button>
 
                     <jdoc:include type="modules" name="header-functions" style="dropdown" />
+
+                    <?php if ($this->countModules('header-search')) : ?>
+                        <div class="header-search-trigger">
+                            <button class="br-button circle" type="button" aria-label="<?php echo Text::_('TPL_GOVBR_OPEN_SEARCH'); ?>" data-toggle="search" data-target=".header-search"><i class="fas fa-search" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
 
