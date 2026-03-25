@@ -162,7 +162,7 @@ $renderModules = $app->getIdentity() && $app->getLanguage();
         <div class="container-lg">
             <div class="header-top">
                 <div class="header-logo">
-                    <a href="<?php echo $this->baseurl; ?>">
+                    <a href="<?php echo $this->baseurl . '/index.php'; ?>">
                         <?php echo $logo; ?>
                     </a>
 

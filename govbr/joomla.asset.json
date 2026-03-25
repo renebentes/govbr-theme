@@ -23,6 +23,16 @@
       "dependencies": ["govbr.core.script"]
     },
     {
+      "name": "govbr.message",
+      "description": "The javscript file of the GovBR Message component.",
+      "type": "script",
+      "uri": "message.min.js",
+      "attributes": {
+        "type": "module"
+      },
+      "dependencies": ["govbr.core.script"]
+    },
+    {
       "name": "govbr.core.style",
       "description": "The css file of the GovBR Design System.",
       "type": "style",

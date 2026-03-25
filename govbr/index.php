@@ -245,6 +245,9 @@ $wa->useStyle('template.govbr')
                         <div class="menu-scrim" data-dismiss="menu" tabindex="0"></div>
                     </div>
                 </div>
+                <div class="col mb-5">
+                    <jdoc:include type="message" />
+                </div>
             </div>
 
             <div class="main-content pl-sm-3 mt-4" id="main-content">

@@ -40,7 +40,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'media/js/template.js'),
-        template: resolve(__dirname, 'media/scss/template.scss')
+        template: resolve(__dirname, 'media/scss/template.scss'),
+        message: resolve(__dirname, 'media/js/components/br-message.js')
       },
       output: {
         entryFileNames: 'js/[name].min.js',
