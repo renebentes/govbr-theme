@@ -1,48 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="govbr" default="build">
-    <property name="sourcedir" value="${project.basedir}/govbr" />
-    <property name="webdir" value="/var/www/html" />
+<project
+    name="govbr"
+    default="build">
+  <property
+      name="sourcedir"
+      value="${project.basedir}/govbr" />
 
-    <target name="build" description="Compress files">
-        <property name="compressedfile" value="${project.basedir}/govbr.tar.gz" override="true" />
+  <target
+      name="build"
+      description="Compress files">
+    <property
+        name="compressedfile"
+        value="${project.basedir}/build/govbr.tar.gz"
+        override="true" />
 
-        <delete file="${compressedfile}" quiet="true" />
-        <tar destfile="${compressedfile}" basedir="${sourcedir}" compression="gzip" />
-    </target>
+    <delete
+        file="${compressedfile}"
+        quiet="true" />
+    <tar
+        destfile="${compressedfile}"
+        basedir="${sourcedir}"
+        compression="gzip" />
+  </target>
 
-    <target name="dev" description="Prepare files to development">
-        <delete dir="${webdir}/templates/govbr" quiet="true" />
-        <delete dir="${webdir}/media/templates/site/govbr" quiet="true" />
-        <delete>
-            <fileset dir="${webdir}/language">
-                <include name="**/*tpl_govbr*.ini" />
-            </fileset>
-        </delete>
+  <target
+      name="dev"
+      description="Prepare files to development">
 
-        <copy todir="${webdir}/templates/govbr" overwrite="true">
-            <fileset dir="${sourcedir}">
-                <include name="**/*.php" />
-                <include name="*.xml" />
-                <include name="*.json" />
-                <exclude name="language/**" />
-                <exclude name="media/**" />
-            </fileset>
-        </copy>
+    <property
+        name="webdir"
+        value="/var/www/html" />
+    <property
+        name="username"
+        override="true"
+        value="vscode" />
 
-        <copy todir="${webdir}/language" overwrite="true">
-            <fileset dir="${sourcedir}/language">
-                <include name="**/*.ini" />
-            </fileset>
-        </copy>
+    <delete
+        dir="${webdir}/templates/govbr"
+        quiet="true" />
+    <delete
+        dir="${webdir}/media/templates/site/govbr"
+        quiet="true" />
+    <delete>
+      <fileset dir="${webdir}/language">
+        <include name="**/*tpl_govbr*.ini" />
+      </fileset>
+    </delete>
 
-        <copy todir="${webdir}/media/templates/site/govbr" overwrite="true">
-            <fileset dir="${sourcedir}/media">
-                <include name="**/*.css" />
-                <include name="**/*.js" />
-                <include name="**/*.png" />
-                <include name="**/*.svg" />
-                <include name="**/*.woff2" />
-            </fileset>
-        </copy>
-    </target>
+    <copy
+        todir="${webdir}/templates/govbr"
+        overwrite="true">
+      <fileset dir="${sourcedir}">
+        <include name="**/*.php" />
+        <include name="*.xml" />
+        <include name="*.json" />
+        <exclude name="language/**" />
+        <exclude name="media/**" />
+      </fileset>
+    </copy>
+
+    <copy
+        todir="${webdir}/language"
+        overwrite="true">
+      <fileset dir="${sourcedir}/language">
+        <include name="**/*.ini" />
+      </fileset>
+    </copy>
+
+    <copy
+        todir="${webdir}/media/templates/site/govbr"
+        overwrite="true">
+      <fileset dir="${sourcedir}/media">
+        <include name="**/*.css" />
+        <include name="**/*.js" />
+        <include name="**/*.png" />
+        <include name="**/*.svg" />
+        <include name="**/*.woff2" />
+      </fileset>
+    </copy>
+
+    <exec
+        executable="sudo"
+        os="Linux"
+        passthru="yes">
+      <arg line="chown -R :www-data ${webdir}" />
+    </exec>
+
+    <exec
+        executable="sudo"
+        os="Linux"
+        passthru="yes">
+      <arg line="chmod -R g+rws ${webdir}" />
+    </exec>
+  </target>
 </project>

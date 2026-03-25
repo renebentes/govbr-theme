@@ -24,3 +24,6 @@ trim_trailing_whitespace = false
 [*.php]
 indent_size = 4
 max_line_length = 120
+
+[*.xml]
+indent_size = 2

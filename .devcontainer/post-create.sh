@@ -26,7 +26,7 @@ vendor/bin/phing
 echo "✅ Build completed."
 
 echo "--> Installing and enabling the GovBR template..."
-sudo su -c "${JOOMLA_CLI} extension:install --path=./govbr.tar.gz"
+sudo su -c "${JOOMLA_CLI} extension:install --path=./build/govbr.tar.gz"
 echo "✅ GovBR template installed."
 
 echo "--> Applying development settings..."
