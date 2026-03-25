@@ -14,6 +14,15 @@
         value="${project.basedir}/build/govbr.tar.gz"
         override="true" />
 
+    <copy
+        todir="${sourcedir}"
+        overwrite="true">
+      <fileset dir="${project.basedir}">
+        <include name="*.md" />
+        <include name="LICENSE" />
+      </fileset>
+    </copy>
+
     <delete
         file="${compressedfile}"
         quiet="true" />
@@ -51,9 +60,11 @@
         todir="${webdir}/templates/govbr"
         overwrite="true">
       <fileset dir="${sourcedir}">
+        <include name="LICENSE" />
         <include name="**/*.php" />
-        <include name="*.xml" />
         <include name="*.json" />
+        <include name="*.md" />
+        <include name="*.xml" />
         <exclude name="language/**" />
         <exclude name="media/**" />
       </fileset>

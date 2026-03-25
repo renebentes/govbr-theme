@@ -258,3 +258,7 @@ dist
 /vendor/
 **/media/
 !/media
+
+# Information files
+govbr/*.md
+govbr/LICENSE

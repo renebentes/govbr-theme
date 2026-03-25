@@ -11,9 +11,9 @@
     <namespace>ReneBentes\Templates\Govbr</namespace>
     <inheritable>1</inheritable>
     <files>
-        <!-- <filename>CHANGELOG.md</filename>
+        <!-- <filename>CHANGELOG.md</filename> -->
         <filename>LICENSE</filename>
-        <filename>README.md</filename> -->
+        <filename>README.md</filename>
         <filename>component.php</filename>
         <filename>error.php</filename>
         <filename>index.php</filename>
