@@ -94,7 +94,7 @@
         executable="sudo"
         os="Linux"
         passthru="yes">
-      <arg line="chown -R :www-data ${webdir}" />
+      <arg line="chown -R ${username}:www-data ${webdir}" />
     </exec>
 
     <exec
