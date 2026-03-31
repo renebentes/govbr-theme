@@ -1,0 +1,16 @@
+.contrast-mode {
+  & {
+    --bg-color: var(--pure-100);
+    --bg-color-rgb: var(--pure-100-rgb);
+    --interactive: var(--pure-0);
+    --interactive-rgb: var(--pure-0-rgb);
+    --link-color: var(--interactive);
+    --link-color-rgb: var(--interactive-rgb);
+    --color: var(--pure-0);
+    --color-rgb: var(--pure-0-rgb);
+    --text-color: var(--color);
+    --text-color-rgb: var(--color-rgb);
+    --background: var(--bg-color);
+    --hover: var(--interactive);
+  }
+}

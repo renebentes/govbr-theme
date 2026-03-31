@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "govbr",
+  "version": "0.1.0",
+  "description": "This file contains details of the assets used by GovBR, the template for the Digital Standard of the Brazilian Government according to the Design System available at https://www.gov.br/ds/",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "name": "template.govbr",
+      "description": "The css file of the GovBR template.",
+      "type": "style",
+      "uri": "template.min.css",
+      "dependencies": ["govbr.core.style", "fontawesome"]
+    },
+    {
+      "name": "template.govbr.script",
+      "description": "The javscript file of the GovBR template.",
+      "type": "script",
+      "uri": "main.min.js",
+      "attributes": {
+        "type": "module"
+      },
+      "dependencies": ["govbr.core.script"]
+    },
+    {
+      "name": "govbr.message",
+      "description": "The javscript file of the GovBR Message component.",
+      "type": "script",
+      "uri": "message.min.js",
+      "attributes": {
+        "type": "module"
+      },
+      "dependencies": ["govbr.core.script"]
+    },
+    {
+      "name": "govbr.core.style",
+      "description": "The css file of the GovBR Design System.",
+      "type": "style",
+      "uri": "core.min.css"
+    },
+    {
+      "name": "govbr.core.script",
+      "description": "The javascript file of the GovBR Design System.",
+      "type": "script",
+      "uri": "core.min.js",
+      "attributes": {
+        "type": "module"
+      }
+    },
+    {
+      "name": "fontawesome",
+      "type": "style",
+      "uri": "all.min.css"
+    }
+  ]
+}

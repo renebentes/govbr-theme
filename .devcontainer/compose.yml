@@ -1,10 +1,15 @@
-name: joomla-mariadb-devcontainer
+name: govbr-devcontainer
 
 services:
   app:
     build:
       context: .
       dockerfile: Dockerfile
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 1G
 
     volumes:
       - ../..:/workspaces:cached
@@ -22,12 +27,16 @@ services:
 
     # Runs app on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
     network_mode: service:db
-
     # Use "forwardPorts" in **devcontainer.json** to forward an app port locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 
   db:
-    image: mariadb:10.4
+    image: mariadb:12.0
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
     restart: unless-stopped
     volumes:
       - mariadb-data:/var/lib/mysql
@@ -36,9 +45,22 @@ services:
       MARIADB_DATABASE: joomladb
       MARIADB_USER: joomla
       MARIADB_PASSWORD: joomla
-
     # Add "forwardPorts": ["3306"] to **devcontainer.json** to forward MariaDB locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
+
+  adminer:
+    image: adminer:5
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+    ports:
+      - "8090:8080"
+    depends_on:
+      - db
+    environment:
+      ADMINER_DEFAULT_SERVER: db
 
 volumes:
   mariadb-data:

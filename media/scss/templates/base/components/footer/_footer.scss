@@ -1,0 +1,7 @@
+@use '_mixins' as *;
+
+.br-footer {
+  .info {
+    @include footer-info-configs;
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "renebentes/govbr-ds",
+  "description": "Template para Joomla baseado no Padrão Digital do Governo Brasileiro",
+  "license": "GPL-2.0+",
+  "autoload": {
+    "psr-4": {
+      "Renebentes\\GovBR\\": "src/"
+    }
+  },
+  "config": {
+    "platform": {
+      "php": "8.2"
+    }
+  },
+  "authors": [
+    {
+      "name": "Rene B. Pinto",
+      "email": "renebentes@yahoo.com.br"
+    }
+  ],
+  "require": {
+    "php": "^8.2"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.75",
+    "squizlabs/php_codesniffer": "^3.12",
+    "phing/phing": "^3.0",
+    "pear/archive_tar": "^1.6"
+  }
+}

@@ -108,7 +108,6 @@ Temporary Items
 /.htaccess
 /web.config
 /.php-cs-fixer.cache
-/media
 data
 logs
 
@@ -255,3 +254,11 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+/vendor/
+**/media/
+!/media
+
+# Information files
+govbr/*.md
+govbr/LICENSE

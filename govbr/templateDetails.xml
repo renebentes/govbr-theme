@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="template" method="upgrade" client="site">
+    <name>govbr</name>
+    <creationDate>May 2025</creationDate>
+    <author>Rene Bentes Pinto</author>
+    <authorEmail>renebentes@yahoo.com.br</authorEmail>
+    <copyright>Copyright (C) 2025 Rene Bentes Pinto. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE</license>
+    <version>0.1.0</version>
+    <description>TPL_GOVBR_XML_DESCRIPTION</description>
+    <namespace>ReneBentes\Templates\Govbr</namespace>
+    <inheritable>1</inheritable>
+    <files>
+        <!-- <filename>CHANGELOG.md</filename> -->
+        <filename>LICENSE</filename>
+        <filename>README.md</filename>
+        <filename>component.php</filename>
+        <filename>error.php</filename>
+        <filename>index.php</filename>
+        <filename>joomla.asset.json</filename>
+        <!--<filename>offline.php</filename> -->
+        <filename>templateDetails.xml</filename>
+        <folder>html</folder>
+    </files>
+    <media destination="templates/site/govbr" folder="media">
+        <folder>css</folder>
+        <folder>fonts</folder>
+        <folder>images</folder>
+        <folder>js</folder>
+    </media>
+
+    <languages folder="language">
+        <language tag="en-GB">en-GB/tpl_govbr.ini</language>
+        <language tag="en-GB">en-GB/tpl_govbr.sys.ini</language>
+        <language tag="pt-BR">pt-BR/tpl_govbr.ini</language>
+        <language tag="pt-BR">pt-BR/tpl_govbr.sys.ini</language>
+    </languages>
+
+    <positions>
+        <position>header-links</position>
+        <position>header-functions</position>
+        <position>header-login</position>
+        <position>header-search</position>
+        <position>main-navigation</position>
+    </positions>
+
+    <config>
+        <fields name="params">
+            <fieldset name="advanced">
+                <field
+                    name="logo"
+                    type="media"
+                    schemes="http,https,ftp,ftps,data,file"
+                    validate="url"
+                    relative="true"
+                    label="TPL_GOVBR_LOGO_LABEL"
+                    description="TPL_GOVBR_LOGO_DESC"
+                />
+
+                <field
+                    name="sign"
+                    type="text"
+                    label="TPL_GOVBR_SIGN_LABEL"
+                    description="TPL_GOVBR_SIGN_DESC"
+                    filter="safehtml"
+                />
+
+                <field
+                    name="title"
+                    type="text"
+                    label="TPL_GOVBR_TITLE_LABEL"
+                    description="TPL_GOVBR_TITLE_DESC"
+                    required="true"
+                    filter="string"
+                />
+
+                <field
+                    name="subtitle"
+                    type="text"
+                    label="TPL_GOVBR_SUBTITLE_LABEL"
+                    description="TPL_GOVBR_SUBTITLE_DESC"
+                    filter="string"
+                />
+
+                <field
+                    name="menuHeader"
+                    type="radio"
+                    label="TPL_GOVBR_MENUHEADER_LABEL"
+                    description="TPL_GOVBR_MENUHEADER_DESC"
+                    default="0"
+                    layout="joomla.form.field.radio.switcher"
+                    filter="options"
+                >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+
+                <field
+                    name="legal"
+                    type="textarea"
+                    label="TPL_GOVBR_LEGAL_LABEL"
+                    description="TPL_GOVBR_LEGAL_DESC"
+                    rows="3"
+                    filter="safehtml"
+                />
+            </fieldset>
+        </fields>
+    </config>
+</extension>

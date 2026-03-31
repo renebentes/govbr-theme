@@ -1,5 +1,5 @@
 {
-  "name": "Joomla & MariaDB",
+  "name": "GovBR",
   "dockerComposeFile": "compose.yml",
   "service": "app",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
@@ -13,13 +13,12 @@
       "userGid": "1000",
       "upgradePackages": "true"
     },
-    "./local-features/user-config": "latest"
+    "./local-features/user-config": "latest",
+    "./local-features/apache-config": "latest",
+    "ghcr.io/devcontainers/features/node:1": "latest"
   },
 
-  "forwardPorts": [8080],
-
-  // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html"
+  "forwardPorts": [8080, 8090],
 
   // Configure tool-specific properties.
   "customizations": {
@@ -27,17 +26,27 @@
     "vscode": {
       // Set *default* container specific settings.json values on container create.
       "settings": {
-        "php.validate.executablePath": "/usr/local/bin/php"
+        "intelephense.environment.documentRoot": "/var/www/html/",
+        "php.validate.executablePath": "/usr/local/bin/php",
+        "php-cs-fixer.executablePath": "${workspaceFolder}/vendor/bin/php-cs-fixer"
       },
       // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
         "bmewburn.vscode-intelephense-client",
+        "dbaeumer.vscode-eslint",
         "EditorConfig.EditorConfig",
         "esbenp.prettier-vscode",
+        "junstyle.php-cs-fixer",
+        "ms-azuretools.vscode-containers",
+        "redhat.vscode-xml",
+        "stylelint.vscode-stylelint",
         "xdebug.php-debug"
       ]
     }
   },
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": ".devcontainer/post-create.sh",
 
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
   "remoteUser": "vscode"
