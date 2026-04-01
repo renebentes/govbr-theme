@@ -30,17 +30,23 @@
  *        ./vendor/bin/php-cs-fixer fix index.php
  */
 
-// Add all the source folders
-$finder = PhpCsFixer\Finder::create()
-    ->in(
-        [
-            __DIR__ . '/govbr'
-        ]
-    );
+use PhpCsFixer\Config;
+use PhpCsFixer\Finder;
+use PhpCsFixer\Runner\Parallel\ParallelConfigFactory;
 
-$config = new PhpCsFixer\Config();
+// Add all the source folders
+$finder = Finder::create()
+    ->in([
+        __DIR__
+    ])
+    ->exclude([
+        'node_modules',
+        'vendor'
+    ]);
+
+$config = new Config();
 $config
-    ->setParallelConfig(PhpCsFixer\Runner\Parallel\ParallelConfigFactory::detect())
+    ->setParallelConfig(ParallelConfigFactory::detect())
     ->setRiskyAllowed(true)
     ->setHideProgress(false)
     ->setUsingCache(false)

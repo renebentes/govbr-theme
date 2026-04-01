@@ -4,7 +4,7 @@
   "license": "GPL-2.0+",
   "autoload": {
     "psr-4": {
-      "Renebentes\\GovBR\\": "src/"
+      "Renebentes\\GovBR\\": "govbr/"
     }
   },
   "config": {
@@ -27,5 +27,9 @@
     "squizlabs/php_codesniffer": "^4.0",
     "phing/phing": "^3.0",
     "pear/archive_tar": "^1.6"
+  },
+  "scripts": {
+    "cs:check": "vendor/bin/php-cs-fixer check --verbose --diff",
+    "cs:fix": "vendor/bin/php-cs-fixer fix"
   }
 }
