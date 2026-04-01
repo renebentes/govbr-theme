@@ -24,6 +24,7 @@ updates:
       interval: 'weekly'
       time: '00:00'
       timezone: 'UTC'
+    versioning-strategy: increase
 
   - package-ecosystem: 'npm'
     directory: '/'
