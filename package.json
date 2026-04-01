@@ -25,7 +25,7 @@
   "type": "module",
   "homepage": "https://github.com/renebentes/joomla-govbr-theme#readme",
   "devDependencies": {
-    "sass-embedded": "^1.93.2",
+    "sass-embedded": "^1.98.0",
     "stylelint": "^17.6.0",
     "stylelint-config-standard": "^40.0.0",
     "stylelint-config-standard-scss": "^17.0.0",
