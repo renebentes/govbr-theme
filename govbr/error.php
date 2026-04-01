@@ -62,7 +62,7 @@ $logo = HTMLHelper::_(
     [
         'height'   => '40px',
         'loading'  => 'eager',
-        'decoding' => 'async'
+        'decoding' => 'async',
     ],
     true,
     0
@@ -266,7 +266,7 @@ $renderModules = $app->getIdentity() && $app->getLanguage();
                                     htmlspecialchars($this->error->getMessage(), ENT_QUOTES, 'UTF-8'),
                                     [
                                         'loading'  => 'eager',
-                                        'decoding' => 'async'
+                                        'decoding' => 'async',
                                     ],
                                     true,
                                     0

@@ -62,7 +62,7 @@ $logo = HTMLHelper::_(
     [
         'height'   => '40px',
         'loading'  => 'eager',
-        'decoding' => 'async'
+        'decoding' => 'async',
     ],
     true,
     0
