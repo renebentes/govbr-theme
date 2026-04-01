@@ -32,7 +32,7 @@
     "stylelint-order": "^7.0.1",
     "vite": "^7.1.7",
     "vite-plugin-browser-sync": "^5.0.0",
-    "vite-plugin-static-copy": "^3.1.2"
+    "vite-plugin-static-copy": "^4.0.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.0.1",
