@@ -41,7 +41,8 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'media/js/template.js'),
         template: resolve(__dirname, 'media/scss/template.scss'),
-        message: resolve(__dirname, 'media/js/components/br-message.js')
+        message: resolve(__dirname, 'media/js/components/br-message.js'),
+        breadcrumb: resolve(__dirname, 'media/js/components/br-breadcrumb.js')
       },
       output: {
         entryFileNames: 'js/[name].min.js',

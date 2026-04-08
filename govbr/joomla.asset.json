@@ -33,6 +33,16 @@
       "dependencies": ["govbr.core.script"]
     },
     {
+      "name": "govbr.breadcrumb",
+      "description": "The javscript file of the GovBR Breadcrumb component.",
+      "type": "script",
+      "uri": "breadcrumb.min.js",
+      "attributes": {
+        "type": "module"
+      },
+      "dependencies": ["govbr.core.script"]
+    },
+    {
       "name": "govbr.core.style",
       "description": "The css file of the GovBR Design System.",
       "type": "style",

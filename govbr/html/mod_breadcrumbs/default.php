@@ -18,6 +18,10 @@ use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
 use Joomla\CMS\WebAsset\WebAssetManager;
 
+/** @var WebAssetManager $wa */
+$wa = $app->getDocument()->getWebAssetManager();
+$wa->useScript('govbr.breadcrumb');
+
 ?>
 <nav class="br-breadcrumb" aria-label="<?php echo htmlspecialchars($module->title, ENT_QUOTES, 'UTF-8'); ?>">
 
@@ -118,8 +122,7 @@ use Joomla\CMS\WebAsset\WebAssetManager;
     }
 
     if ($itemsCounter) {
-        /** @var WebAssetManager $wa */
-        $wa          = $app->getDocument()->getWebAssetManager();
+
         $prettyPrint = JDEBUG ? JSON_PRETTY_PRINT : 0;
         $wa->addInline(
             'script',
