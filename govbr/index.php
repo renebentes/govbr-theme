@@ -246,6 +246,8 @@ $wa->useStyle('template.govbr')
                     </div>
                 </div>
                 <div class="col mb-5">
+                    <jdoc:include type="modules" name="breadcrumbs" style="none" />
+
                     <jdoc:include type="message" />
 
                     <div class="main-content pl-sm-3 mt-4" id="main-content">
