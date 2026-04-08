@@ -247,11 +247,11 @@ $wa->useStyle('template.govbr')
                 </div>
                 <div class="col mb-5">
                     <jdoc:include type="message" />
-                </div>
-            </div>
 
-            <div class="main-content pl-sm-3 mt-4" id="main-content">
-                <jdoc:include type="component" />
+                    <div class="main-content pl-sm-3 mt-4" id="main-content">
+                        <jdoc:include type="component" />
+                    </div>
+                </div>
             </div>
         </div>
     </main>
