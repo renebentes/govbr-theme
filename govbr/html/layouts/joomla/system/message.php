@@ -30,28 +30,28 @@ $alert     = [
     CMSApplication::MSG_NOTICE    => 'info',
     CMSApplication::MSG_INFO      => 'info',
     CMSApplication::MSG_DEBUG     => 'info',
-    CMSApplication::MSG_MESSAGE   => 'success'
+    CMSApplication::MSG_MESSAGE   => 'success',
 ];
 
 $document->getWebAssetManager()
     ->useScript('govbr.message');
 
-if (is_array($msgList) && !empty($msgList)) {
+if (\is_array($msgList) && !empty($msgList)) {
 
     foreach ($msgList as $type => $msgs) {
         if (!empty($msgs)) {
             $msgTitle = match ($alert[$type] ?? $type) {
-                'danger' => Text::_('ERROR'),
+                'danger'  => Text::_('ERROR'),
                 'success' => Text::_('MESSAGE'),
                 'warning' => Text::_('WARNING'),
-                default => Text::_('NOTICE'),
+                default   => Text::_('NOTICE'),
             };
 
             $msgIcon = match ($alert[$type] ?? $type) {
-                'danger' => 'fa-times-circle',
+                'danger'  => 'fa-times-circle',
                 'success' => 'fa-check-circle',
                 'warning' => 'fa-exclamation-triangle',
-                default => 'fa-info-circle',
+                default   => 'fa-info-circle',
             };
 
             $msgOutput .= '<div class="br-message ' . ($alert[$type] ?? $type) . '">';

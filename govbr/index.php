@@ -62,7 +62,7 @@ $logo = HTMLHelper::_(
     [
         'height'   => '40px',
         'loading'  => 'eager',
-        'decoding' => 'async'
+        'decoding' => 'async',
     ],
     true,
     0
@@ -246,12 +246,14 @@ $wa->useStyle('template.govbr')
                     </div>
                 </div>
                 <div class="col mb-5">
-                    <jdoc:include type="message" />
-                </div>
-            </div>
+                    <jdoc:include type="modules" name="breadcrumbs" style="none" />
 
-            <div class="main-content pl-sm-3 mt-4" id="main-content">
-                <jdoc:include type="component" />
+                    <jdoc:include type="message" />
+
+                    <div class="main-content pl-sm-3 mt-4" id="main-content">
+                        <jdoc:include type="component" />
+                    </div>
+                </div>
             </div>
         </div>
     </main>
