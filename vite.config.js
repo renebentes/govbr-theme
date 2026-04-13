@@ -71,23 +71,28 @@ export default defineConfig({
       targets: [
         {
           src: 'node_modules/@govbr-ds/core/dist/core.min.js',
-          dest: 'js'
+          dest: 'js',
+          rename: { stripBase: true }
         },
         {
           src: 'node_modules/@govbr-ds/core/dist/core.min.css',
-          dest: 'css'
+          dest: 'css',
+          rename: { stripBase: true }
         },
         {
           src: 'node_modules/@fortawesome/fontawesome-free/css/all.min.css',
-          dest: 'css'
+          dest: 'css',
+          rename: { stripBase: true }
         },
         {
           src: 'node_modules/@fortawesome/fontawesome-free/webfonts/*.woff2',
-          dest: 'webfonts'
+          dest: 'webfonts',
+          rename: { stripBase: true }
         },
         {
           src: 'media/images/*',
-          dest: 'images'
+          dest: 'images',
+          rename: { stripBase: true }
         }
       ]
     }),
