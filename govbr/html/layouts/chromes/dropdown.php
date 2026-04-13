@@ -35,7 +35,7 @@ $headerAttribs['class'] = $headerClass;
 <div <?php echo ArrayHelper::toString($moduleAttribs); ?>>
     <button class="br-button circle small" type="button" data-toggle="dropdown"
         aria-label="<?php echo Text::_('JOPEN') . ' ' . $module->title; ?>">
-        <i <?php echo ArrayHelper::toString($headerAttribs);?> aria-hidden="true"></i>
+        <i <?php echo ArrayHelper::toString($headerAttribs); ?> aria-hidden="true"></i>
     </button>
 
     <?php echo $module->content; ?>
