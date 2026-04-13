@@ -27,17 +27,16 @@ if ($tagId = $params->get('tag_id', '')) {
 <div <?php echo ArrayHelper::toString($attributes); ?>>
 
     <?php if ($module->showtitle) : ?>
-    <div class="header">
-        <div class="title">
-            <?php echo htmlspecialchars($module->title, ENT_QUOTES, 'UTF-8'); ?>
+        <div class="header">
+            <div class="title">
+                <?php echo htmlspecialchars($module->title, ENT_QUOTES, 'UTF-8'); ?>
+            </div>
         </div>
-    </div>
     <?php endif; ?>
 
-    <?php foreach ($list as $i => &$item) {
+    <?php foreach ($list as $i => &$item) :
         $attributes['class'] = 'br-item';
         require ModuleHelper::getLayoutPath('mod_menu', 'header-links_url');
-    }
-?>
+    endforeach; ?>
 
 </div>
