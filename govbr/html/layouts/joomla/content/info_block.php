@@ -1,0 +1,67 @@
+<?php
+
+/**
+ * @package     Joomla.Site
+ * @subpackage  Templates.GovBR
+ *
+ * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
+ * @copyright   Copyright (C) 2026 Rene Bentes Pinto. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE
+ * @since       __DEPLOY_VERSION__
+ */
+
+\defined('_JEXEC') or die;
+
+use Joomla\CMS\Language\Text;
+
+$blockPosition = $displayData['params']->get('info_block_position', 0);
+
+?>
+<dl class="br-list horizontal article-info">
+
+    <?php if (
+        $displayData['position'] === 'above'
+        && ($blockPosition == 0 || $blockPosition == 2)
+    ) : ?>
+        <dt class="header<?= (!$displayData['params']->get('info_block_show_title', 1) ? ' sr-only' : ''); ?>">
+            <?php echo Text::_('COM_CONTENT_ARTICLE_INFO'); ?>
+        </dt>
+
+        <?php if ($displayData['params']->get('show_author') && !empty($displayData['item']->author)) : ?>
+            <?php echo $this->sublayout('author', $displayData); ?>
+        <?php endif; ?>
+
+        <?php if ($displayData['params']->get('show_create_date')) : ?>
+            <?php echo $this->sublayout('create_date', $displayData); ?>
+        <?php endif; ?>
+
+        <?php if ($displayData['params']->get('show_publish_date')) : ?>
+            <?php echo $this->sublayout('publish_date', $displayData); ?>
+        <?php endif; ?>
+
+        <?php if ($displayData['params']->get('show_modify_date')) : ?>
+            <?php echo $this->sublayout('modify_date', $displayData); ?>
+        <?php endif; ?>
+
+        <?php if ($displayData['params']->get('show_hits')) : ?>
+            <?php echo $this->sublayout('hits', $displayData); ?>
+        <?php endif; ?>
+    <?php endif; ?>
+
+    <?php if (
+        $displayData['position'] === 'below'
+        && ($blockPosition == 1 || $blockPosition == 2)
+    ) : ?>
+        <?php if ($displayData['params']->get('show_parent_category') && !empty($displayData['item']->parent_id)) : ?>
+            <?php echo $this->sublayout('parent_category', $displayData); ?>
+        <?php endif; ?>
+
+        <?php if ($displayData['params']->get('show_category')) : ?>
+            <?php echo $this->sublayout('category', $displayData); ?>
+        <?php endif; ?>
+
+        <?php if ($displayData['params']->get('show_associations')) : ?>
+            <?php echo $this->sublayout('associations', $displayData); ?>
+        <?php endif; ?>
+    <?php endif; ?>
+</dl>
