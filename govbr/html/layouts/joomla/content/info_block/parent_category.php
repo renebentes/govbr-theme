@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @package     Joomla.Site
+ * @subpackage  Templates.GovBR
+ *
+ * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
+ * @copyright   Copyright (C) 2026 Rene Bentes Pinto. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE
+ * @since       __DEPLOY_VERSION__
+ */
+
+\defined('_JEXEC') or die;
+
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Layout\LayoutHelper;
+use Joomla\CMS\Router\Route;
+use Joomla\Component\Content\Site\Helper\RouteHelper;
+
+?>
+<dd class="br-item">
+    <?php echo LayoutHelper::render('joomla.icon.iconclass', ['icon' => 'fas fa-folder mr-3', 'fixed' => true]); ?>
+    <?php $title = $this->escape($displayData['item']->parent_title); ?>
+    <?php if ($displayData['params']->get('link_parent_category') && !empty($displayData['item']->parent_id)) : ?>
+        <?php $url = '<a href="' . Route::_(
+            RouteHelper::getCategoryRoute($displayData['item']->parent_id, $displayData['item']->parent_language)
+        )
+            . '">' . $title . '</a>'; ?>
+        <?php echo Text::sprintf('COM_CONTENT_PARENT', $url); ?>
+    <?php else : ?>
+        <?php echo Text::sprintf('COM_CONTENT_PARENT', $title); ?>
+    <?php endif; ?>
+</dd>
