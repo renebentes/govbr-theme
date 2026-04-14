@@ -55,7 +55,7 @@ if (\is_array($msgList) && !empty($msgList)) {
             };
 
             $msgOutput .= '<div class="br-message ' . ($alert[$type] ?? $type) . '">';
-            $msgOutput .= '<div class="icon"><i class="fas ' . $msgIcon . '" aria-hidden="true"></i></div>';
+            $msgOutput .= '<div class="icon"><span class="fas ' . $msgIcon . '" aria-hidden="true"></span></div>';
             foreach ($msgs as $msg) :
                 $msgOutput .= '<div class="content" aria-label="' . $msgTitle . '" role="alert">';
                 $msgOutput .= '<span class="message-title">' . $msgTitle . '.</span> ';
@@ -65,7 +65,7 @@ if (\is_array($msgList) && !empty($msgList)) {
 
             $msgOutput .= '<div class="close">';
             $msgOutput .= '<button class="br-button circle small" type="button" aria-label="' . Text::_('JCLOSE') . '">';
-            $msgOutput .= '<i class="fas fa-times" aria-hidden="true"></i>';
+            $msgOutput .= '<span class="fas fa-times" aria-hidden="true"></span>';
             $msgOutput .= '</button>';
             $msgOutput .= '</div>';
             $msgOutput .= '</div>';
