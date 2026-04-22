@@ -16,7 +16,7 @@ use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 
 ?>
-<dd class="br-item">
+<dd class="createdby">
     <i class="fas fa-user mr-3" aria-hidden="true"></i>
     <?php $author = ($displayData['item']->created_by_alias ?: $displayData['item']->author); ?>
     <?php if (!empty($displayData['item']->contact_link) && $displayData['params']->get('link_author')) : ?>

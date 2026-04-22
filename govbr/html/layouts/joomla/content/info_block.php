@@ -17,13 +17,13 @@ use Joomla\CMS\Language\Text;
 $blockPosition = $displayData['params']->get('info_block_position', 0);
 
 ?>
-<dl class="br-list horizontal article-info">
+<dl class="article-info">
 
     <?php if (
         $displayData['position'] === 'above'
         && ($blockPosition == 0 || $blockPosition == 2)
     ) : ?>
-        <dt class="header<?= (!$displayData['params']->get('info_block_show_title', 1) ? ' sr-only' : ''); ?>">
+        <dt class="article-info-term<?= (!$displayData['params']->get('info_block_show_title', 1) ? ' sr-only' : ''); ?>">
             <?php echo Text::_('COM_CONTENT_ARTICLE_INFO'); ?>
         </dt>
 

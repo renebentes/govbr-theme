@@ -16,7 +16,7 @@ use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 
 ?>
-<dd class="br-item">
+<dd class="modified">
     <i class="fas fa-calendar mr-3" aria-hidden="true"></i>
     <time datetime="<?php echo HTMLHelper::_('date', $displayData['item']->modified, 'c'); ?>">
         <?php echo Text::sprintf('COM_CONTENT_LAST_UPDATED', HTMLHelper::_('date', $displayData['item']->modified, Text::_('DATE_FORMAT_LC5'))); ?>
