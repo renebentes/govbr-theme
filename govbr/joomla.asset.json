@@ -43,6 +43,16 @@
       "dependencies": ["govbr.core.script"]
     },
     {
+      "name": "govbr.tooltip",
+      "description": "The javscript file of the GovBR Tooltip component.",
+      "type": "script",
+      "uri": "tooltip.min.js",
+      "attributes": {
+        "type": "module"
+      },
+      "dependencies": ["govbr.core.script"]
+    },
+    {
       "name": "govbr.core.style",
       "description": "The css file of the GovBR Design System.",
       "type": "style",
