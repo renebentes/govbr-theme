@@ -16,7 +16,7 @@ use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 
 ?>
-<dd class="br-item">
+<dd class="published">
     <i class="fas fa-calendar mr-3" aria-hidden="true"></i>
     <time datetime="<?php echo HTMLHelper::_('date', $displayData['item']->publish_up, 'c'); ?>">
         <?php echo Text::sprintf('COM_CONTENT_PUBLISHED_DATE_ON', HTMLHelper::_('date', $displayData['item']->publish_up, Text::_('DATE_FORMAT_LC5'))); ?>

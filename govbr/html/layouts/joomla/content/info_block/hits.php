@@ -15,7 +15,7 @@
 use Joomla\CMS\Language\Text;
 
 ?>
-<dd class="br-item">
+<dd class="hits">
     <i class="fas fa-eye mr-3" aria-hidden="true"></i>
     <meta content="UserPageVisits:<?php echo $displayData['item']->hits; ?>">
     <?php echo Text::sprintf('COM_CONTENT_ARTICLE_HITS', $displayData['item']->hits); ?>
