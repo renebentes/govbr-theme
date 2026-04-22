@@ -18,7 +18,7 @@ use Joomla\CMS\Router\Route;
 use Joomla\Component\Content\Site\Helper\RouteHelper;
 
 ?>
-<dd class="br-item ml-1">
+<dd class="category-name">
     <?php echo LayoutHelper::render('joomla.icon.iconclass', ['icon' => 'fa-folder-open mr-3']); ?>
     <?php $title = $this->escape($displayData['item']->category_title); ?>
     <?php if ($displayData['params']->get('link_category') && !empty($displayData['item']->catid)) : ?>
