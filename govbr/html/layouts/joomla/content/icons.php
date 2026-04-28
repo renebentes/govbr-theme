@@ -24,7 +24,7 @@ $articleId = $displayData['item']->id;
         $displayData['item'],
         $displayData['params'],
         [
-            'data-tooltip-target' => '#editarticle-' . (int) $articleId
+            'data-tooltip-target' => '#editarticle-' . (int) $articleId,
         ]
     ); ?>
 <?php endif; ?>
