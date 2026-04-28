@@ -53,6 +53,16 @@
       "dependencies": ["govbr.core.script"]
     },
     {
+      "name": "govbr.pagination",
+      "description": "The javscript file of the GovBR Pagination component.",
+      "type": "script",
+      "uri": "pagination.min.js",
+      "attributes": {
+        "type": "module"
+      },
+      "dependencies": ["govbr.core.script"]
+    },
+    {
       "name": "govbr.core.style",
       "description": "The css file of the GovBR Design System.",
       "type": "style",
