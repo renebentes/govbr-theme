@@ -15,7 +15,7 @@
     },
     "./local-features/user-config": "latest",
     "./local-features/apache-config": "latest",
-    "ghcr.io/devcontainers/features/node:1": "latest"
+    "ghcr.io/devcontainers/features/node:2": "latest"
   },
 
   "forwardPorts": [8080, 8090],
