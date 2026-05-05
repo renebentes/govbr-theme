@@ -17,6 +17,7 @@ use Joomla\CMS\Language\Text;
 $blockPosition = $displayData['params']->get('info_block_position', 0);
 
 ?>
+<hr>
 <dl class="article-info">
 
     <?php if (
@@ -65,3 +66,4 @@ $blockPosition = $displayData['params']->get('info_block_position', 0);
         <?php endif; ?>
     <?php endif; ?>
 </dl>
+<hr>
