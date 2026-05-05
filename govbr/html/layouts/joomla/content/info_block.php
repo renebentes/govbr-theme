@@ -17,11 +17,12 @@ use Joomla\CMS\Language\Text;
 $blockPosition = $displayData['params']->get('info_block_position', 0);
 
 ?>
+
 <dl class="article-info">
 
     <?php if (
-        $displayData['position'] === 'above'
-        && ($blockPosition == 0 || $blockPosition == 2)
+        ($displayData['position'] === 'above' && ($blockPosition == 0 || $blockPosition == 2))
+        || ($displayData['position'] === 'below' && ($blockPosition == 1))
     ) : ?>
         <dt class="article-info-term<?= (!$displayData['params']->get('info_block_show_title', 1) ? ' sr-only' : ''); ?>">
             <?php echo Text::_('COM_CONTENT_ARTICLE_INFO'); ?>
@@ -31,27 +32,6 @@ $blockPosition = $displayData['params']->get('info_block_position', 0);
             <?php echo $this->sublayout('author', $displayData); ?>
         <?php endif; ?>
 
-        <?php if ($displayData['params']->get('show_create_date')) : ?>
-            <?php echo $this->sublayout('create_date', $displayData); ?>
-        <?php endif; ?>
-
-        <?php if ($displayData['params']->get('show_publish_date')) : ?>
-            <?php echo $this->sublayout('publish_date', $displayData); ?>
-        <?php endif; ?>
-
-        <?php if ($displayData['params']->get('show_modify_date')) : ?>
-            <?php echo $this->sublayout('modify_date', $displayData); ?>
-        <?php endif; ?>
-
-        <?php if ($displayData['params']->get('show_hits')) : ?>
-            <?php echo $this->sublayout('hits', $displayData); ?>
-        <?php endif; ?>
-    <?php endif; ?>
-
-    <?php if (
-        $displayData['position'] === 'below'
-        && ($blockPosition == 1 || $blockPosition == 2)
-    ) : ?>
         <?php if ($displayData['params']->get('show_parent_category') && !empty($displayData['item']->parent_id)) : ?>
             <?php echo $this->sublayout('parent_category', $displayData); ?>
         <?php endif; ?>
@@ -62,6 +42,27 @@ $blockPosition = $displayData['params']->get('info_block_position', 0);
 
         <?php if ($displayData['params']->get('show_associations')) : ?>
             <?php echo $this->sublayout('associations', $displayData); ?>
+        <?php endif; ?>
+
+        <?php if ($displayData['params']->get('show_publish_date')) : ?>
+            <?php echo $this->sublayout('publish_date', $displayData); ?>
+        <?php endif; ?>
+    <?php endif; ?>
+
+    <?php if (
+        ($displayData['position'] === 'above' && ($blockPosition == 0))
+        || ($displayData['position'] === 'below' && ($blockPosition == 1 || $blockPosition == 2))
+    ) : ?>
+        <?php if ($displayData['params']->get('show_create_date')) : ?>
+            <?php echo $this->sublayout('create_date', $displayData); ?>
+        <?php endif; ?>
+
+        <?php if ($displayData['params']->get('show_modify_date')) : ?>
+            <?php echo $this->sublayout('modify_date', $displayData); ?>
+        <?php endif; ?>
+
+        <?php if ($displayData['params']->get('show_hits')) : ?>
+            <?php echo $this->sublayout('hits', $displayData); ?>
         <?php endif; ?>
     <?php endif; ?>
 </dl>
