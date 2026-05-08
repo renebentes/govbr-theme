@@ -1,5 +1,5 @@
 {
-  "name": "GovBR",
+  "name": "GovBR Theme Dev Environment",
   "dockerComposeFile": "compose.yml",
   "service": "app",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
@@ -18,19 +18,26 @@
     "ghcr.io/devcontainers/features/node:1": "latest"
   },
 
+  "portsAttributes": {
+    "8080": {
+      "label": "Joomla Web Server",
+      "onAutoForward": "silent"
+    },
+    "8090": {
+      "label": "Adminer Web Server",
+      "onAutoForward": "silent"
+    }
+  },
+
   "forwardPorts": [8080, 8090],
 
-  // Configure tool-specific properties.
   "customizations": {
-    // Configure properties specific to VS Code.
     "vscode": {
-      // Set *default* container specific settings.json values on container create.
       "settings": {
         "intelephense.environment.documentRoot": "/var/www/html/",
         "php.validate.executablePath": "/usr/local/bin/php",
         "php-cs-fixer.executablePath": "${workspaceFolder}/vendor/bin/php-cs-fixer"
       },
-      // Add the IDs of extensions you want installed when the container is created.
       "extensions": [
         "bmewburn.vscode-intelephense-client",
         "dbaeumer.vscode-eslint",
@@ -45,9 +52,7 @@
     }
   },
 
-  // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": ".devcontainer/post-create.sh",
 
-  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
   "remoteUser": "vscode"
 }
