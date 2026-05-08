@@ -57,4 +57,11 @@ RUN set -eux; \
     echo "xdebug.client_port = 9000" >> /usr/local/etc/php/conf.d/xdebug.ini; \
     echo "xdebug.client_host = localhost" >> /usr/local/etc/php/conf.d/xdebug.ini \
     ; \
-    rm -rf /tmp/pear
+    rm -rf /tmp/pear \
+    ; \
+    echo "upload_tmp_dir = /tmp" > /usr/local/etc/php/conf.d/custom-php.ini; \
+    echo "post_max_size = 64M" >> /usr/local/etc/php/conf.d/custom-php.ini; \
+    echo "memory_limit = 256M" >> /usr/local/etc/php/conf.d/custom-php.ini; \
+    echo "upload_max_filesize = 64M" >> /usr/local/etc/php/conf.d/custom-php.ini; \
+    echo "log_errors = On" >> /usr/local/etc/php/conf.d/custom-php.ini; \
+    echo "error_reporting = E_ALL" >> /usr/local/etc/php/conf.d/custom-php.ini
