@@ -35,7 +35,19 @@
       "settings": {
         "intelephense.environment.documentRoot": "/var/www/html/",
         "php.validate.executablePath": "/usr/local/bin/php",
-        "php-cs-fixer.executablePath": "${workspaceFolder}/vendor/bin/php-cs-fixer"
+        "php-cs-fixer.executablePath": "${workspaceFolder}/vendor/bin/php-cs-fixer",
+        "launch": {
+          "version": "0.2.0",
+          "configurations": [
+            {
+              "name": "Listen for Xdebug",
+              "type": "php",
+              "request": "launch",
+              "port": 9003,
+              "log": false
+            }
+          ]
+        }
       },
       "extensions": [
         "bmewburn.vscode-intelephense-client",
