@@ -57,8 +57,21 @@ RUN set -eux; \
     echo "xdebug.client_port = 9000" >> /usr/local/etc/php/conf.d/xdebug.ini; \
     echo "xdebug.client_host = localhost" >> /usr/local/etc/php/conf.d/xdebug.ini \
     ; \
-    rm -rf /tmp/pear \
+    rm -rf /tmp/pear
+
+# Enable Apache's modules and set configurations
+RUN set -eux; \
+    a2enmod rewrite; \
+    echo "ServerName localhost" >> /etc/apache2/apache2.conf \
     ; \
+    echo "<Directory /var/www/html>" >> /etc/apache2/sites-available/000-default.conf; \
+    echo "    Options Indexes FollowSymLinks" >> /etc/apache2/sites-available/000-default.conf; \
+    echo "    AllowOverride All" >> /etc/apache2/sites-available/000-default.conf; \
+    echo "    Require all granted" >> /etc/apache2/sites-available/000-default.conf; \
+    echo "</Directory>" >> /etc/apache2/sites-available/000-default.conf
+
+# Configuring PHP
+RUN set -eux; \
     echo "upload_tmp_dir = /tmp" > /usr/local/etc/php/conf.d/custom-php.ini; \
     echo "post_max_size = 64M" >> /usr/local/etc/php/conf.d/custom-php.ini; \
     echo "memory_limit = 256M" >> /usr/local/etc/php/conf.d/custom-php.ini; \

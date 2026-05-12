@@ -7,6 +7,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ../..:/workspaces:cached
+    command: sleep infinity
     environment:
       JOOMLA_DB_USER: joomla
       JOOMLA_DB_PASSWORD: joomla

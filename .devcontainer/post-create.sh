@@ -61,6 +61,15 @@ sudo php "${JOOMLA_CLI}" config:set debug=true
 sudo php "${JOOMLA_CLI}" config:set error_reporting=maximum
 echo "✅ Development settings applied."
 
+echo "--> Applying Apache settings..."
+echo "<Directory $(pwd)/govbr>
+    Options Indexes FollowSymLinks
+    AllowOverride All
+    Require all granted
+</Directory>" | sudo tee -a /etc/apache2/apache2.conf
+apache2ctl start
+echo "✅ Apache configured."
+
 echo "--> Setting group ownership and permissions..."
 sudo chmod a+x "${BASE_DIR}"
 sudo chown -R "${USERNAME}":www-data "${WEB_DIR}"
