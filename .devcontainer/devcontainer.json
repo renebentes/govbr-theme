@@ -33,7 +33,7 @@
   "customizations": {
     "vscode": {
       "settings": {
-        "intelephense.environment.documentRoot": "/var/www/html/",
+        "intelephense.environment.includePaths": ["/var/www/html/"],
         "php.validate.executablePath": "/usr/local/bin/php",
         "php-cs-fixer.executablePath": "${workspaceFolder}/vendor/bin/php-cs-fixer",
         "launch": {
