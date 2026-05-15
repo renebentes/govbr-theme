@@ -256,8 +256,8 @@ dist
 .pnp.*
 
 # Template files
-**/media/
-!/media
+govbr/media/
+!govbr/media/images/
 /vendor/
 govbr/*.md
 govbr/LICENSE
