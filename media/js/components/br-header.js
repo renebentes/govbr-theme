@@ -1,3 +1,4 @@
+import * as core from '@govbr-ds/core/dist/core.min.js';
 import { toggleContrastMode } from './contrast-mode';
 
 export function instantiateHeader() {

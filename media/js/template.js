@@ -1,7 +1,7 @@
-import { instantiateHeader } from './components/br-header';
-import { instantiateMenus } from './components/br-menu';
+import { initGovBR } from './bootstrap-govbr.js';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import '../scss/template.scss';
 
 window.addEventListener('DOMContentLoaded', () => {
-  instantiateHeader();
-  instantiateMenus();
+  initGovBR();
 });

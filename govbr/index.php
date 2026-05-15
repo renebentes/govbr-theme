@@ -17,6 +17,7 @@ use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Uri\Uri;
+use ReneBentes\Templates\GovBR\Site\Helper\ViteHelper;
 
 /** @var Joomla\CMS\Document\HtmlDocument $this */
 
@@ -113,8 +114,12 @@ if ($this->params->get('logo')) {
 
 $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 
-$wa->useStyle('template.govbr')
-    ->useScript('template.govbr.script');
+if (ViteHelper::isDev()) {
+    ViteHelper::load();
+} else {
+    $wa->useStyle('template.govbr')
+        ->useScript('template.govbr.script');
+}
 
 ?>
 
