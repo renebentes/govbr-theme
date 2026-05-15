@@ -67,7 +67,7 @@ echo "<Directory $(pwd)/govbr>
     AllowOverride All
     Require all granted
 </Directory>" | sudo tee -a /etc/apache2/apache2.conf
-apache2ctl start
+service apache2 start
 echo "✅ Apache configured."
 
 echo "--> Setting group ownership and permissions..."
