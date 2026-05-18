@@ -9,34 +9,14 @@
       "name": "template.govbr",
       "description": "The css file of the GovBR template.",
       "type": "style",
-      "uri": "template.min.css",
+      "uri": "template.css",
       "dependencies": ["govbr.core.style", "fontawesome"]
     },
     {
       "name": "template.govbr.script",
       "description": "The javscript file of the GovBR template.",
       "type": "script",
-      "uri": "main.min.js",
-      "attributes": {
-        "type": "module"
-      },
-      "dependencies": ["govbr.core.script"]
-    },
-    {
-      "name": "govbr.message",
-      "description": "The javscript file of the GovBR Message component.",
-      "type": "script",
-      "uri": "message.min.js",
-      "attributes": {
-        "type": "module"
-      },
-      "dependencies": ["govbr.core.script"]
-    },
-    {
-      "name": "govbr.breadcrumb",
-      "description": "The javscript file of the GovBR Breadcrumb component.",
-      "type": "script",
-      "uri": "breadcrumb.min.js",
+      "uri": "template.js",
       "attributes": {
         "type": "module"
       },
@@ -46,13 +26,13 @@
       "name": "govbr.core.style",
       "description": "The css file of the GovBR Design System.",
       "type": "style",
-      "uri": "core.min.css"
+      "uri": "core.css"
     },
     {
       "name": "govbr.core.script",
       "description": "The javascript file of the GovBR Design System.",
       "type": "script",
-      "uri": "core.min.js",
+      "uri": "core.js",
       "attributes": {
         "type": "module"
       }
@@ -60,7 +40,7 @@
     {
       "name": "fontawesome",
       "type": "style",
-      "uri": "all.min.css"
+      "uri": "font-awesome.css"
     }
   ]
 }

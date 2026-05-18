@@ -20,7 +20,6 @@ use Joomla\CMS\WebAsset\WebAssetManager;
 
 /** @var WebAssetManager $wa */
 $wa = $app->getDocument()->getWebAssetManager();
-$wa->useScript('govbr.breadcrumb');
 
 if ($params->get('showHome', 1)) {
     $home = array_shift($list);

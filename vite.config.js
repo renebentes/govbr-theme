@@ -1,37 +1,9 @@
-import { exec } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
-import VitePluginBrowserSync from 'vite-plugin-browser-sync';
-import { viteStaticCopy } from 'vite-plugin-static-copy';
 import FullReload from 'vite-plugin-full-reload';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-const runPhing = (context = 'auto') => {
-  console.log(`🔧 Runing Phing (${context})...`);
-  exec('vendor/bin/phing dev', (error, stdout, stderr) => {
-    if (error) {
-      console.error(`❌ Phing error: ${error.message}`);
-      return;
-    }
-
-    if (stdout.trim()) {
-      console.log(stdout);
-    }
-
-    if (stderr.trim()) {
-      console.error(`⚠️ stderr: ${stderr}`);
-    }
-  });
-};
-
-// const filesToWatch = [
-//   'govbr/language/**/*.ini',
-//   'govbr/*.json',
-//   'govbr/*.xml',
-//   'govbr/**/*.php'
-// ];
 
 export default defineConfig({
   build: {
@@ -39,24 +11,26 @@ export default defineConfig({
     emptyOutDir: false,
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'media/js/template.js'),
-        template: resolve(__dirname, 'media/scss/template.scss'),
-        message: resolve(__dirname, 'media/js/components/br-message.js'),
-        breadcrumb: resolve(__dirname, 'media/js/components/br-breadcrumb.js')
+        template: path.resolve(__dirname, 'media/js/template.js'),
+        'font-awesome': path.resolve(
+          __dirname,
+          'node_modules/@fortawesome/fontawesome-free/css/all.min.css'
+        ),
+        core: path.resolve(__dirname, 'media/js/core.js')
       },
       output: {
-        entryFileNames: 'js/[name].min.js',
+        entryFileNames: 'js/[name].js',
         assetFileNames: ({ names }) => {
-          const name = names ? names[0] : undefined;
-
-          if (name && /\.(woff2?|ttf|eot|otf)$/.test(name))
+          const name = names[0] ?? '';
+          if (/^fa.+\.woff2?$/.test(name)) {
+            return 'webfonts/[name][extname]';
+          } else if (/\.(woff2?|ttf|eot|otf)$/.test(name))
             return 'fonts/[name][extname]';
-
-          return '[ext]/[name].min[extname]';
+          return '[ext]/[name][extname]';
         }
       }
     },
-    sourcemap: true
+    sourcemap: process.env.NODE_ENV !== 'production'
   },
   css: {
     preprocessorOptions: {
