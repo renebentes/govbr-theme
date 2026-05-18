@@ -32,6 +32,7 @@
     "stylelint-order": "^8.1.1",
     "vite": "^8.0.10",
     "vite-plugin-browser-sync": "^7.0.0",
+    "vite-plugin-full-reload": "^1.2.0",
     "vite-plugin-static-copy": "^4.1.0"
   },
   "dependencies": {

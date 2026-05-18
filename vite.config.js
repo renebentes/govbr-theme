@@ -1,11 +1,12 @@
 import { exec } from 'node:child_process';
-import { dirname, resolve } from 'node:path';
+import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
 import VitePluginBrowserSync from 'vite-plugin-browser-sync';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+import FullReload from 'vite-plugin-full-reload';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const runPhing = (context = 'auto') => {
   console.log(`🔧 Runing Phing (${context})...`);
@@ -25,18 +26,17 @@ const runPhing = (context = 'auto') => {
   });
 };
 
-const filesToWatch = [
-  'govbr/language/**/*.ini',
-  'govbr/*.json',
-  'govbr/*.xml',
-  'govbr/**/*.php'
-];
+// const filesToWatch = [
+//   'govbr/language/**/*.ini',
+//   'govbr/*.json',
+//   'govbr/*.xml',
+//   'govbr/**/*.php'
+// ];
 
 export default defineConfig({
-  base: './',
   build: {
     outDir: 'govbr/media',
-    emptyOutDir: true,
+    emptyOutDir: false,
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'media/js/template.js'),
@@ -67,74 +67,27 @@ export default defineConfig({
     }
   },
   plugins: [
-    viteStaticCopy({
-      targets: [
-        {
-          src: 'node_modules/@govbr-ds/core/dist/core.min.js',
-          dest: 'js'
-        },
-        {
-          src: 'node_modules/@govbr-ds/core/dist/core.min.css',
-          dest: 'css'
-        },
-        {
-          src: 'node_modules/@fortawesome/fontawesome-free/css/all.min.css',
-          dest: 'css'
-        },
-        {
-          src: 'node_modules/@fortawesome/fontawesome-free/webfonts/*.woff2',
-          dest: 'webfonts'
-        },
-        {
-          src: 'media/images/*',
-          dest: 'images'
-        }
-      ]
-    }),
-    VitePluginBrowserSync({
-      dev: {
-        enable: false
-      },
-      preview: {
-        enable: false
-      },
-      buildWatch: {
-        enable: true,
-        bs: {
-          name: 'bs-vite',
-          files: [
-            'govbr/media/css/*.css',
-            'govbr/media/js/*.js',
-            ...filesToWatch,
-            {
-              match: [...filesToWatch],
-              fn: (event, file) => {
-                runPhing('browser-sync');
-              }
-            }
-          ],
-          open: false,
-          proxy: 'http://localhost:8080',
-          reloadDebounce: 1000,
-          reloadDelay: 1000,
-          watchOptions: {
-            usePolling: true,
-            interval: 300
-          }
-        }
-      }
-    }),
-    {
-      name: 'run-phing',
-      apply: 'build',
-      closeBundle() {
-        if (process.env.NODE_ENV !== 'production') {
-          runPhing('build');
-        }
-      }
-    }
+    FullReload([
+      path.resolve(__dirname, 'govbr/language/**/*.ini'),
+      path.resolve(__dirname, 'govbr/*.json'),
+      path.resolve(__dirname, 'govbr/*.xml'),
+      path.resolve(__dirname, 'govbr/**/*.php')
+    ])
   ],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'media')
+    }
+  },
   server: {
+    cors: true,
+    hmr: {
+      host: 'localhost'
+    },
+    host: '0.0.0.0',
+    origin: 'http://localhost:5173',
+    port: 5173,
+    strictPort: true,
     watch: {
       usePolling: true
     }
