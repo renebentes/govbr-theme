@@ -255,10 +255,9 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+# Template files
+govbr/media/
+!govbr/media/images/
 /vendor/
-**/media/
-!/media
-
-# Information files
 govbr/*.md
 govbr/LICENSE

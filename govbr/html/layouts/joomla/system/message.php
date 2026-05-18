@@ -13,13 +13,11 @@
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Application\CMSApplication;
-use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
 
 /* @var $displayData array */
 
 $msgList   = $displayData['msgList'];
-$document  = Factory::getDocument();
 $msgOutput = '';
 $alert     = [
     CMSApplication::MSG_EMERGENCY => 'danger',
@@ -32,9 +30,6 @@ $alert     = [
     CMSApplication::MSG_DEBUG     => 'info',
     CMSApplication::MSG_MESSAGE   => 'success',
 ];
-
-$document->getWebAssetManager()
-    ->useScript('govbr.message');
 
 if (\is_array($msgList) && !empty($msgList)) {
 

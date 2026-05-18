@@ -1,8 +1,6 @@
-import { toggleContrastMode } from './contrast-mode';
+import { BRHeader } from '@govbr-ds/core';
 
-export function instantiateHeader() {
-  const brHeader = document.querySelector('.br-header');
-  new core.BRHeader('br-header', brHeader);
+export function initBRHeader(root = document) {
+  const brHeader = root.querySelector('.br-header');
+  new BRHeader('br-header', brHeader);
 }
-
-toggleContrastMode();

@@ -1,12 +1,8 @@
-function instantiateBreadcrumbs() {
+import { BRBreadcrumb } from '@govbr-ds/core';
+
+export function initBRBreadcrumb(root = document) {
   const breadcrumbs = [];
-  for (const brBreadcrumb of window.document.querySelectorAll(
-    '.br-breadcrumb'
-  )) {
-    breadcrumbs.push(new core.BRBreadcrumb('br-breadcrumb', brBreadcrumb));
+  for (const brBreadcrumb of root.querySelectorAll('.br-breadcrumb')) {
+    breadcrumbs.push(new BRBreadcrumb('br-breadcrumb', brBreadcrumb));
   }
 }
-
-window.addEventListener('DOMContentLoaded', () => {
-  instantiateBreadcrumbs();
-});
