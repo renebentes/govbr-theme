@@ -18,6 +18,10 @@
   },
 
   "portsAttributes": {
+    "5173": {
+      "label": "Vite Server",
+      "onAutoForward": "silent"
+    },
     "8080": {
       "label": "Joomla Web Server",
       "onAutoForward": "silent"
