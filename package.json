@@ -9,9 +9,9 @@
   },
   "scripts": {
     "build": "vite build --mode production",
-    "dev": "vite build --mode development --minify false",
-    "serve": "vite build --watch --mode development",
-    "start": "npm run serve"
+    "dev": "vite",
+    "preview": "vite preview",
+    "start": "npm run dev"
   },
   "repository": {
     "type": "git",
