@@ -65,11 +65,19 @@ RUN set -eux; \
     a2enmod rewrite; \
     echo "ServerName localhost" >> /etc/apache2/apache2.conf \
     ; \
+    sed -ie "s/Listen 80$/Listen 8080/g" /etc/apache2/ports.conf \
+    ; \
     echo "<Directory /var/www/html>" >> /etc/apache2/sites-available/000-default.conf; \
     echo "    Options Indexes FollowSymLinks" >> /etc/apache2/sites-available/000-default.conf; \
     echo "    AllowOverride All" >> /etc/apache2/sites-available/000-default.conf; \
     echo "    Require all granted" >> /etc/apache2/sites-available/000-default.conf; \
-    echo "</Directory>" >> /etc/apache2/sites-available/000-default.conf
+    echo "</Directory>" >> /etc/apache2/sites-available/000-default.conf \
+    ; \
+    echo "<Directory /workspaces/govbr-theme>" >> /etc/apache2/apache2.conf; \
+    echo "    Options Indexes FollowSymLinks" >> /etc/apache2/apache2.conf; \
+    echo "    AllowOverride All" >> /etc/apache2/apache2.conf; \
+    echo "    Require all granted" >> /etc/apache2/apache2.conf; \
+    echo "</Directory>" >> /etc/apache2/apache2.conf
 
 # Configuring PHP
 RUN set -eux; \
