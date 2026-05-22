@@ -1,21 +1,23 @@
-const tooltipList = [];
-for (const trigger of window.document.querySelectorAll(
-  '[data-tooltip-text],[data-tooltip-target]'
-)) {
-  const config = {
-    activator: trigger,
-    place: 'bottom'
-  };
+import { Tooltip } from '@govbr-ds/core';
 
-  for (const target of window.document.querySelectorAll(
-    trigger.dataset.tooltipTarget
+export function initBRTooltip(root = document) {
+  const tooltipList = [];
+  for (const trigger of root.querySelectorAll(
+    '[data-tooltip-text],[data-tooltip-target]'
   )) {
-    config.component = target;
-  }
+    const config = {
+      activator: trigger,
+      place: 'bottom'
+    };
 
-  if (trigger.dataset.tooltipText !== null) {
-    config.textTooltip = trigger.dataset.tooltipText;
-  }
+    for (const target of root.querySelectorAll(trigger.dataset.tooltipTarget)) {
+      config.component = target;
+    }
 
-  tooltipList.push(new core.Tooltip(config));
+    if (trigger.dataset.tooltipText !== null) {
+      config.textTooltip = trigger.dataset.tooltipText;
+    }
+
+    tooltipList.push(Tooltip(config));
+  }
 }

@@ -1,4 +1,8 @@
-const paginationList = [];
-for (const brPagination of window.document.querySelectorAll('.br-pagination')) {
-  paginationList.push(new core.BRPagination('br-pagination', brPagination));
+import { BRPagination } from '@govbr-ds/core';
+
+export function initBRPagination(root = document) {
+  const paginationList = [];
+  for (const brPagination of root.querySelectorAll('.br-pagination')) {
+    paginationList.push(new BRPagination('br-pagination', brPagination));
+  }
 }
