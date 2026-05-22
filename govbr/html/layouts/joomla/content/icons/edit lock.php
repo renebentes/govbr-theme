@@ -17,7 +17,7 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\WebAsset\WebAssetManager;
 
 /** @var WebAssetManager $wa */
-$wa = Factory::getDocument()->getWebAssetManager();
+$wa = Factory::getApplication()->getDocument()->getWebAssetManager();
 $wa->useScript('govbr.tooltip');
 
 if (isset($displayData['ariaDescribed'])) {
