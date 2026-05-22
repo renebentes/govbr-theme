@@ -19,7 +19,8 @@ use Joomla\CMS\Uri\Uri;
 use Joomla\CMS\WebAsset\WebAssetManager;
 
 /** @var WebAssetManager $wa */
-$wa = $app->getDocument()->getWebAssetManager();
+$wa   = $app->getDocument()->getWebAssetManager();
+$home = null;
 
 if ($params->get('showHome', 1)) {
     $home = array_shift($list);
@@ -68,7 +69,7 @@ $show_last = $params->get('showLast', 1);
                 <?php else : ?>
                     <?php $breadcrumbItem = $item->name; ?>
                 <?php endif; ?>
-                <li class="crumb"><i class="icon fas fa-chevron-right"></i><?= $breadcrumbItem ?></li>
+                <li class="crumb"><i class="icon fas fa-chevron-right mr-1"></i><?= $breadcrumbItem ?></li>
             <?php
             // Render last item if required.
             elseif ($show_last) : ?>
