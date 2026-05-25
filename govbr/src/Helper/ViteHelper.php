@@ -14,8 +14,8 @@ namespace ReneBentes\Templates\GovBR\Site\Helper;
 
 \defined('_JEXEC') or die;
 
-use Joomla\CMS\Factory;
 use Joomla\CMS\Document\HtmlDocument;
+use Joomla\CMS\Factory;
 
 /**
  * Helper to detect and load the Vite development environment.
