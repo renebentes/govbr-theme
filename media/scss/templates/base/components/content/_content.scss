@@ -2,6 +2,7 @@
   figure {
     display: flex;
     flex-direction: column;
+    margin-top: var(--spacing-scale-2x);
   }
 }
 
@@ -28,8 +29,6 @@
   flex-wrap: wrap;
   padding-top: var(--spacing-scale-base);
   padding-bottom: var(--spacing-scale-base);
-  margin-top: var(--spacing-scale-2x);
-  margin-bottom: var(--spacing-scale-2x);
   border-color: var(--border-color);
   border-style: solid;
   border-width: 0;
