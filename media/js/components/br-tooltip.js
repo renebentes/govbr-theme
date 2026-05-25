@@ -18,6 +18,6 @@ export function initBRTooltip(root = document) {
       config.textTooltip = trigger.dataset.tooltipText;
     }
 
-    tooltipList.push(Tooltip(config));
+    tooltipList.push(new Tooltip(config));
   }
 }
