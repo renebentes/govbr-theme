@@ -14,11 +14,6 @@
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
-use Joomla\CMS\WebAsset\WebAssetManager;
-
-/** @var WebAssetManager $wa */
-$wa = Factory::getApplication()->getDocument()->getWebAssetManager();
-$wa->useScript('govbr.tooltip');
 
 $article = $displayData['article'];
 $tooltip = $displayData['tooltip'];

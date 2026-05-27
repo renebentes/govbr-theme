@@ -12,13 +12,7 @@
 
 \defined('_JEXEC') or die;
 
-use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
-use Joomla\CMS\WebAsset\WebAssetManager;
-
-/** @var WebAssetManager $wa */
-$wa = Factory::getDocument()->getWebAssetManager();
-$wa->useScript('govbr.pagination');
 
 $list = $displayData['list'];
 
