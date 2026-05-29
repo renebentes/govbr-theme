@@ -6,6 +6,7 @@ import { initBRMessage } from './components/br-message';
 import { initBRFooter } from './components/br-footer';
 import { initBRTooltip } from './components/br-tooltip';
 import { initBRPagination } from './components/br-pagination';
+import { initBRSelect } from './components/br-select';
 
 export function initGovBR(root = document) {
   initBRHeader(root);
@@ -15,4 +16,5 @@ export function initGovBR(root = document) {
   initBRFooter(root);
   initBRTooltip(root);
   initBRPagination(root);
+  initBRSelect(root);
 }
