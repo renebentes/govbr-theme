@@ -7,7 +7,7 @@ export function initBRTooltip(root = document) {
   )) {
     const config = {
       activator: trigger,
-      place: 'bottom'
+      place: trigger.dataset.tooltipPlacement || 'top'
     };
 
     for (const target of root.querySelectorAll(trigger.dataset.tooltipTarget)) {
