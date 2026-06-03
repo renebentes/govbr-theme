@@ -7,6 +7,7 @@ import { initBRFooter } from './components/br-footer';
 import { initBRTooltip } from './components/br-tooltip';
 import { initBRPagination } from './components/br-pagination';
 import { initBRSelect } from './components/br-select';
+import { initBRInput } from './components/br-input';
 
 export function initGovBR(root = document) {
   initBRHeader(root);
@@ -17,4 +18,5 @@ export function initGovBR(root = document) {
   initBRTooltip(root);
   initBRPagination(root);
   initBRSelect(root);
+  initBRInput(root);
 }
