@@ -125,9 +125,7 @@ $class .= !empty($addonAfter) ? ' input-button' : '';
         <?php if (!empty($addonBefore)) : ?>
         </div>
     <?php endif; ?>
-
     <?= Text::_($addonAfter ?? ''); ?>
-
     <?= $hint ?? ''; ?>
 </div>
 

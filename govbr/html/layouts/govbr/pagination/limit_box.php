@@ -20,8 +20,8 @@ use Joomla\CMS\Pagination\Pagination;
 extract($displayData, EXTR_OVERWRITE);
 
 /**
- * @var Pagination $pagination
- * @var string     $classList
+ * @var  Pagination  $pagination  The pagination object
+ * @var  string      $class       Classes for the pagination container.
  */
 $pagination = $displayData['pagination'] ?? null;
 
@@ -42,15 +42,16 @@ $selected = $pagination->limit;
 
 ?>
 
-<div class="pagination-per-page<?= $classList ?? ''; ?>">
+<div class="pagination-per-page<?= $class ?? ''; ?>">
     <?php echo LayoutHelper::render(
-        'govbr.select.select',
+        'govbr.form.select',
         [
-            'name'     => 'limit',
-            'label'    => Text::_('JGLOBAL_DISPLAY_NUM'),
-            'options'  => $limits,
-            'selected' => $selected,
-            'attribs'  => 'onchange="this.closest(\'form\').submit()";',
+            'name'      => 'limit',
+            'label'     => Text::_('JGLOBAL_DISPLAY_NUM'),
+            'ariaLabel' => Text::_('JGLOBAL_LIST_LIMIT'),
+            'options'   => $limits,
+            'selected'  => $selected,
+            'onchange'  => 'this.closest(\'form\').submit();',
         ]
     ); ?>
 </div>
