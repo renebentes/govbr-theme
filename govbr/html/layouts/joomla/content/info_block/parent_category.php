@@ -19,7 +19,7 @@ use Joomla\Component\Content\Site\Helper\RouteHelper;
 
 ?>
 <dd class="parent-category-name">
-    <?php echo LayoutHelper::render('joomla.icon.iconclass', ['icon' => 'fas fa-folder mr-3', 'fixed' => true]); ?>
+    <?php echo LayoutHelper::render('joomla.icon.iconclass', ['icon' => 'fas fa-folder mx-1', 'fixed' => true]); ?>
     <?php $title = $this->escape($displayData['item']->parent_title); ?>
     <?php if ($displayData['params']->get('link_parent_category') && !empty($displayData['item']->parent_id)) : ?>
         <?php $url = '<a href="' . Route::_(

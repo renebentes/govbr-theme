@@ -44,10 +44,12 @@
   }
 
   dd {
-    margin-left: var(--spacing-scale-half);
+    display: flex !important;
+    align-items: center;
+    margin-left: 0;
     min-height: var(--spacing-scale-3xh);
     border: 0;
-    padding: var(--spacing-scale-half) var(--spacing-scale-base);
+    padding-right: var(--spacing-scale-base);
 
     &:not(:last-child) {
       border-color: var(--border-color);

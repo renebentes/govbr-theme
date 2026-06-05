@@ -17,7 +17,7 @@ use Joomla\CMS\Language\Text;
 
 ?>
 <dd class="createdby">
-    <i class="fas fa-user mr-3" aria-hidden="true"></i>
+    <i class="fas fa-user mx-1" aria-hidden="true"></i>
     <?php $author = ($displayData['item']->created_by_alias ?: $displayData['item']->author); ?>
     <?php if (!empty($displayData['item']->contact_link) && $displayData['params']->get('link_author')) : ?>
         <?php echo Text::sprintf('COM_CONTENT_WRITTEN_BY', HTMLHelper::_('link', $displayData['item']->contact_link, $author)); ?>
