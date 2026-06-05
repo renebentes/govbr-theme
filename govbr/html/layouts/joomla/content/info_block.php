@@ -46,8 +46,8 @@ $blockPosition = $displayData['params']->get('info_block_position', 0);
     <?php endif; ?>
 
     <?php if (
-        ($displayData['position'] === 'below'
-    && ($blockPosition == 1 || $blockPosition == 2))
+        ($displayData['position'] === 'above' && ($blockPosition == 0))
+        || ($displayData['position'] === 'below' && ($blockPosition == 1 || $blockPosition == 2))
     ) : ?>
         <?php if ($displayData['params']->get('show_parent_category') && !empty($displayData['item']->parent_id)) : ?>
             <?php echo $this->sublayout('parent_category', $displayData); ?>

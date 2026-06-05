@@ -19,7 +19,7 @@ use Joomla\Component\Content\Site\Helper\RouteHelper;
 
 ?>
 <dd class="category-name">
-    <?php echo LayoutHelper::render('joomla.icon.iconclass', ['icon' => 'fa-folder-open mr-3']); ?>
+    <?php echo LayoutHelper::render('joomla.icon.iconclass', ['icon' => 'fa-folder-open mx-1']); ?>
     <?php $title = $this->escape($displayData['item']->category_title); ?>
     <?php if ($displayData['params']->get('link_category') && !empty($displayData['item']->catid)) : ?>
         <?php $url = '<a href="' . Route::_(

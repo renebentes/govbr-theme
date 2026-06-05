@@ -17,7 +17,7 @@ use Joomla\CMS\Language\Text;
 
 ?>
 <dd class="create">
-    <i class="fas fa-calendar mr-3" aria-hidden="true"></i>
+    <i class="fas fa-calendar mx-1" aria-hidden="true"></i>
     <time datetime="<?php echo HTMLHelper::_('date', $displayData['item']->created, 'c'); ?>">
         <?php echo Text::sprintf('COM_CONTENT_CREATED_DATE_ON', HTMLHelper::_('date', $displayData['item']->created, Text::_('DATE_FORMAT_LC5'))); ?>
     </time>
