@@ -43,7 +43,7 @@ $selected = $pagination->limit;
 ?>
 
 <div class="pagination-per-page<?= $class ?? ''; ?>">
-    <?php echo LayoutHelper::render(
+    <?= LayoutHelper::render(
         'govbr.form.select',
         [
             'name'      => 'limit',
