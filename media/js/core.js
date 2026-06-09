@@ -8,6 +8,8 @@ import { initBRTooltip } from './components/br-tooltip';
 import { initBRPagination } from './components/br-pagination';
 import { initBRSelect } from './components/br-select';
 import { initBRInput } from './components/br-input';
+import { initBRTable } from './components/br-table';
+import { initBRCollapse } from './components/br-collapse';
 
 export function initGovBR(root = document) {
   initBRHeader(root);
@@ -19,4 +21,6 @@ export function initGovBR(root = document) {
   initBRPagination(root);
   initBRSelect(root);
   initBRInput(root);
+  initBRTable(root);
+  initBRCollapse(root);
 }
