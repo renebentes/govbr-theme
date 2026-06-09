@@ -24,25 +24,25 @@ $direction = Factory::getLanguage()->isRtl() ? 'left' : 'right';
 
 <?php if (!$params->get('access-view')) : ?>
     <a class="br-button secondary" href="<?php echo $displayData['link']; ?>" aria-label="<?php echo Text::_('JGLOBAL_REGISTER_TO_READ_MORE') . ' ' . $this->escape($item->title); ?>">
-        <i class="fas fa-chevron-<?= $direction; ?>" aria-hidden="true"></i>
+        <i class="fas fa-chevron-<?php echo $direction; ?>" aria-hidden="true"></i>
         <?php echo Text::_('JGLOBAL_REGISTER_TO_READ_MORE'); ?>
     </a>
 <?php elseif ($readmore = $item->alternative_readmore) : ?>
     <a class="br-button secondary" href="<?php echo $displayData['link']; ?>" aria-label="<?php echo $this->escape($readmore . ' ' . $item->title); ?>">
-        <i class="fas fa-chevron-<?= $direction; ?>" aria-hidden="true"></i>
-        <?= $readmore; ?>
+        <i class="fas fa-chevron-<?php echo $direction; ?>" aria-hidden="true"></i>
+        <?php echo $readmore; ?>
         <?php if ($params->get('show_readmore_title', 0) != 0) : ?>
             <?php echo HTMLHelper::_('string.truncate', $item->title, $params->get('readmore_limit')); ?>
         <?php endif; ?>
     </a>
 <?php elseif ($params->get('show_readmore_title', 0) == 0) : ?>
     <a class="br-button secondary" href="<?php echo $displayData['link']; ?>" aria-label="<?php echo Text::sprintf('JGLOBAL_READ_MORE_TITLE', $this->escape($item->title)); ?>">
-        <i class="fas fa-chevron-<?= $direction; ?>" aria-hidden="true"></i>
+        <i class="fas fa-chevron-<?php echo $direction; ?>" aria-hidden="true"></i>
         <?php echo Text::_('JGLOBAL_READ_MORE'); ?>
     </a>
 <?php else : ?>
     <a class="br-button secondary" href="<?php echo $displayData['link']; ?>" aria-label="<?php echo Text::sprintf('JGLOBAL_READ_MORE_TITLE', $this->escape($item->title)); ?>">
-        <i class="fas fa-chevron-<?= $direction; ?>" aria-hidden="true"></i>
+        <i class="fas fa-chevron-<?php echo $direction; ?>" aria-hidden="true"></i>
         <?php echo Text::sprintf('JGLOBAL_READ_MORE_TITLE', HTMLHelper::_('string.truncate', $item->title, $params->get('readmore_limit'))); ?>
     </a>
 <?php endif; ?>

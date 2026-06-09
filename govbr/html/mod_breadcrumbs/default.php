@@ -52,8 +52,8 @@ $show_last = $params->get('showLast', 1);
             <?php endif; ?>
 
             <?php if ($params->get('showHome', 1)) : ?>
-                <a href="<?= Route::_($home->link); ?>" class="br-button circle">
-                    <i class="fas fa-home" aria-hidden="true" aria-label="<?= $home->name; ?>"></i>
+                <a href="<?php echo Route::_($home->link); ?>" class="br-button circle">
+                    <i class="fas fa-home" aria-hidden="true" aria-label="<?php echo $home->name; ?>"></i>
                 </a>
             <?php else: ?>
                 <i class="fas fa-home" aria-hidden="true"></i>
@@ -69,12 +69,12 @@ $show_last = $params->get('showLast', 1);
                 <?php else : ?>
                     <?php $breadcrumbItem = $item->name; ?>
                 <?php endif; ?>
-                <li class="crumb"><i class="icon fas fa-chevron-right mr-1"></i><?= $breadcrumbItem ?></li>
+                <li class="crumb"><i class="icon fas fa-chevron-right mr-1"></i><?php echo $breadcrumbItem ?></li>
             <?php
             // Render last item if required.
             elseif ($show_last) : ?>
                 <li class="crumb" data-active="active"><i class="icon fas fa-chevron-right"></i>
-                    <span tabindex="0" aria-current="page"><?= $item->name ?></span>
+                    <span tabindex="0" aria-current="page"><?php echo $item->name ?></span>
                 </li>
             <?php endif; ?>
         <?php endforeach; ?>

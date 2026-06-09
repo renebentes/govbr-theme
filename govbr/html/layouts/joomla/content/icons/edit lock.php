@@ -29,6 +29,6 @@ $tooltip = $displayData['tooltip'];
 
 <i class="fas fa-eye-slash" aria-hidden="true"></i>
 <span class="sr-only"><?php echo Text::_('JLIB_HTML_CHECKED_OUT'); ?></span>
-<div class="br-tooltip" id="<?= $aria_described; ?>" role="tooltip">
-    <?= $tooltip; ?>
+<div class="br-tooltip" id="<?php echo $aria_described; ?>" role="tooltip">
+    <?php echo $tooltip; ?>
 </div>

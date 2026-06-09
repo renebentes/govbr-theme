@@ -31,9 +31,9 @@ $lang = Factory::getApplication()->getLanguage();
             <a class="br-button circle"
                 href="<?php echo Route::_($row->prev); ?>"
                 rel="prev"
-                aria-label="<?= $label; ?>"
-                data-tooltip-text="<?= $label ; ?>">
-                <i class="fas fa-chevron-<?= $direction; ?>" aria-hidden="true"></i>
+                aria-label="<?php echo $label; ?>"
+                data-tooltip-text="<?php echo $label ; ?>">
+                <i class="fas fa-chevron-<?php echo $direction; ?>" aria-hidden="true"></i>
             </a>
     <?php endif; ?>
     <?php if ($row->next) : ?>
@@ -42,9 +42,9 @@ $lang = Factory::getApplication()->getLanguage();
             <a class="br-button circle"
                 href="<?php echo Route::_($row->next); ?>"
                 rel="next"
-                aria-label="<?= $label; ?>"
-                data-tooltip-text="<?= $label; ?>">
-                <i class="fas fa-chevron-<?= $direction; ?>" aria-hidden="true"></i>
+                aria-label="<?php echo $label; ?>"
+                data-tooltip-text="<?php echo $label; ?>">
+                <i class="fas fa-chevron-<?php echo $direction; ?>" aria-hidden="true"></i>
             </a>
     <?php endif; ?>
     </div>

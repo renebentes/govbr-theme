@@ -89,6 +89,8 @@ $config
         'combine_consecutive_unsets'                       => true,
         // There must be no sprintf calls with only the first argument
         'no_useless_sprintf'                               => true,
+        // Forces <?php echo
+        'echo_tag_syntax'                                  => ['format' => 'long'],
     ])
     ->setFinder($finder);
 
