@@ -77,7 +77,7 @@ $results             = $app
         'onContentAfterDisplay',
         new Content\AfterDisplayEvent(
             'onContentAfterDisplay',
-            ['context' => $extension . '.categories', 'subject' => &$category, 'params' => &$params, 'page' => 0]
+            $contentEventArguments
         )
     )->getArgument('result', []);
 $afterDisplayContent = trim(implode("\n", $results));
@@ -92,27 +92,27 @@ if (substr($className, -1) === 's') {
 
 $tagsData = $category->tags->itemTags;
 ?>
-<section class="<?= $className . '-category' . $displayData->pageclass_sfx; ?>">
+<section class="<?php echo $className . '-category' . $displayData->pageclass_sfx; ?>">
     <?php if (
         $params->get('show_page_heading')
         || $params->get('show_category_title', 1)
     ) : ?>
         <header class="page-header">
             <?php if ($params->get('show_page_heading')) : ?>
-                <h1><?= $displayData->escape($params->get('page_heading')); ?></h1>
+                <h1><?php echo $displayData->escape($params->get('page_heading')); ?></h1>
             <?php endif; ?>
 
             <?php if ($params->get('show_category_title', 1)) : ?>
-                <<?= $htag; ?>>
-                    <?= HTMLHelper::_('content.prepare', $category->title, '', $extension . '.category.title'); ?>
-                </<?= $htag; ?>>
+                <<?php echo $htag; ?>>
+                    <?php echo HTMLHelper::_('content.prepare', $category->title, '', $extension . '.category.title'); ?>
+                </<?php echo $htag; ?>>
             <?php endif; ?>
         </header>
     <?php endif; ?>
-    <?= $afterDisplayTitle; ?>
+    <?php echo $afterDisplayTitle; ?>
 
     <?php if ($params->get('show_cat_tags', 1)) : ?>
-        <?= LayoutHelper::render('joomla.content.tags', $tagsData); ?>
+        <?php echo LayoutHelper::render('joomla.content.tags', $tagsData); ?>
     <?php endif; ?>
 
     <?php if ($beforeDisplayContent || $afterDisplayContent || $params->get('show_description', 1) || $params->def('show_description_image', 1)) : ?>
@@ -121,30 +121,30 @@ $tagsData = $category->tags->itemTags;
                 $params->get('show_description_image')
                 && $category->getParams()->get('image')
             ) : ?>
-                <?= LayoutHelper::render(
+                <?php echo LayoutHelper::render(
                     'joomla.html.image',
                     [
-                        'src' => $category->getParams()->get('image'),
-                        'alt' => empty($category->getParams()->get('image_alt')) && empty($category->getParams()->get('image_alt_empty')) ? false : $category->getParams()->get('image_alt'),
-                    ]
+                            'src' => $category->getParams()->get('image'),
+                            'alt' => empty($category->getParams()->get('image_alt')) && empty($category->getParams()->get('image_alt_empty')) ? false : $category->getParams()->get('image_alt'),
+                        ]
                 ); ?>
             <?php endif; ?>
-            <?= $beforeDisplayContent; ?>
+            <?php echo $beforeDisplayContent; ?>
             <?php if ($params->get('show_description') && $category->description) : ?>
-                <?= HTMLHelper::_('content.prepare', $category->description, '', $extension . '.category.description'); ?>
+                <?php echo HTMLHelper::_('content.prepare', $category->description, '', $extension . '.category.description'); ?>
             <?php endif; ?>
-            <?= $afterDisplayContent; ?>
+            <?php echo $afterDisplayContent; ?>
         </div>
     <?php endif; ?>
-    <?= $displayData->loadTemplate($displayData->subtemplatename); ?>
+    <?php echo $displayData->loadTemplate($displayData->subtemplatename); ?>
 
     <?php if ($displayData->maxLevel != 0 && $displayData->get('children')) : ?>
         <hr>
         <?php if ($params->get('show_category_heading_title_text', 1) == 1) : ?>
-            <h3><?= Text::_('JGLOBAL_SUBCATEGORIES'); ?></h3>
+            <h3><?php echo Text::_('JGLOBAL_SUBCATEGORIES'); ?></h3>
         <?php endif; ?>
         <div class="br-list" role="list">
-        <?= $displayData->loadTemplate('children'); ?>
+        <?php echo $displayData->loadTemplate('children'); ?>
         </div>
     <?php endif; ?>
 </section>

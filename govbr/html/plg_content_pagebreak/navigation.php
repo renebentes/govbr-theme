@@ -34,11 +34,11 @@ $lang = $this->getApplication()->getLanguage();
             ?>
         <a class="br-button secondary"
             href="<?php echo Route::_($links['previous']); ?>"
-            title="<?= $title; ?>"
-            aria-label="<?= $ariaLabel; ?>"
+            title="<?php echo $title; ?>"
+            aria-label="<?php echo $ariaLabel; ?>"
             rel="prev">
-            <i class="fas fa-chevron-<?= $direction; ?>" aria-hidden="true"></i>
-            <?= Text::_('JPREV'); ?>
+            <i class="fas fa-chevron-<?php echo $direction; ?>" aria-hidden="true"></i>
+            <?php echo Text::_('JPREV'); ?>
         </a>
         <?php endif; ?>
         <?php if ($links['next']) :
@@ -48,11 +48,11 @@ $lang = $this->getApplication()->getLanguage();
             ?>
         <a class="br-button secondary"
             href="<?php echo Route::_($links['next']); ?>"
-            title="<?= $title; ?>"
-            aria-label="<?= $ariaLabel; ?>"
+            title="<?php echo $title; ?>"
+            aria-label="<?php echo $ariaLabel; ?>"
             rel="next">
-            <?= Text::_('JNEXT'); ?>
-            <i class="fas fa-chevron-<?= $direction; ?>" aria-hidden="true"></i>
+            <?php echo Text::_('JNEXT'); ?>
+            <i class="fas fa-chevron-<?php echo $direction; ?>" aria-hidden="true"></i>
         </a>
         <?php endif; ?>
     </div>

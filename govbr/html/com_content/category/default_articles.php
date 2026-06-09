@@ -69,12 +69,12 @@ if (!empty($this->items)) {
 $currentDate = Factory::getDate()->format('Y-m-d H:i:s');
 ?>
 
-<form action="<?= htmlspecialchars(Uri::getInstance()->toString()); ?>" method="post" name="adminForm" id="adminForm">
+<form action="<?php echo htmlspecialchars(Uri::getInstance()->toString()); ?>" method="post" name="adminForm" id="adminForm">
     <?php if ($this->params->get('filter_field') !== 'hide') : ?>
-        <legend><?= Text::_('COM_CONTENT_FORM_FILTER_LEGEND'); ?></legend>
+        <legend><?php echo Text::_('COM_CONTENT_FORM_FILTER_LEGEND'); ?></legend>
         <div class="col-sm-5 col-lg-4 mb-3">
             <?php if ($this->params->get('filter_field') === 'tag') : ?>
-                <?= LayoutHelper::render(
+                <?php echo LayoutHelper::render(
                     'govbr.form.select',
                     [
                         'name'        => 'filter-tag',
@@ -88,7 +88,7 @@ $currentDate = Factory::getDate()->format('Y-m-d H:i:s');
                     ]
                 ); ?>
             <?php elseif ($this->params->get('filter_field') === 'month') : ?>
-                <?= LayoutHelper::render(
+                <?php echo LayoutHelper::render(
                     'govbr.form.select',
                     [
                         'name'        => 'filter-search',
@@ -102,7 +102,7 @@ $currentDate = Factory::getDate()->format('Y-m-d H:i:s');
                     ]
                 ); ?>
             <?php else : ?>
-                <?= LayoutHelper::render(
+                <?php echo LayoutHelper::render(
                     'joomla.form.field.text',
                     [
                         'name'        => 'filter-search',
@@ -116,15 +116,15 @@ $currentDate = Factory::getDate()->format('Y-m-d H:i:s');
             <?php endif; ?>
         </div>
         <div class="col-sm-5 col-lg-4 d-flex">
-            <button type="reset" name="filter-clear-button" class="br-button secondary ml-auto"><?= Text::_('JSEARCH_FILTER_CLEAR'); ?></button>
+            <button type="reset" name="filter-clear-button" class="br-button secondary ml-auto"><?php echo Text::_('JSEARCH_FILTER_CLEAR'); ?></button>
             <?php if ($this->params->get('filter_field') !== 'tag' && $this->params->get('filter_field') !== 'month') : ?>
-                <button type="submit" name="filter_submit" class="br-button primary ml-3"><?= Text::_('JGLOBAL_FILTER_BUTTON'); ?></button>
+                <button type="submit" name="filter_submit" class="br-button primary ml-3"><?php echo Text::_('JGLOBAL_FILTER_BUTTON'); ?></button>
             <?php endif; ?>
         </div>
     <?php endif; ?>
 
     <?php if ($this->category->getParams()->get('access-create')) : ?>
-        <?= LayoutHelper::render(
+        <?php echo LayoutHelper::render(
             'govbr.content.icons.create',
             [
                 'category' => $this->category,
@@ -141,7 +141,7 @@ $currentDate = Factory::getDate()->format('Y-m-d H:i:s');
     <div class="br-table">
         <div class="table-header">
             <div class="top-bar">
-                <h3 class="title m-1"><?= Text::_('COM_CONTENT_ARTICLES_TABLE_CAPTION'); ?></h3>
+                <h3 class="title m-1"><?php echo Text::_('COM_CONTENT_ARTICLES_TABLE_CAPTION'); ?></h3>
             </div>
         </div>
 
@@ -151,73 +151,73 @@ $currentDate = Factory::getDate()->format('Y-m-d H:i:s');
                     <div class="icon">
                         <i class="fas fa-info-circle" aria-hidden="true"></i>
                     </div>
-                    <div class="content" aria-label="<?= Text::_('INFO'); ?>">
-                        <span class="message-title"><?= Text::_('INFO'); ?>.</span>
-                        <span class="message-body"><?= Text::_('COM_CONTENT_NO_ARTICLES'); ?></span>
+                    <div class="content" aria-label="<?php echo Text::_('INFO'); ?>">
+                        <span class="message-title"><?php echo Text::_('INFO'); ?>.</span>
+                        <span class="message-body"><?php echo Text::_('COM_CONTENT_NO_ARTICLES'); ?></span>
                     </div>
                 </div>
             <?php endif; ?>
         <?php else : ?>
             <table>
                 <caption>
-                    <?= Text::_('COM_CONTENT_ARTICLES_TABLE_CAPTION'); ?>
+                    <?php echo Text::_('COM_CONTENT_ARTICLES_TABLE_CAPTION'); ?>
                 </caption>
-                <thead<?= $this->params->get('show_headings', '1') ? '' : ' class="sr-only"'; ?>>
+                <thead<?php echo $this->params->get('show_headings', '1') ? '' : ' class="sr-only"'; ?>>
                     <tr>
                         <th scope="col">
-                            <?= LayoutHelper::render('govbr.content.grid.sort', ['title' => 'JGLOBAL_TITLE', 'order' => 'a.title', 'direction' => $listDirn, 'selected' => $listOrder, 'newDirection' => 'asc', 'form' => 'adminForm']); ?>
+                            <?php echo LayoutHelper::render('govbr.content.grid.sort', ['title' => 'JGLOBAL_TITLE', 'order' => 'a.title', 'direction' => $listDirn, 'selected' => $listOrder, 'newDirection' => 'asc', 'form' => 'adminForm']); ?>
                         </th>
                         <?php if ($date = $this->params->get('list_show_date')) : ?>
                             <th scope="col">
                                 <?php if ($date === 'created') : ?>
-                                    <?= LayoutHelper::render('govbr.content.grid.sort', ['title' => 'COM_CONTENT_' . $date . '_DATE', 'order' => 'a.created', 'direction' => $listDirn, 'selected' => $listOrder]); ?>
+                                    <?php echo LayoutHelper::render('govbr.content.grid.sort', ['title' => 'COM_CONTENT_' . $date . '_DATE', 'order' => 'a.created', 'direction' => $listDirn, 'selected' => $listOrder]); ?>
                                 <?php elseif ($date === 'modified') : ?>
-                                    <?= LayoutHelper::render('govbr.content.grid.sort', ['title' => 'COM_CONTENT_' . $date . '_DATE', 'order' => 'a.modified', 'direction' => $listDirn, 'selected' => $listOrder]); ?>
+                                    <?php echo LayoutHelper::render('govbr.content.grid.sort', ['title' => 'COM_CONTENT_' . $date . '_DATE', 'order' => 'a.modified', 'direction' => $listDirn, 'selected' => $listOrder]); ?>
                                 <?php elseif ($date === 'published') : ?>
-                                    <?= LayoutHelper::render('govbr.content.grid.sort', ['title' => 'COM_CONTENT_' . $date . '_DATE', 'order' => 'a.publish_up', 'direction' => $listDirn, 'selected' => $listOrder]); ?>
+                                    <?php echo LayoutHelper::render('govbr.content.grid.sort', ['title' => 'COM_CONTENT_' . $date . '_DATE', 'order' => 'a.publish_up', 'direction' => $listDirn, 'selected' => $listOrder]); ?>
                                 <?php endif; ?>
                             </th>
                         <?php endif; ?>
                         <?php if ($this->params->get('list_show_author')) : ?>
                             <th scope="col">
-                                <?= LayoutHelper::render('govbr.content.grid.sort', ['title' => 'JAUTHOR', 'order' => 'author', 'direction' => $listDirn, 'selected' => $listOrder]); ?>
+                                <?php echo LayoutHelper::render('govbr.content.grid.sort', ['title' => 'JAUTHOR', 'order' => 'author', 'direction' => $listDirn, 'selected' => $listOrder]); ?>
                             </th>
                         <?php endif; ?>
                         <?php if ($this->params->get('list_show_hits')) : ?>
                             <th scope="col">
-                                <?= LayoutHelper::render('govbr.content.grid.sort', ['title' => 'JGLOBAL_HITS', 'order' => 'a.hits', 'direction' => $listDirn, 'selected' => $listOrder]); ?>
+                                <?php echo LayoutHelper::render('govbr.content.grid.sort', ['title' => 'JGLOBAL_HITS', 'order' => 'a.hits', 'direction' => $listDirn, 'selected' => $listOrder]); ?>
                             </th>
                         <?php endif; ?>
                         <?php if ($this->params->get('list_show_votes', 0) && $this->vote) : ?>
                             <th scope="col">
-                                <?= LayoutHelper::render('govbr.content.grid.sort', ['title' => 'COM_CONTENT_VOTES', 'order' => 'rating_count', 'direction' => $listDirn, 'selected' => $listOrder]); ?>
+                                <?php echo LayoutHelper::render('govbr.content.grid.sort', ['title' => 'COM_CONTENT_VOTES', 'order' => 'rating_count', 'direction' => $listDirn, 'selected' => $listOrder]); ?>
                             </th>
                         <?php endif; ?>
                         <?php if ($this->params->get('list_show_ratings', 0) && $this->vote) : ?>
                             <th scope="col">
-                                <?= LayoutHelper::render('govbr.content.grid.sort', ['title' => 'COM_CONTENT_RATINGS', 'order' => 'rating', 'direction' => $listDirn, 'selected' => $listOrder]); ?>
+                                <?php echo LayoutHelper::render('govbr.content.grid.sort', ['title' => 'COM_CONTENT_RATINGS', 'order' => 'rating', 'direction' => $listDirn, 'selected' => $listOrder]); ?>
                             </th>
                         <?php endif; ?>
                         <?php if ($isEditable) : ?>
-                            <th scope="col"><?= Text::_('COM_CONTENT_EDIT_ITEM'); ?></th>
+                            <th scope="col"><?php echo Text::_('COM_CONTENT_EDIT_ITEM'); ?></th>
                         <?php endif; ?>
                     </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($this->items as $i => $article) : ?>
-                            <tr class="cat-list-row<?= $i % 2; ?>">
+                            <tr class="cat-list-row<?php echo $i % 2; ?>">
                                 <td scope="row">
                                     <?php if (\in_array($article->access, $this->user->getAuthorisedViewLevels())) : ?>
-                                        <a href="<?= Route::_(RouteHelper::getArticleRoute($article->slug, $article->catid, $article->language)); ?>">
-                                            <?= $this->escape($article->title); ?>
+                                        <a href="<?php echo Route::_(RouteHelper::getArticleRoute($article->slug, $article->catid, $article->language)); ?>">
+                                            <?php echo $this->escape($article->title); ?>
                                         </a>
                                     <?php else : ?>
-                                        <?= $this->escape($article->title) . ' : '; ?>
+                                        <?php echo $this->escape($article->title) . ' : '; ?>
                                         <?php $itemId = Factory::getApplication()->getMenu()->getActive()->id; ?>
                                         <?php $link   = new Uri(Route::_('index.php?option=com_users&view=login&Itemid=' . $itemId, false)); ?>
                                         <?php $link->setVar('return', base64_encode(RouteHelper::getArticleRoute($article->slug, $article->catid, $article->language))); ?>
-                                        <a href="<?= $link; ?>">
-                                            <?= Text::_('COM_CONTENT_REGISTER_TO_READ_MORE'); ?>
+                                        <a href="<?php echo $link; ?>">
+                                            <?php echo Text::_('COM_CONTENT_REGISTER_TO_READ_MORE'); ?>
                                         </a>
                                     <?php endif; ?>
 
@@ -227,24 +227,24 @@ $currentDate = Factory::getDate()->format('Y-m-d H:i:s');
                                             <?php $class = 'br-button secondary circle small ml-1'; ?>
                                             <?php if ($this->params->get('flags', 1) && $association['language']->image) : ?>
                                                 <?php $flag = HTMLHelper::_('image', 'mod_languages/' . $association['language']->image . '.gif', $association['language']->title_native, ['title' => $association['language']->title_native], true); ?>
-                                                <a href="<?= Route::_($association['item']); ?>" class="<?= $class; ?>"><?= $flag; ?></a>
+                                                <a href="<?php echo Route::_($association['item']); ?>" class="<?php echo $class; ?>"><?php echo $flag; ?></a>
                                             <?php else : ?>
                                                 <?php $class .= strtolower($association['language']->lang_code); ?>
-                                                <a class="<?= $class; ?>" title="<?= $association['language']->title_native; ?>" href="<?= Route::_($association['item']); ?>"><?= $association['language']->lang_code; ?>
-                                                    <span class="sr-only"><?= $association['language']->title_native; ?></span>
+                                                <a class="<?php echo $class; ?>" title="<?php echo $association['language']->title_native; ?>" href="<?php echo Route::_($association['item']); ?>"><?php echo $association['language']->lang_code; ?>
+                                                    <span class="sr-only"><?php echo $association['language']->title_native; ?></span>
                                                 </a>
                                             <?php endif; ?>
                                         <?php endforeach; ?>
                                     <?php endif; ?>
 
                                     <?php if ($article->state == ContentComponent::CONDITION_UNPUBLISHED) : ?>
-                                        <span class="br-tag bg-warning"><?= Text::_('JUNPUBLISHED'); ?></span>
+                                        <span class="br-tag bg-warning"><?php echo Text::_('JUNPUBLISHED'); ?></span>
                                     <?php endif; ?>
                                     <?php if ($article->publish_up > $currentDate) : ?>
-                                        <span class="br-tag bg-warning"><?= Text::_('JNOTPUBLISHEDYET'); ?></span>
+                                        <span class="br-tag bg-warning"><?php echo Text::_('JNOTPUBLISHEDYET'); ?></span>
                                     <?php endif; ?>
                                     <?php if (!\is_null($article->publish_down) && $article->publish_down < $currentDate) : ?>
-                                        <span class="br-tag bg-warning"><?= Text::_('JEXPIRED'); ?></span>
+                                        <span class="br-tag bg-warning"><?php echo Text::_('JEXPIRED'); ?></span>
                                     <?php endif; ?>
                                 </td>
                                 <?php if ($this->params->get('list_show_date')) : ?>
@@ -264,15 +264,15 @@ $currentDate = Factory::getDate()->format('Y-m-d H:i:s');
                                             <?php $author = $article->created_by_alias ?: $author; ?>
                                             <?php if (!empty($article->contact_link) && $this->params->get('link_author')) : ?>
                                                 <?php if ($this->params->get('show_headings')) : ?>
-                                                    <?= HTMLHelper::_('link', $article->contact_link, $author); ?>
+                                                    <?php echo HTMLHelper::_('link', $article->contact_link, $author); ?>
                                                 <?php else : ?>
-                                                    <?= Text::sprintf('COM_CONTENT_WRITTEN_BY', HTMLHelper::_('link', $article->contact_link, $author)); ?>
+                                                    <?php echo Text::sprintf('COM_CONTENT_WRITTEN_BY', HTMLHelper::_('link', $article->contact_link, $author)); ?>
                                                 <?php endif; ?>
                                             <?php else : ?>
                                                 <?php if ($this->params->get('show_headings')) : ?>
-                                                    <?= $author; ?>
+                                                    <?php echo $author; ?>
                                                 <?php else : ?>
-                                                    <?= Text::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
+                                                    <?php echo Text::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
                                                 <?php endif; ?>
                                             <?php endif; ?>
                                         <?php endif; ?>
@@ -282,9 +282,9 @@ $currentDate = Factory::getDate()->format('Y-m-d H:i:s');
                                     <td>
                                         <span class="br-tag count bg-info">
                                             <?php if ($this->params->get('show_headings')) : ?>
-                                                <?= $article->hits; ?>
+                                                <?php echo $article->hits; ?>
                                             <?php else : ?>
-                                                <?= Text::sprintf('JGLOBAL_HITS_COUNT', $article->hits); ?>
+                                                <?php echo Text::sprintf('JGLOBAL_HITS_COUNT', $article->hits); ?>
                                             <?php endif; ?>
                                         </span>
                                     </td>
@@ -293,9 +293,9 @@ $currentDate = Factory::getDate()->format('Y-m-d H:i:s');
                                     <td>
                                         <span class="br-tag count bg-success">
                                             <?php if ($this->params->get('show_headings')) : ?>
-                                                <?= $article->rating_count; ?>
+                                                <?php echo $article->rating_count; ?>
                                             <?php else : ?>
-                                                <?= Text::sprintf('COM_CONTENT_VOTES_COUNT', $article->rating_count); ?>
+                                                <?php echo Text::sprintf('COM_CONTENT_VOTES_COUNT', $article->rating_count); ?>
                                             <?php endif; ?>
                                         </span>
                                     </td>
@@ -304,9 +304,9 @@ $currentDate = Factory::getDate()->format('Y-m-d H:i:s');
                                     <td>
                                         <span class="br-tag count bg-warning">
                                             <?php if ($this->params->get('show_headings')) : ?>
-                                                <?= $article->rating; ?>
+                                                <?php echo $article->rating; ?>
                                             <?php else : ?>
-                                                <?= Text::sprintf('COM_CONTENT_RATINGS_COUNT', $article->rating); ?>
+                                                <?php echo Text::sprintf('COM_CONTENT_RATINGS_COUNT', $article->rating); ?>
                                             <?php endif; ?>
                                         </span>
                                     </td>
@@ -314,7 +314,7 @@ $currentDate = Factory::getDate()->format('Y-m-d H:i:s');
                                 <?php if ($isEditable) : ?>
                                     <td>
                                         <?php if ($article->params->get('access-edit')) : ?>
-                                            <?= HTMLHelper::_('contenticon.edit', $article, $article->params); ?>
+                                            <?php echo HTMLHelper::_('contenticon.edit', $article, $article->params); ?>
                                         <?php endif; ?>
                                     </td>
                                 <?php endif; ?>
@@ -333,12 +333,12 @@ $currentDate = Factory::getDate()->format('Y-m-d H:i:s');
 
                 <nav
                     class="br-pagination"
-                    aria-label="<?= Text::_('JLIB_HTML_PAGINATION'); ?>"
-                    data-total="<?= $this->pagination->total; ?>"
-                    data-per-page="<?= $this->pagination->limit; ?>">
+                    aria-label="<?php echo Text::_('JLIB_HTML_PAGINATION'); ?>"
+                    data-total="<?php echo $this->pagination->total; ?>"
+                    data-per-page="<?php echo $this->pagination->limit; ?>">
 
                     <?php if ($this->params->get('show_pagination_limit')) : ?>
-                        <?= LayoutHelper::render(
+                        <?php echo LayoutHelper::render(
                             'govbr.pagination.limit_box',
                             [
                                 'pagination' => $this->pagination,
@@ -357,13 +357,13 @@ $currentDate = Factory::getDate()->format('Y-m-d H:i:s');
                             <?php endif; ?>
 
                             <div class="pagination-arrows mx-auto">
-                                <?= $this->pagination->getPagesLinks(); ?>
+                                <?php echo $this->pagination->getPagesLinks(); ?>
                             </div>
 
                             <?php if ($this->params->def('show_pagination_results', 1)) : ?>
                                 <span class="br-divider d-none d-sm-block mr-3"></span>
                                 <div class="pagination-information d-none d-sm-flex">
-                                    <?= $this->pagination->getPagesCounter(); ?>
+                                    <?php echo $this->pagination->getPagesCounter(); ?>
                                 </div>
                             <?php endif; ?>
                         <?php endif; ?>

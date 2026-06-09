@@ -73,19 +73,19 @@ $attributes = [
 ];
 
 ?>
-<div class="br-select<?= $class; ?>"
-    <?= implode(' ', $attributes); ?>>
+<div class="br-select<?php echo $class; ?>"
+    <?php echo implode(' ', $attributes); ?>>
     <div class="br-input">
-        <label <?= $labelclass ?>for="<?= $this->escape($id); ?>"><?= $this->escape($label); ?></label>
+        <label <?php echo $labelclass ?>for="<?php echo $this->escape($id); ?>"><?php echo $this->escape($label); ?></label>
         <input
-            name="<?= $name; ?>"
-            id="<?= $id; ?>"
+            name="<?php echo $name; ?>"
+            id="<?php echo $id; ?>"
             type="text"
-            <?= !empty($placeholder) ? ' placeholder="' . htmlspecialchars($placeholder, ENT_COMPAT, 'UTF-8') . '"' : ''; ?> />
+            <?php echo !empty($placeholder) ? ' placeholder="' . htmlspecialchars($placeholder, ENT_COMPAT, 'UTF-8') . '"' : ''; ?> />
         <button
             class="br-button"
             type="button"
-            <?= !empty($ariaLabel) ? 'aria-label="' . $this->escape($ariaLabel) . '"' : ''; ?>
+            <?php echo !empty($ariaLabel) ? 'aria-label="' . $this->escape($ariaLabel) . '"' : ''; ?>
             tabindex="-1"
             data-trigger="data-trigger">
             <i class="fas fa-angle-down" aria-hidden="true"></i>
@@ -95,10 +95,10 @@ $attributes = [
         <div class="br-list" tabindex="0">
             <?php foreach ($options as $option) : ?>
                 <?php $optionName = $name . '-' . $option->value; ?>
-                <div class="br-item<?= $selected == $option->value ? ' selected' : ''; ?>" tabindex="-1">
+                <div class="br-item<?php echo $selected == $option->value ? ' selected' : ''; ?>" tabindex="-1">
                     <div class="br-radio">
-                        <input id="<?= $optionName; ?>" type="radio" name="<?= $name; ?>" value="<?= $optionName; ?>" />
-                        <label for="<?= $optionName; ?>"><?= $option->text; ?></label>
+                        <input id="<?php echo $optionName; ?>" type="radio" name="<?php echo $name; ?>" value="<?php echo $optionName; ?>" />
+                        <label for="<?php echo $optionName; ?>"><?php echo $option->text; ?></label>
                     </div>
                 </div>
             <?php endforeach ?>

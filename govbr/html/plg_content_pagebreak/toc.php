@@ -19,7 +19,7 @@ use Joomla\CMS\Router\Route;
 <div class="br-menu contextual" aria-labelledby="#toc">
     <div class="menu-trigger">
         <button type="button" class="br-button primary block" data-toggle="contextual">
-            <span id="toc" class="mr-1"><?= Text::_('PLG_CONTENT_PAGEBREAK_TOC_LABEL'); ?></span>
+            <span id="toc" class="mr-1"><?php echo Text::_('PLG_CONTENT_PAGEBREAK_TOC_LABEL'); ?></span>
             <i class="fas fa-chevron-up ml-5" aria-hidden="true"></i>
         </button>
     </div>
@@ -29,7 +29,7 @@ use Joomla\CMS\Router\Route;
                 <div class="menu-folder">
                     <?php if ($headingtext) : ?>
                         <div class="menu-item">
-                            <h4 class="content"><?= $headingtext; ?></h4>
+                            <h4 class="content"><?php echo $headingtext; ?></h4>
                         </div>
 
                     <?php endif; ?>
@@ -37,8 +37,8 @@ use Joomla\CMS\Router\Route;
                         <?php foreach ($list as $listItem) : ?>
                             <?php $class = $listItem->active ? ' active' : ''; ?>
                             <li role="none">
-                                <a href="<?php echo Route::_($listItem->link); ?>" class="menu-item<?= $class; ?>">
-                                    <?= htmlspecialchars($listItem->title, ENT_QUOTES, 'UTF-8'); ?>
+                                <a href="<?php echo Route::_($listItem->link); ?>" class="menu-item<?php echo $class; ?>">
+                                    <?php echo htmlspecialchars($listItem->title, ENT_QUOTES, 'UTF-8'); ?>
                                 </a>
                             </li>
                         <?php endforeach; ?>

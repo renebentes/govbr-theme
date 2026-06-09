@@ -30,8 +30,8 @@ if ($isUnpublished) {
 $aria_described = 'editarticle-' . (int) $article->id;
 
 ?>
-<i class="fas fa-<?= $icon; ?>" aria-hidden="true"></i>
+<i class="fas fa-<?php echo $icon; ?>" aria-hidden="true"></i>
 <span class="sr-only"><?php echo Text::_('JGLOBAL_EDIT'); ?></span>
-<div class="br-tooltip" id="<?= $aria_described; ?>" role="tooltip">
-    <?= $tooltip; ?>
+<div class="br-tooltip" id="<?php echo $aria_described; ?>" role="tooltip">
+    <?php echo $tooltip; ?>
 </div>

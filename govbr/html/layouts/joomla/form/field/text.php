@@ -105,28 +105,28 @@ $attributes = [
 $class .= !empty($addonAfter) ? ' input-button' : '';
 
 ?>
-<div class="br-input<?= $class; ?>">
-    <label <?= $labelclass ?>for="<?= $this->escape($name); ?>"><?= $this->escape($label); ?></label>
+<div class="br-input<?php echo $class; ?>">
+    <label <?php echo $labelclass ?>for="<?php echo $this->escape($name); ?>"><?php echo $this->escape($label); ?></label>
     <?php if (!empty($addonBefore)) : ?>
         <div class="input-group">
             <div class="input-icon">
-                <?= Text::_($addonBefore); ?>
+                <?php echo Text::_($addonBefore); ?>
             </div>
         <?php endif; ?>
 
         <input
             type="text"
-            name="<?= $name; ?>"
-            id="<?= $id ?? $name; ?>"
-            value="<?= htmlspecialchars($value, ENT_COMPAT, 'UTF-8'); ?>"
-            <?= $dirname ?? ''; ?>
-            <?= implode(' ', $attributes); ?> />
+            name="<?php echo $name; ?>"
+            id="<?php echo $id ?? $name; ?>"
+            value="<?php echo htmlspecialchars($value, ENT_COMPAT, 'UTF-8'); ?>"
+            <?php echo $dirname ?? ''; ?>
+            <?php echo implode(' ', $attributes); ?> />
 
         <?php if (!empty($addonBefore)) : ?>
         </div>
     <?php endif; ?>
-    <?= Text::_($addonAfter ?? ''); ?>
-    <?= $hint ?? ''; ?>
+    <?php echo Text::_($addonAfter ?? ''); ?>
+    <?php echo $hint ?? ''; ?>
 </div>
 
 <?php if (!empty($options)) : ?>

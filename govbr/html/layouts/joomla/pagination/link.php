@@ -77,17 +77,17 @@ if ($displayData['active']) {
 ?>
 <?php if ($displayData['active']) : ?>
     <li>
-        <a aria-label="<?= $aria; ?>" <?= $link; ?> class="<?= $classType; ?>">
-            <?= $display; ?>
+        <a aria-label="<?php echo $aria; ?>" <?php echo $link; ?> class="<?php echo $classType; ?>">
+            <?php echo $display; ?>
         </a>
     </li>
 <?php elseif (isset($item->active) && $item->active) : ?>
     <?php $aria = Text::sprintf('JLIB_HTML_PAGE_CURRENT', strtolower($item->text)); ?>
     <li>
-        <a aria-current="true" aria-label="<?= $aria; ?>" href="#" class="<?= $classType; ?> <?= $class; ?>"><?= $display; ?></a>
+        <a aria-current="true" aria-label="<?php echo $aria; ?>" href="#" class="<?php echo $classType; ?> <?php echo $class; ?>"><?php echo $display; ?></a>
     </li>
 <?php else : ?>
     <li>
-        <span class="<?= $classType; ?> <?= $class; ?>" aria-hidden="true"><?= $display; ?></span>
+        <span class="<?php echo $classType; ?> <?php echo $class; ?>" aria-hidden="true"><?php echo $display; ?></span>
     </li>
 <?php endif; ?>

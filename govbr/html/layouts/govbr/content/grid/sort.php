@@ -15,13 +15,13 @@
 use Joomla\CMS\Language\Text;
 
 $displayData += [
-    'title' => '',
-    'order' => '',
-    'direction' => 'asc',
-    'selected' => '',
-    'task' => null,
+    'title'        => '',
+    'order'        => '',
+    'direction'    => 'asc',
+    'selected'     => '',
+    'task'         => null,
     'newDirection' => 'asc',
-    'form' => null,
+    'form'         => null,
 ];
 
 extract($displayData, EXTR_OVERWRITE);
@@ -53,15 +53,15 @@ if ($form) {
 
 ?>
 
-<a href="#" onclick="Joomla.tableOrdering('<?= $order; ?>', '<?= $direction; ?>', '<?= $task; ?>'<?= $form; ?>); return false;"
-    data-tooltip-text="<?= htmlspecialchars(Text::_('JGLOBAL_CLICK_TO_SORT_THIS_COLUMN')); ?>">
+<a href="#" onclick="Joomla.tableOrdering('<?php echo $order; ?>', '<?php echo $direction; ?>', '<?php echo $task; ?>'<?php echo $form; ?>); return false;"
+    data-tooltip-text="<?php echo htmlspecialchars(Text::_('JGLOBAL_CLICK_TO_SORT_THIS_COLUMN')); ?>">
     <?php if (isset($title['0']) && $title['0'] === '<') : ?>
-        <?= $title; ?>
+        <?php echo $title; ?>
     <?php else : ?>
-        <?= Text::_($title); ?>
+        <?php echo Text::_($title); ?>
     <?php endif; ?>
 
     <?php if ($order == $selected) : ?>
-        <i class="fas fa-<?= $icon[$index]; ?> fa-fw"></i>
+        <i class="fas fa-<?php echo $icon[$index]; ?> fa-fw"></i>
     <?php endif; ?>
 </a>
