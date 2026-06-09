@@ -22,7 +22,7 @@ $authorised = Factory::getUser()->getAuthorisedViewLevels();
 
 ?>
 <?php if (!empty($displayData)) : ?>
-    <h4><?= Text::_('JTAG'); ?></h4>
+    <h6 class="text-capitalize"><?php echo Text::_('JTAG'); ?>:
     <?php foreach ($displayData as $i => $tag) : ?>
         <?php if (\in_array($tag->access, $authorised)) : ?>
             <?php $tagParams  = new Registry($tag->params); ?>
@@ -33,4 +33,5 @@ $authorised = Factory::getUser()->getAuthorisedViewLevels();
             </a>
         <?php endif; ?>
     <?php endforeach; ?>
+    </h6>
 <?php endif; ?>
