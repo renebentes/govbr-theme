@@ -57,7 +57,7 @@ extract($displayData, EXTR_OVERWRITE);
  */
 
 $class      = !empty($class) ? ' ' . $class : '';
-$id         = $id ?? $name;
+$id ??= $name;
 $labelclass = !empty($labelclass) ? 'class="' . $labelclass . '" ' : '';
 $attributes = [
     !empty($description) ? 'aria-describedby="' . $id . '-desc"' : '',

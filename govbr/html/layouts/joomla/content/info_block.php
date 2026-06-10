@@ -24,7 +24,7 @@ $blockPosition = $displayData['params']->get('info_block_position', 0);
         ($displayData['position'] === 'above' && ($blockPosition == 0 || $blockPosition == 2))
         || ($displayData['position'] === 'below' && ($blockPosition == 1))
     ) : ?>
-        <dt class="article-info-term<?php echo (!$displayData['params']->get('info_block_show_title', 1) ? ' sr-only' : ''); ?>">
+        <dt class="article-info-term<?php echo !$displayData['params']->get('info_block_show_title', 1) ? ' sr-only' : ''; ?>">
             <?php echo Text::_('COM_CONTENT_ARTICLE_INFO'); ?>
         </dt>
 

@@ -54,7 +54,7 @@ if (\is_array($msgList) && !empty($msgList)) {
             foreach ($msgs as $msg) :
                 $msgOutput .= '<div class="content" aria-label="' . $msgTitle . '" role="alert">';
                 $msgOutput .= '<span class="message-title">' . $msgTitle . '.</span> ';
-                $msgOutput .= '<span class="message-body">' . $msg  . '</span>';
+                $msgOutput .= '<span class="message-body">' . $msg . '</span>';
                 $msgOutput .= '</div>';
             endforeach;
 
