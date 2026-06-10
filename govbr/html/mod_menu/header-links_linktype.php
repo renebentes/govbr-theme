@@ -24,7 +24,7 @@ if ($item->menu_icon) {
     $image_attributes=[];
 
     if ($item->menu_image_css) {
-        $image_attributes['class'] = trim('img-fluid ' .$item->menu_image_css);
+        $image_attributes['class'] = trim('img-fluid ' . $item->menu_image_css);
     }
 
     $linktype = HTMLHelper::_('image', $item->menu_image, '', $image_attributes);
