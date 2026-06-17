@@ -1,19 +1,13 @@
 <?php
 
 /**
- * @package     Joomla.Site
+ * GovBR Theme based on Brazilian Design System available on https://gov.br/ds
+ * for Joomla! Content Management System.
  *
- * @copyright  (C) 2026 Rene Bentes Pinto. <https://renebentes.github.io>
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
- * @since      __DEPLOY_VERSION__
- */
-
-/*
  * This is the configuration file for php-cs-fixer
  *
  * @link https://github.com/FriendsOfPHP/PHP-CS-Fixer
  * @link https://mlocati.github.io/php-cs-fixer-configurator/#version:3.0
- *
  *
  * If you would like to run the automated clean up, then open a command line and type one of the commands below.
  *
@@ -35,21 +29,54 @@
  *
  *        composer cs:check index.php
  *        composer cs:fix index.php
+ *
+ * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
+ * @copyright   Copyright (c) 2026 Rene Bentes Pinto. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE
+ *
+ * @since       __DEPLOY_VERSION__
  */
 
 use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
 use PhpCsFixer\Runner\Parallel\ParallelConfigFactory;
 
+$headerContent = [
+    <<<CONTENT
+        GovBR Theme based on Brazilian Design System available on https://gov.br/ds
+        for Joomla! Content Management System.
+        CONTENT,
+    <<<CONTENT
+        @copyright   Copyright (c) 2026 Rene Bentes Pinto. All rights reserved.
+        @license     GNU General Public License version 2 or later; see LICENSE
+        CONTENT,
+    <<<CONTENT
+        @since       __DEPLOY_VERSION__
+        CONTENT];
+
+$headerValidator = [
+    '/',
+    preg_quote($headerContent[0], '/'),
+    '(?P<EXTRA>.*?)',
+    '\s*',
+    preg_replace(
+        '/@copyright\s*Copyright \\\\\(c\\\\\) \d{4}/',
+        '@copyright\s*Copyright \(c\) \d{4}',
+        preg_quote($headerContent[1])
+    ),
+    '\s*@since\s*(?:__DEPLOY_VERSION__|\d+\.\d+(?:\.\d+)?).*',
+    '/s'];
+
 // Add all the source folders
 $finder = Finder::create()
     ->in([
-        __DIR__
+        __DIR__,
     ])
     ->exclude([
         'node_modules',
-        'vendor'
-    ]);
+        'vendor',
+    ])
+;
 
 $config = new Config();
 $config
@@ -70,6 +97,13 @@ $config
         'echo_tag_syntax'                 => ['format' => 'long'],
         // Classes from the global namespace should not be imported
         'global_namespace_import'         => ['import_classes' => false, 'import_constants' => false, 'import_functions' => false],
+        // Configuring default header
+        'header_comment'                  => [
+            'comment_type' => 'PHPDoc',
+            'header'       => implode(PHP_EOL . PHP_EOL, $headerContent),
+            'location'     => 'after_open',
+            'validator'    => implode('', $headerValidator),
+        ],
         // Native function invocation
         'native_function_invocation'      => ['include' => ['@compiler_optimized']],
         // The "No break" comment in switch statements
