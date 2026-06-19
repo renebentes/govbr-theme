@@ -14,7 +14,7 @@
     },
     "./local-features/user-config": "latest",
     "./local-features/apache-config": "latest",
-    "ghcr.io/devcontainers/features/node:2": "latest"
+    "ghcr.io/devcontainers/features/node:": "latest"
   },
 
   "portsAttributes": {
