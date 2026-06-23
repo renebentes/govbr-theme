@@ -7,10 +7,10 @@
  * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
  * @copyright   Copyright (c) 2026 Rene Bentes Pinto. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
+ *
  * @since       __DEPLOY_VERSION__
  */
-
-\defined('_JEXEC') or die;
+\defined('_JEXEC') or exit;
 
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
@@ -20,8 +20,8 @@ use Joomla\CMS\Pagination\Pagination;
 extract($displayData, EXTR_OVERWRITE);
 
 /**
- * @var  Pagination  $pagination  The pagination object
- * @var  string      $class       Classes for the pagination container.
+ * @var Pagination $pagination  The pagination object
+ * @var string     $class       classes for the pagination container
  */
 $pagination = $displayData['pagination'] ?? null;
 
@@ -29,7 +29,7 @@ $limits = [];
 
 // Make the option list.
 for ($i = 5; $i <= 30; $i += 5) {
-    $limits[] = HTMLHelper::_('select.option', "$i");
+    $limits[] = HTMLHelper::_('select.option', "{$i}");
 }
 
 $limits[] = HTMLHelper::_('select.option', '50', Text::_('J50'));

@@ -10,14 +10,15 @@
  * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
  * @copyright   Copyright (c) 2025 Rene Bentes Pinto. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
+ *
  * @since       __DEPLOY_VERSION__
  */
-
-\defined('_JEXEC') or die;
+\defined('_JEXEC') or exit;
 
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
+use Joomla\CMS\WebAsset\WebAssetManager;
 use Joomla\Utilities\ArrayHelper;
 
 // Load the smart search component language file.
@@ -26,7 +27,7 @@ $lang->load('com_finder', JPATH_SITE);
 
 Text::script('MOD_FINDER_SEARCH_VALUE');
 
-/** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
+/** @var WebAssetManager $wa */
 $wa = $app->getDocument()->getWebAssetManager();
 $wa->getRegistry()->addExtensionRegistryFile('com_finder');
 
@@ -37,16 +38,15 @@ if ($tagId = $params->get('tag_id', '')) {
     $attributes['id'] = htmlspecialchars($tagId, ENT_QUOTES, 'UTF-8');
 }
 
-/*
- * This segment of code sets up the autocompleter.
- */
+// This segment of code sets up the autocompleter.
 if ($params->get('show_autosuggest', 1)) {
     $wa->usePreset('awesomplete');
     $app->getDocument()
         ->addScriptOptions(
             'finder-search',
             ['url' => Route::_('index.php?option=com_finder&task=suggestions.suggest&format=json&tmpl=component', false)]
-        );
+        )
+    ;
 
     Text::script('COM_FINDER_SEARCH_FORM_LIST_LABEL');
     Text::script('JLIB_JS_AJAX_ERROR_OTHER');
@@ -55,7 +55,8 @@ if ($params->get('show_autosuggest', 1)) {
 
 $wa->useScript('com_finder.finder');
 $finderHelper = $app->bootModule('mod_finder', 'site')
-    ->getHelper('FinderHelper');
+    ->getHelper('FinderHelper')
+;
 
 ?>
 <search>

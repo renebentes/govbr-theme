@@ -10,17 +10,18 @@
  * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
  * @copyright   Copyright (c) 2026 Rene Bentes Pinto. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
+ *
  * @since       __DEPLOY_VERSION__
  */
-
-\defined('_JEXEC') or die;
+\defined('_JEXEC') or exit;
 
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 use Joomla\Component\Content\Site\Helper\RouteHelper;
+use Joomla\Component\Content\Site\View\Category\HtmlView;
 
-/** @var \Joomla\Component\Content\Site\View\Category\HtmlView $this */
+/** @var HtmlView $this */
 $lang   = $this->getLanguage();
 $user   = $this->getCurrentUser();
 $groups = $user->getAuthorisedViewLevels();
@@ -76,10 +77,10 @@ $groups = $user->getAuthorisedViewLevels();
                     <div class="br-list ease" id="category-<?php echo $child->id; ?>" role="list" hidden>
                         <?php $this->children[$child->id] = $child->getChildren(); ?>
                         <?php $this->category             = $child; ?>
-                        <?php $this->maxLevel--; ?>
+                        <?php --$this->maxLevel; ?>
                         <?php echo $this->loadTemplate('children'); ?>
                         <?php $this->category = $child->getParent(); ?>
-                        <?php $this->maxLevel++; ?>
+                        <?php ++$this->maxLevel; ?>
                     </div>
                 <?php endif; ?>
 

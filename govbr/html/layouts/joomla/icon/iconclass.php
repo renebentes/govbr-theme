@@ -10,12 +10,13 @@
  * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
  * @copyright   Copyright (c) 2026 Rene Bentes Pinto. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
+ *
  * @since       __DEPLOY_VERSION__
  */
 
 declare(strict_types=1);
 
-\defined('_JEXEC') or die;
+\defined('_JEXEC') or exit;
 
 use Joomla\Utilities\ArrayHelper;
 
@@ -49,7 +50,7 @@ $icon = trim(implode(' ', [$iconPrefix, $icon, $iconFixed, $iconSuffix]));
 if ($html !== false) {
     $iconAttribs = [
         'class'       => $icon,
-        'aria-hidden' => "true",
+        'aria-hidden' => 'true',
     ];
 
     if ($tabindex) {

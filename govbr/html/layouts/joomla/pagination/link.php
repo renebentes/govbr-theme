@@ -10,10 +10,10 @@
  * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
  * @copyright   Copyright (c) 2026 Rene Bentes Pinto. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
+ *
  * @since       __DEPLOY_VERSION__
  */
-
-\defined('_JEXEC') or die;
+\defined('_JEXEC') or exit;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
@@ -28,30 +28,35 @@ switch ((string) $item->text) {
     case Text::_('JLIB_HTML_START'):
         $icon = $app->getLanguage()->isRtl() ? 'fa-double-right' : 'fa-angle-double-left';
         $aria = Text::_('JLIB_HTML_GOTO_POSITION_START');
+
         break;
 
         // Check for "Prev" item
     case Text::_('JPREV'):
         $icon = $app->getLanguage()->isRtl() ? 'fa-angle-right' : 'fa-angle-left';
         $aria = Text::_('JLIB_HTML_GOTO_POSITION_PREVIOUS');
+
         break;
 
         // Check for "Next" item
     case Text::_('JNEXT'):
         $icon = $app->getLanguage()->isRtl() ? 'fa-angle-left' : 'fa-angle-right';
         $aria = Text::_('JLIB_HTML_GOTO_POSITION_NEXT');
+
         break;
 
         // Check for "End" item
     case Text::_('JLIB_HTML_END'):
         $icon = $app->getLanguage()->isRtl() ? 'fa-angle-double-left' : 'fa-angle-double-right';
         $aria = Text::_('JLIB_HTML_GOTO_POSITION_END');
+
         break;
 
     default:
         $icon      = null;
         $aria      = Text::sprintf('JLIB_HTML_GOTO_PAGE', strtolower($item->text));
         $classType = 'page';
+
         break;
 }
 

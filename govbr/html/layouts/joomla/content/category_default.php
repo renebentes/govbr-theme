@@ -10,10 +10,10 @@
  * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
  * @copyright   Copyright (c) 2026 Rene Bentes Pinto. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
+ *
  * @since       __DEPLOY_VERSION__
  */
-
-\defined('_JEXEC') or die;
+\defined('_JEXEC') or exit;
 
 use Joomla\CMS\Event\Content;
 use Joomla\CMS\Factory;
@@ -49,7 +49,8 @@ $app->getDispatcher()
             'onContentPrepare',
             $contentEventArguments
         )
-    );
+    )
+;
 $category->description = $category->text;
 
 $results           = $app
@@ -60,7 +61,8 @@ $results           = $app
             'onContentAfterTitle',
             $contentEventArguments
         )
-    )->getArgument('result', []);
+    )->getArgument('result', [])
+;
 $afterDisplayTitle = trim(implode("\n", $results));
 
 $results              = $app
@@ -71,7 +73,8 @@ $results              = $app
             'onContentBeforeDisplay',
             $contentEventArguments
         )
-    )->getArgument('result', []);
+    )->getArgument('result', [])
+;
 $beforeDisplayContent = trim(implode("\n", $results));
 
 $results             = $app
@@ -82,10 +85,11 @@ $results             = $app
             'onContentAfterDisplay',
             $contentEventArguments
         )
-    )->getArgument('result', []);
+    )->getArgument('result', [])
+;
 $afterDisplayContent = trim(implode("\n", $results));
 
-/**
+/*
  * This will work for the core components but not necessarily for other components
  * that may have different pluralisation rules.
  */

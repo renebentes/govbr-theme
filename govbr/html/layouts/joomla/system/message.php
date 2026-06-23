@@ -16,12 +16,12 @@
 
 declare(strict_types=1);
 
-\defined('_JEXEC') or die;
+\defined('_JEXEC') or exit;
 
 use Joomla\CMS\Application\CMSApplication;
 use Joomla\CMS\Language\Text;
 
-/* @var $displayData array */
+// @var $displayData array
 
 $msgList   = $displayData['msgList'];
 $msgOutput = '';
@@ -38,7 +38,6 @@ $alert     = [
 ];
 
 if (\is_array($msgList) && !empty($msgList)) {
-
     foreach ($msgList as $type => $msgs) {
         if (!empty($msgs)) {
             $msgTitle = match ($alert[$type] ?? $type) {
@@ -57,12 +56,12 @@ if (\is_array($msgList) && !empty($msgList)) {
 
             $msgOutput .= '<div class="br-message ' . ($alert[$type] ?? $type) . '">';
             $msgOutput .= '<div class="icon"><span class="fas ' . $msgIcon . '" aria-hidden="true"></span></div>';
-            foreach ($msgs as $msg) :
+            foreach ($msgs as $msg) {
                 $msgOutput .= '<div class="content" aria-label="' . $msgTitle . '" role="alert">';
                 $msgOutput .= '<span class="message-title">' . $msgTitle . '.</span> ';
                 $msgOutput .= '<span class="message-body">' . $msg . '</span>';
                 $msgOutput .= '</div>';
-            endforeach;
+            }
 
             $msgOutput .= '<div class="close">';
             $msgOutput .= '<button class="br-button circle small" type="button" aria-label="' . Text::_('JCLOSE') . '">';
