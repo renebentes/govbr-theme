@@ -10,10 +10,10 @@
  * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
  * @copyright   Copyright (c) 2026 Rene Bentes Pinto. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
+ *
  * @since       __DEPLOY_VERSION__
  */
-
-\defined('_JEXEC') or die;
+\defined('_JEXEC') or exit;
 
 use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Factory;
@@ -24,12 +24,14 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
+use Joomla\CMS\WebAsset\WebAssetManager;
 use Joomla\Component\Content\Administrator\Extension\ContentComponent;
 use Joomla\Component\Content\Site\Helper\AssociationHelper;
 use Joomla\Component\Content\Site\Helper\RouteHelper;
+use Joomla\Component\Content\Site\View\Category\HtmlView;
 
-/** @var \Joomla\Component\Content\Site\View\Category\HtmlView $this */
-/** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
+/** @var HtmlView $this */
+/** @var WebAssetManager $wa */
 $wa = $this->getDocument()->getWebAssetManager();
 $wa->useScript('com_content.articles-list');
 
@@ -40,16 +42,18 @@ $listDirn   = $this->escape($this->state->get('list.direction'));
 $langFilter = false;
 
 // Tags filtering based on language filter
-if (($this->params->get('filter_field') === 'tag') && (Multilanguage::isEnabled())) {
+if (($this->params->get('filter_field') === 'tag') && Multilanguage::isEnabled()) {
     $tagfilter = ComponentHelper::getParams('com_tags')->get('tag_list_language_filter');
 
     switch ($tagfilter) {
         case 'current_language':
             $langFilter = Factory::getApplication()->getLanguage()->getTag();
+
             break;
 
         case 'all':
             $langFilter = false;
+
             break;
 
         default:
@@ -64,6 +68,7 @@ if (!empty($this->items)) {
     foreach ($this->items as $article) {
         if ($article->params->get('access-edit')) {
             $isEditable = true;
+
             break;
         }
     }
@@ -263,7 +268,7 @@ $currentDate = Factory::getDate()->format('Y-m-d H:i:s');
                                 <?php if ($this->params->get('list_show_author', 1)) : ?>
                                     <td>
                                         <?php if (!empty($article->author) || !empty($article->created_by_alias)) : ?>
-                                            <?php $author = $article->author ?>
+                                            <?php $author = $article->author; ?>
                                             <?php $author = $article->created_by_alias ?: $author; ?>
                                             <?php if (!empty($article->contact_link) && $this->params->get('link_author')) : ?>
                                                 <?php if ($this->params->get('show_headings')) : ?>

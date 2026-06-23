@@ -10,17 +10,18 @@
  * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
  * @copyright   Copyright (c) 2026 Rene Bentes Pinto. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
+ *
  * @since       __DEPLOY_VERSION__
  */
-
-\defined('_JEXEC') or die;
+\defined('_JEXEC') or exit;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
+use Joomla\Plugin\Content\PageNavigation\Extension\PageNavigation;
 
 /**
- * @var \Joomla\Plugin\Content\PageNavigation\Extension\PageNavigation  $this
+ * @var PageNavigation $this
  */
 $this->loadLanguage();
 $lang = Factory::getApplication()->getLanguage();
@@ -35,7 +36,7 @@ $lang = Factory::getApplication()->getLanguage();
                 href="<?php echo Route::_($row->prev); ?>"
                 rel="prev"
                 aria-label="<?php echo $label; ?>"
-                data-tooltip-text="<?php echo $label ; ?>">
+                data-tooltip-text="<?php echo $label; ?>">
                 <i class="fas fa-chevron-<?php echo $direction; ?>" aria-hidden="true"></i>
             </a>
     <?php endif; ?>

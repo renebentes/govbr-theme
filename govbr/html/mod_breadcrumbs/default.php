@@ -10,10 +10,10 @@
  * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
  * @copyright   Copyright (c) 2025 Rene Bentes Pinto. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
+ *
  * @since       __DEPLOY_VERSION__
  */
-
-\defined('_JEXEC') or die;
+\defined('_JEXEC') or exit;
 
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
@@ -30,7 +30,7 @@ if ($params->get('showHome', 1)) {
 }
 
 // Get rid of duplicated entries on trail including home page when using multilanguage
-for ($i = 0; $i < $count; $i++) {
+for ($i = 0; $i < $count; ++$i) {
     if ($i === 1 && !empty($list[$i]->link) && !empty($list[$i - 1]->link) && $list[$i]->link === $list[$i - 1]->link) {
         unset($list[$i]);
     }
@@ -72,12 +72,12 @@ $show_last = $params->get('showLast', 1);
                 <?php else : ?>
                     <?php $breadcrumbItem = $item->name; ?>
                 <?php endif; ?>
-                <li class="crumb"><i class="icon fas fa-chevron-right mr-1"></i><?php echo $breadcrumbItem ?></li>
+                <li class="crumb"><i class="icon fas fa-chevron-right mr-1"></i><?php echo $breadcrumbItem; ?></li>
             <?php
             // Render last item if required.
             elseif ($show_last) : ?>
                 <li class="crumb" data-active="active"><i class="icon fas fa-chevron-right"></i>
-                    <span tabindex="0" aria-current="page"><?php echo $item->name ?></span>
+                    <span tabindex="0" aria-current="page"><?php echo $item->name; ?></span>
                 </li>
             <?php endif; ?>
         <?php endforeach; ?>
@@ -134,7 +134,6 @@ foreach ($list as $key => $item) {
 }
 
 if ($itemsCounter) {
-
     $prettyPrint = JDEBUG ? JSON_PRETTY_PRINT : 0;
     $wa->addInline(
         'script',

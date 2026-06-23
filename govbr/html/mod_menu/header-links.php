@@ -10,11 +10,12 @@
  * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
  * @copyright   Copyright (c) 2025 Rene Bentes Pinto. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
+ *
  * @since       __DEPLOY_VERSION__
  */
 
 // No direct access.
-\defined('_JEXEC') or die('Restricted access!');
+\defined('_JEXEC') or exit('Restricted access!');
 
 use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\Utilities\ArrayHelper;
@@ -39,6 +40,7 @@ if ($tagId = $params->get('tag_id', '')) {
 
     <?php foreach ($list as $i => &$item) :
         $attributes['class'] = 'br-item';
+
         require ModuleHelper::getLayoutPath('mod_menu', 'header-links_url');
     endforeach; ?>
 

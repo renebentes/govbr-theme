@@ -10,12 +10,13 @@
  * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
  * @copyright   Copyright (c) 2026 Rene Bentes Pinto. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
+ *
  * @since       __DEPLOY_VERSION__
  */
 
 declare(strict_types=1);
 
-\defined('_JEXEC') or die;
+\defined('_JEXEC') or exit;
 
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
@@ -27,13 +28,12 @@ $attribs = [];
 extract($displayData, EXTR_OVERWRITE);
 
 /**
- * Layout variables
- * -----------------
- * @var  object    $category  The category information
- * @var  Registry  $params    The item parameters
- * @var  array     $attribs   Optional attributes for the link
+ * Layout variables.
+ *
+ * @var object   $category  The category information
+ * @var Registry $params    The item parameters
+ * @var array    $attribs   Optional attributes for the link
  */
-
 $uri = Uri::getInstance();
 
 $url = 'index.php?option=com_content&task=article.add&return=' . base64_encode($uri) . '&a_id=0&catid=' . $category->id;

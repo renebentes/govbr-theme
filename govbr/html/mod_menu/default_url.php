@@ -10,13 +10,14 @@
  * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
  * @copyright   Copyright (c) 2025 Rene Bentes Pinto. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
+ *
  * @since       __DEPLOY_VERSION__
  */
 
 declare(strict_types=1);
 
 // No direct access.
-\defined('_JEXEC') or die('Restricted access!');
+\defined('_JEXEC') or exit('Restricted access!');
 
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\Filter\OutputFilter;

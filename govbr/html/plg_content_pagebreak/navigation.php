@@ -10,21 +10,20 @@
  * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
  * @copyright   Copyright (c) 2026 Rene Bentes Pinto. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
+ *
  * @since       __DEPLOY_VERSION__
  */
-
-\defined('_JEXEC') or die;
+\defined('_JEXEC') or exit;
 
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 use Joomla\Plugin\Content\PageBreak\Extension\PageBreak;
 
 /**
- * @var PageBreak  $this
- * @var array      $links  Array with keys 'previous' and 'next' with non-SEO links to the previous and next pages
- * @var integer    $page   The page number
+ * @var PageBreak $this
+ * @var array     $links  Array with keys 'previous' and 'next' with non-SEO links to the previous and next pages
+ * @var int       $page   The page number
  */
-
 $lang = $this->getApplication()->getLanguage();
 
 ?>

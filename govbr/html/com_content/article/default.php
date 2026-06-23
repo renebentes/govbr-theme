@@ -7,10 +7,10 @@
  * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
  * @copyright   Copyright (c) 2026 Rene Bentes Pinto. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
+ *
  * @since       __DEPLOY_VERSION__
  */
-
-\defined('_JEXEC') or die;
+\defined('_JEXEC') or exit;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
@@ -22,8 +22,9 @@ use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
 use Joomla\Component\Content\Administrator\Extension\ContentComponent;
 use Joomla\Component\Content\Site\Helper\RouteHelper;
+use Joomla\Component\Content\Site\View\Article\HtmlView;
 
-/** @var \Joomla\Component\Content\Site\View\Article\HtmlView $this */
+/** @var HtmlView $this */
 // Create shortcuts to some parameters.
 $params  = $this->item->params;
 $canEdit = $params->get('access-edit');

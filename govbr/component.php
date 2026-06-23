@@ -10,17 +10,18 @@
  * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
  * @copyright   Copyright (c) 2025 Rene Bentes Pinto. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
+ *
  * @since       __DEPLOY_VERSION__
  */
 
 // No direct access.
-\defined('_JEXEC') or die('Restricted access!');
+\defined('_JEXEC') or exit('Restricted access!');
 
+use Joomla\CMS\Document\HtmlDocument;
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 
-/** @var Joomla\CMS\Document\HtmlDocument $this */
-
+/** @var HtmlDocument $this */
 $app   = Factory::getApplication();
 $input = $app->getInput();
 $wa    = $this->getWebAssetManager();
@@ -54,7 +55,8 @@ $this->addHeadLink(
 $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 
 $wa->useStyle('template.govbr')
-    ->useScript('template.govbr.script');
+    ->useScript('template.govbr.script')
+;
 
 ?>
 

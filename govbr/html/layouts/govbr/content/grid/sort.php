@@ -7,10 +7,12 @@
  * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
  * @copyright   Copyright (c) 2026 Rene Bentes Pinto. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
+ *
  * @since       __DEPLOY_VERSION__
  */
 
-\defined('_JEXEC') or die;
+// No direct access.
+\defined('_JEXEC') or exit;
 
 use Joomla\CMS\Language\Text;
 
@@ -25,18 +27,18 @@ $displayData += [
 ];
 
 extract($displayData, EXTR_OVERWRITE);
-/**
- * Layout variables
- * ----------------
- * @var  string|array  $title         The heading title or translated string key.
- * @var  string        $order         The order field name.
- * @var  string        $direction     The current ordering direction.
- * @var  string        $selected      The currently selected order field.
- * @var  string|null   $task          The ordering task.
- * @var  string        $newDirection  The direction to use when ordering changes.
- * @var  string|null   $form          The form element id.
- */
 
+/**
+ * Layout variables.
+ *
+ * @var array|string $title         the heading title or translated string key
+ * @var string       $order         the order field name
+ * @var string       $direction     the current ordering direction
+ * @var string       $selected      the currently selected order field
+ * @var null|string  $task          the ordering task
+ * @var string       $newDirection  the direction to use when ordering changes
+ * @var null|string  $form          the form element id
+ */
 $direction = strtolower($direction);
 $icon      = ['arrow-up', 'arrow-down'];
 $index     = (int) ($direction === 'desc');
