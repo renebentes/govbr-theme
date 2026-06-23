@@ -14,6 +14,8 @@
  * @since       __DEPLOY_VERSION__
  */
 
+declare(strict_types=1);
+
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Application\CMSApplication;

@@ -13,6 +13,8 @@
  * @since       __DEPLOY_VERSION__
  */
 
+declare(strict_types=1);
+
 // No direct access.
 \defined('_JEXEC') or die('Restricted access!');
 

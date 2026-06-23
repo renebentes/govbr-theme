@@ -13,6 +13,8 @@
  * @since       __DEPLOY_VERSION__
  */
 
+declare(strict_types=1);
+
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\HTML\HTMLHelper;
@@ -45,6 +47,6 @@ if ($params->get('show_icons')) {
 $text .= Text::_('COM_CONTENT_NEW_ARTICLE');
 
 // Add the button classes to the attribs array
-$attribs['class'] = 'br-button primary' . (key_exists('class', $attribs) ? ' ' . $attribs['class'] : '');
+$attribs['class'] = 'br-button primary' . (\array_key_exists('class', $attribs) ? ' ' . $attribs['class'] : '');
 
 echo HTMLHelper::_('link', Route::_($url), $text, $attribs);
