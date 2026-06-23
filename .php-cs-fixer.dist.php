@@ -37,6 +37,8 @@
  * @since       __DEPLOY_VERSION__
  */
 
+declare(strict_types=1);
+
 use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
 use PhpCsFixer\Runner\Parallel\ParallelConfigFactory;
@@ -87,6 +89,7 @@ $config
     ->setRules([
         // Basic ruleset is Auto
         '@auto'                           => true,
+        '@auto:risky'                     => true,
         // Align elements in multiline array and variable declarations on new lines below each other
         'binary_operator_spaces'          => ['operators' => ['=>' => 'align_single_space_minimal_by_scope', '=' => 'align', '??=' => 'align']],
         // Using isset($var) && multiple times should be done in one call.
