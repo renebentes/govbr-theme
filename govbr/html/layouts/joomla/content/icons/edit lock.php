@@ -14,6 +14,9 @@
 
 use Joomla\CMS\Language\Text;
 
+/**
+ * @var array $displayData Properties available for use inside this layout
+ */
 if (isset($displayData['ariaDescribed'])) {
     $aria_described = $displayData['ariaDescribed'];
 } elseif (isset($displayData['article'])) {

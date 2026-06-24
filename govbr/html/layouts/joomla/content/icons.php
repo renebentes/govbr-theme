@@ -17,6 +17,9 @@
 
 use Joomla\CMS\HTML\HTMLHelper;
 
+/**
+ * @var array $displayData Properties available for use inside this layout
+ */
 $canEdit   = $displayData['params']->get('access-edit');
 $articleId = $displayData['item']->id;
 ?>
@@ -26,8 +29,6 @@ $articleId = $displayData['item']->id;
         'icon.edit',
         $displayData['item'],
         $displayData['params'],
-        [
-            'data-tooltip-target' => '#editarticle-' . (int) $articleId,
-        ]
+        ['data-tooltip-target' => '#editarticle-' . (int) $articleId]
     ); ?>
 <?php endif; ?>

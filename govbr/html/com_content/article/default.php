@@ -61,10 +61,11 @@ $isExpired         = !\is_null($this->item->publish_down) && $this->item->publis
                 <?php endif; ?>
             <?php endif; ?>
 
-            <?php if ($canEdit) : ?>
-                <?php echo LayoutHelper::render('joomla.content.icons', ['params' => $params, 'item' => $this->item]); ?>
-            <?php endif; ?>
         </header>
+    <?php endif; ?>
+
+    <?php if ($canEdit) : ?>
+        <?php echo LayoutHelper::render('joomla.content.icons', ['params' => $params, 'item' => $this->item]); ?>
     <?php endif; ?>
 
     <?php if (!empty($this->item->fulltext)) : ?>
