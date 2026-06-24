@@ -15,6 +15,9 @@
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
 
+/**
+ * @var array $displayData Properties available for use inside this layout
+ */
 $article = $displayData['article'];
 $tooltip = $displayData['tooltip'];
 $nowDate = strtotime(Factory::getDate());
