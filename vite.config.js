@@ -39,7 +39,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         // TODO: avaliar a necessidade de silenciar estes avisos do GOVBR DS
-        silenceDeprecations: ['import', 'color-functions', 'global-builtin']
+        silenceDeprecations: ['import', 'color-functions', 'global-builtin', 'if-function']
       }
     }
   },
