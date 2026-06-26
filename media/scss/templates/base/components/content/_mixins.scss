@@ -1,0 +1,36 @@
+@mixin blog-configs {
+  @include blog-default;
+}
+
+@mixin blog-default {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: 1fr;
+  grid-gap: var(--grid-gutter);
+  margin-bottom: var(--grid-gutter);
+
+  .blog-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+
+    .image-right & {
+      flex-direction: row;
+      border: 1px solid green;
+
+      .item-image {
+        flex: 1 0 40%;
+      }
+    }
+
+    .item-image {
+      img {
+        object-fit: contain;
+      }
+
+      .image-right & {
+        // order: 1;
+      }
+    }
+  }
+}

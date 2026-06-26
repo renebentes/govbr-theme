@@ -36,7 +36,7 @@ extract($displayData, EXTR_OVERWRITE);
  */
 $uri = Uri::getInstance();
 
-$url = 'index.php?option=com_content&task=article.add&return=' . base64_encode($uri) . '&a_id=0&catid=' . $category->id;
+$url = 'index.php?option=com_content&task=article.add&return=' . base64_encode((string) $uri) . '&a_id=0&catid=' . $category->id;
 
 $text = '';
 
