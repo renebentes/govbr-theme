@@ -1,17 +1,21 @@
 <?php
 
 /**
+ * GovBR Theme based on Brazilian Design System available on https://gov.br/ds
+ * for Joomla! Content Management System.
+ *
  * @package     Joomla.Site
  * @subpackage  Templates.GovBR
  *
  * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
- * @copyright   Copyright (C) 2025 Rene Bentes Pinto. All rights reserved.
+ * @copyright   Copyright (c) 2025 Rene Bentes Pinto. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
+ *
  * @since       __DEPLOY_VERSION__
  */
 
 // No direct access.
-\defined('_JEXEC') or die('Restricted access!');
+\defined('_JEXEC') or exit('Restricted access!');
 
 use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\Utilities\ArrayHelper;
@@ -27,17 +31,17 @@ if ($tagId = $params->get('tag_id', '')) {
 <div <?php echo ArrayHelper::toString($attributes); ?>>
 
     <?php if ($module->showtitle) : ?>
-    <div class="header">
-        <div class="title">
-            <?php echo htmlspecialchars($module->title, ENT_QUOTES, 'UTF-8'); ?>
+        <div class="header">
+            <div class="title">
+                <?php echo htmlspecialchars($module->title, ENT_QUOTES, 'UTF-8'); ?>
+            </div>
         </div>
-    </div>
     <?php endif; ?>
 
-    <?php foreach ($list as $i => &$item) {
+    <?php foreach ($list as $i => &$item) :
         $attributes['class'] = 'br-item';
+
         require ModuleHelper::getLayoutPath('mod_menu', 'header-links_url');
-    }
-?>
+    endforeach; ?>
 
 </div>

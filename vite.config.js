@@ -22,10 +22,13 @@ export default defineConfig({
         entryFileNames: 'js/[name].js',
         assetFileNames: ({ names }) => {
           const name = names[0] ?? '';
-          if (/^fa.+\.woff2?$/.test(name)) {
+          if (/^fa-.+\.(woff2?|ttf|eot|otf)$/.test(name)) {
             return 'webfonts/[name][extname]';
-          } else if (/\.(woff2?|ttf|eot|otf)$/.test(name))
+          }
+
+          if (/\.(woff2?|ttf|eot|otf)$/.test(name))
             return 'fonts/[name][extname]';
+
           return '[ext]/[name][extname]';
         }
       }
@@ -36,7 +39,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         // TODO: avaliar a necessidade de silenciar estes avisos do GOVBR DS
-        silenceDeprecations: ['import', 'color-functions', 'global-builtin']
+        silenceDeprecations: ['import', 'color-functions', 'global-builtin', 'if-function']
       }
     }
   },

@@ -1,16 +1,19 @@
 <?php
 
 /**
+ * GovBR Theme based on Brazilian Design System available on https://gov.br/ds
+ * for Joomla! Content Management System.
+ *
  * @package     Joomla.Site
  * @subpackage  Templates.GovBR
  *
  * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
- * @copyright   Copyright (C) 2025 Rene Bentes Pinto. All rights reserved.
+ * @copyright   Copyright (c) 2025 Rene Bentes Pinto. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
+ *
  * @since       __DEPLOY_VERSION__
  */
-
-\defined('_JEXEC') or die;
+\defined('_JEXEC') or exit;
 
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
@@ -19,14 +22,15 @@ use Joomla\CMS\Uri\Uri;
 use Joomla\CMS\WebAsset\WebAssetManager;
 
 /** @var WebAssetManager $wa */
-$wa = $app->getDocument()->getWebAssetManager();
+$wa   = $app->getDocument()->getWebAssetManager();
+$home = null;
 
 if ($params->get('showHome', 1)) {
     $home = array_shift($list);
 }
 
 // Get rid of duplicated entries on trail including home page when using multilanguage
-for ($i = 0; $i < $count; $i++) {
+for ($i = 0; $i < $count; ++$i) {
     if ($i === 1 && !empty($list[$i]->link) && !empty($list[$i - 1]->link) && $list[$i]->link === $list[$i - 1]->link) {
         unset($list[$i]);
     }
@@ -51,8 +55,8 @@ $show_last = $params->get('showLast', 1);
             <?php endif; ?>
 
             <?php if ($params->get('showHome', 1)) : ?>
-                <a href="<?= Route::_($home->link); ?>" class="br-button circle">
-                    <i class="fas fa-home" aria-hidden="true" aria-label="<?= $home->name; ?>"></i>
+                <a href="<?php echo Route::_($home->link); ?>" class="br-button circle">
+                    <i class="fas fa-home" aria-hidden="true" aria-label="<?php echo $home->name; ?>"></i>
                 </a>
             <?php else: ?>
                 <i class="fas fa-home" aria-hidden="true"></i>
@@ -68,12 +72,12 @@ $show_last = $params->get('showLast', 1);
                 <?php else : ?>
                     <?php $breadcrumbItem = $item->name; ?>
                 <?php endif; ?>
-                <li class="crumb"><i class="icon fas fa-chevron-right"></i><?= $breadcrumbItem ?></li>
+                <li class="crumb"><i class="icon fas fa-chevron-right mr-1"></i><?php echo $breadcrumbItem; ?></li>
             <?php
             // Render last item if required.
             elseif ($show_last) : ?>
                 <li class="crumb" data-active="active"><i class="icon fas fa-chevron-right"></i>
-                    <span tabindex="0" aria-current="page"><?= $item->name ?></span>
+                    <span tabindex="0" aria-current="page"><?php echo $item->name; ?></span>
                 </li>
             <?php endif; ?>
         <?php endforeach; ?>
@@ -130,7 +134,6 @@ foreach ($list as $key => $item) {
 }
 
 if ($itemsCounter) {
-
     $prettyPrint = JDEBUG ? JSON_PRETTY_PRINT : 0;
     $wa->addInline(
         'script',

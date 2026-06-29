@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @package     Joomla.Site
+ * @subpackage  Templates.GovBR
+ *
+ * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
+ * @copyright   Copyright (c) 2026 Rene Bentes Pinto. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE
+ *
+ * @since       __DEPLOY_VERSION__
+ */
+\defined('_JEXEC') or exit;
+
+use Joomla\CMS\Language\Text;
+
+/**
+ * @var array $displayData Properties available for use inside this layout
+ */
+if (isset($displayData['ariaDescribed'])) {
+    $aria_described = $displayData['ariaDescribed'];
+} elseif (isset($displayData['article'])) {
+    $article        = $displayData['article'];
+    $aria_described = 'editarticle-' . (int) $article->id;
+} elseif (isset($displayData['contact'])) {
+    $contact        = $displayData['contact'];
+    $aria_described = 'editcontact-' . (int) $contact->id;
+}
+
+$tooltip = $displayData['tooltip'];
+?>
+
+<i class="fas fa-eye-slash" aria-hidden="true"></i>
+<span class="sr-only"><?php echo Text::_('JLIB_HTML_CHECKED_OUT'); ?></span>
+<div class="br-tooltip" id="<?php echo $aria_described; ?>" role="tooltip">
+    <?php echo $tooltip; ?>
+</div>

@@ -1,21 +1,27 @@
 <?php
 
 /**
+ * GovBR Theme based on Brazilian Design System available on https://gov.br/ds
+ * for Joomla! Content Management System.
+ *
  * @package     Joomla.Site
  * @subpackage  Templates.GovBR
  *
  * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
- * @copyright   Copyright (C) 2025 Rene Bentes Pinto. All rights reserved.
+ * @copyright   Copyright (c) 2026 Rene Bentes Pinto. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
+ *
  * @since       __DEPLOY_VERSION__
  */
 
-\defined('_JEXEC') or die;
+declare(strict_types=1);
+
+\defined('_JEXEC') or exit;
 
 use Joomla\CMS\Application\CMSApplication;
 use Joomla\CMS\Language\Text;
 
-/* @var $displayData array */
+// @var $displayData array
 
 $msgList   = $displayData['msgList'];
 $msgOutput = '';
@@ -32,7 +38,6 @@ $alert     = [
 ];
 
 if (\is_array($msgList) && !empty($msgList)) {
-
     foreach ($msgList as $type => $msgs) {
         if (!empty($msgs)) {
             $msgTitle = match ($alert[$type] ?? $type) {
@@ -50,17 +55,17 @@ if (\is_array($msgList) && !empty($msgList)) {
             };
 
             $msgOutput .= '<div class="br-message ' . ($alert[$type] ?? $type) . '">';
-            $msgOutput .= '<div class="icon"><i class="fas ' . $msgIcon . '" aria-hidden="true"></i></div>';
-            foreach ($msgs as $msg) :
+            $msgOutput .= '<div class="icon"><span class="fas ' . $msgIcon . '" aria-hidden="true"></span></div>';
+            foreach ($msgs as $msg) {
                 $msgOutput .= '<div class="content" aria-label="' . $msgTitle . '" role="alert">';
                 $msgOutput .= '<span class="message-title">' . $msgTitle . '.</span> ';
-                $msgOutput .= '<span class="message-body">' . $msg  . '</span>';
+                $msgOutput .= '<span class="message-body">' . $msg . '</span>';
                 $msgOutput .= '</div>';
-            endforeach;
+            }
 
             $msgOutput .= '<div class="close">';
             $msgOutput .= '<button class="br-button circle small" type="button" aria-label="' . Text::_('JCLOSE') . '">';
-            $msgOutput .= '<i class="fas fa-times" aria-hidden="true"></i>';
+            $msgOutput .= '<span class="fas fa-times" aria-hidden="true"></span>';
             $msgOutput .= '</button>';
             $msgOutput .= '</div>';
             $msgOutput .= '</div>';

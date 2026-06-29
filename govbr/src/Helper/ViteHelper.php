@@ -1,21 +1,27 @@
 <?php
 
 /**
- * @package     Joomla.Site
- * @subpackage  Templates.GovBR
+ * GovBR Theme based on Brazilian Design System available on https://gov.br/ds
+ * for Joomla! Content Management System.
+ *
+ * @package     Joomla.Templates
+ * @subpackage  GovBR.Helper
  *
  * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
- * @copyright   Copyright (C) 2025 Rene Bentes Pinto. All rights reserved.
+ * @copyright   Copyright (c) 2025 Rene Bentes Pinto. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
+ *
  * @since       __DEPLOY_VERSION__
  */
 
+declare(strict_types=1);
+
 namespace ReneBentes\Templates\GovBR\Site\Helper;
 
-\defined('_JEXEC') or die;
+\defined('_JEXEC') or exit;
 
-use Joomla\CMS\Factory;
 use Joomla\CMS\Document\HtmlDocument;
+use Joomla\CMS\Factory;
 
 /**
  * Helper to detect and load the Vite development environment.
@@ -37,13 +43,14 @@ class ViteHelper
     /**
      * Checks if the Vite development server is active in development mode.
      *
-     * @return bool True if the Vite server is available, false otherwise.
+     * @return bool true if the Vite server is available, false otherwise
      *
      * @since  __DEPLOY_VERSION__
      */
     public static function isDev(): bool
     {
         $headers = @get_headers(self::VITE_HOST);
+
         return $headers !== false;
     }
 
@@ -53,13 +60,11 @@ class ViteHelper
      * Inserts the Vite client scripts and the main template file
      * to enable hot reloading and local development.
      *
-     * @return void
-     *
      * @since  __DEPLOY_VERSION__
      */
     public static function load(): void
     {
-        /** @var HtmlDocument $doc */;
+        /** @var HtmlDocument $doc */
         $doc = Factory::getApplication()->getDocument();
         $doc->addCustomTag(
             '<script type="module" src="' . self::VITE_HOST . '/@vite/client"></script>'

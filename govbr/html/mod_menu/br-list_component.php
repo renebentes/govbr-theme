@@ -1,21 +1,28 @@
 <?php
 
 /**
+ * GovBR Theme based on Brazilian Design System available on https://gov.br/ds
+ * for Joomla! Content Management System.
+ *
  * @package     Joomla.Site
  * @subpackage  Templates.GovBR
  *
  * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
- * @copyright   Copyright (C) 2025 Rene Bentes Pinto. All rights reserved.
+ * @copyright   Copyright (c) 2025 Rene Bentes Pinto. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
+ *
  * @since       __DEPLOY_VERSION__
  */
 
-\defined('_JEXEC') or die;
+declare(strict_types=1);
+
+\defined('_JEXEC') or exit;
 
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\Filter\OutputFilter;
 
 require __DIR__ . '/default_attributes.php';
+
 require __DIR__ . '/br-list_linktype.php';
 
 if ($item->id == $active_id) {

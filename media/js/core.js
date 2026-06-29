@@ -4,6 +4,12 @@ import { initBRMenu } from './components/br-menu';
 import { initBRBreadcrumb } from './components/br-breadcrumb';
 import { initBRMessage } from './components/br-message';
 import { initBRFooter } from './components/br-footer';
+import { initBRTooltip } from './components/br-tooltip';
+import { initBRPagination } from './components/br-pagination';
+import { initBRSelect } from './components/br-select';
+import { initBRInput } from './components/br-input';
+import { initBRTable } from './components/br-table';
+import { initBRCollapse } from './components/br-collapse';
 
 export function initGovBR(root = document) {
   initBRHeader(root);
@@ -11,4 +17,10 @@ export function initGovBR(root = document) {
   initBRBreadcrumb(root);
   initBRMessage(root);
   initBRFooter(root);
+  initBRTooltip(root);
+  initBRPagination(root);
+  initBRSelect(root);
+  initBRInput(root);
+  initBRTable(root);
+  initBRCollapse(root);
 }

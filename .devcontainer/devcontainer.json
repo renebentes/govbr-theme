@@ -2,7 +2,7 @@
   "name": "GovBR Theme Dev Environment",
   "dockerComposeFile": "compose.yml",
   "service": "app",
-  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "workspaceFolder": "/workspaces/govbr-theme",
 
   "features": {
     "ghcr.io/devcontainers/features/common-utils:": {
@@ -13,8 +13,7 @@
       "upgradePackages": "true"
     },
     "./local-features/user-config": "latest",
-    "./local-features/apache-config": "latest",
-    "ghcr.io/devcontainers/features/node:": "latest"
+    "ghcr.io/devcontainers/features/node:2": "latest"
   },
 
   "portsAttributes": {

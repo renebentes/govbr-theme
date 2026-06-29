@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @package     Joomla.Site
+ * @subpackage  Templates.GovBR
+ *
+ * @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
+ * @copyright   Copyright (c) 2026 Rene Bentes Pinto. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE
+ *
+ * @since       __DEPLOY_VERSION__
+ */
+\defined('_JEXEC') or exit;
+
+use Joomla\CMS\Language\Text;
+
+?>
+<dd class="hits">
+    <i class="fas fa-eye mx-1" aria-hidden="true"></i>
+    <meta content="UserPageVisits:<?php echo $displayData['item']->hits; ?>">
+    <?php echo Text::sprintf('COM_CONTENT_ARTICLE_HITS', $displayData['item']->hits); ?>
+</dd>
