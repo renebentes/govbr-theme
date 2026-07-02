@@ -1,0 +1,5 @@
+@use 'mixins' as *;
+
+.blog-items {
+  @include blog-configs;
+}

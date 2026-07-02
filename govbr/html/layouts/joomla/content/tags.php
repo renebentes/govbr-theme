@@ -29,9 +29,10 @@ $authorised = Factory::getUser()->getAuthorisedViewLevels();
     <?php foreach ($displayData as $i => $tag) : ?>
         <?php if (\in_array($tag->access, $authorised)) : ?>
             <?php $tagParams  = new Registry($tag->params); ?>
-            <?php $link_class = $tagParams->get('tag_link_class', 'interaction'); ?>
+            <?php $link_class = $tagParams->get('tag_link_class', ''); ?>
             <a href="<?php echo Route::_(RouteHelper::getComponentTagRoute($tag->tag_id . ':' . $tag->alias, $tag->language)); ?>"
                 class="br-tag <?php echo $link_class; ?> tag-<?php echo $tag->tag_id; ?> tag-list-<?php echo $i; ?>">
+                <i class="fas fa-tag" aria-hidden="true"></i>
                 <?php echo $this->escape($tag->title); ?>
             </a>
         <?php endif; ?>

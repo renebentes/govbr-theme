@@ -1,0 +1,74 @@
+@mixin blog-configs {
+  @include blog-default;
+  @include blog-image-align;
+}
+
+@mixin blog-default {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--grid-gutter);
+
+  .item-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .item-image {
+    overflow: hidden;
+    min-height: 200px;
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .item-image {
+      min-height: 280px;
+    }
+  }
+}
+
+@mixin blog-image-align {
+  &.image-left,
+  &.image-right {
+    flex-direction: row;
+
+    .item-content {
+      flex: 1 1 auto;
+    }
+
+    .item-image {
+      flex: 0 0 300px;
+      width: 300px;
+    }
+
+    @media (min-width: 1280px) {
+      .item-image {
+        flex: 0 0 380px;
+        width: 380px;
+      }
+    }
+  }
+
+  &.image-right {
+    .item-content {
+      order: 1;
+    }
+
+    .item-image {
+      order: 2;
+    }
+  }
+}
