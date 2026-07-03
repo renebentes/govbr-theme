@@ -1,0 +1,5 @@
+@use 'mixins' as *;
+
+.com-content-article {
+  @include article-configs;
+}

@@ -1,0 +1,11 @@
+@mixin article-configs {
+  @include article-default;
+}
+
+@mixin article-default {
+  figure {
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--spacing-scale-2x);
+  }
+}
