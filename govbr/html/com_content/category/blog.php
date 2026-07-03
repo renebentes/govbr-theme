@@ -183,7 +183,7 @@ $htag = $this->params->get('show_page_heading') ? 'h2' : 'h1';
     <?php endif; ?>
 
     <?php if (!empty($this->link_items)) : ?>
-        <div class="items-more">
+        <div class="blog-items-more">
             <?php echo $this->loadTemplate('links'); ?>
         </div>
     <?php endif; ?>
