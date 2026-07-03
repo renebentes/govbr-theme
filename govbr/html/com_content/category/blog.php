@@ -88,17 +88,23 @@ $htag = $this->params->get('show_page_heading') ? 'h2' : 'h1';
 
 ?>
 <section class="com-content-category-blog">
-    <?php if ($this->params->get('show_page_heading')) : ?>
-        <div class="page-header">
-            <h1> <?php echo $this->escape($this->params->get('page_heading')); ?> </h1>
-        </div>
+    <?php if (
+        $this->params->get('show_page_heading')
+        || $this->params->get('show_category_title', 1)
+    ) : ?>
+        <header class="page-header">
+            <?php if ($this->params->get('show_page_heading')) : ?>
+                <h1> <?php echo $this->escape($this->params->get('page_heading')); ?> </h1>
+            <?php endif; ?>
+
+            <?php if ($this->params->get('show_category_title', 1)) : ?>
+                <<?php echo $htag; ?>>
+                    <?php echo $this->category->title; ?>
+                </<?php echo $htag; ?>>
+            <?php endif; ?>
+        </header>
     <?php endif; ?>
 
-    <?php if ($this->params->get('show_category_title', 1)) : ?>
-        <<?php echo $htag; ?>>
-            <?php echo $this->category->title; ?>
-        </<?php echo $htag; ?>>
-    <?php endif; ?>
     <?php echo $afterDisplayTitle; ?>
 
     <?php if ($this->params->get('show_cat_tags', 1) && !empty($this->category->tags->itemTags)) : ?>
