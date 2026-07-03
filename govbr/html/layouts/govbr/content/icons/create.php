@@ -34,10 +34,8 @@ extract($displayData, EXTR_OVERWRITE);
  * @var Registry $params    The item parameters
  * @var array    $attribs   Optional attributes for the link
  */
-$uri = Uri::getInstance();
-
-$url = 'index.php?option=com_content&task=article.add&return=' . base64_encode((string) $uri) . '&a_id=0&catid=' . $category->id;
-
+$uri  = Uri::getInstance();
+$url  = 'index.php?option=com_content&task=article.add&return=' . base64_encode((string) $uri) . '&a_id=0&catid=' . $category->id;
 $text = '';
 
 if ($params->get('show_icons')) {

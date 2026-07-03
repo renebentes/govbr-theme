@@ -20,7 +20,10 @@ use Joomla\CMS\Router\Route;
 use Joomla\Component\Tags\Site\Helper\RouteHelper;
 use Joomla\Registry\Registry;
 
-$authorised = Factory::getUser()->getAuthorisedViewLevels();
+$authorised = Factory::getApplication()
+    ->getIdentity()
+    ->getAuthorisedViewLevels()
+;
 
 ?>
 <?php if (!empty($displayData)) : ?>

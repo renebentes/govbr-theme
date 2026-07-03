@@ -56,7 +56,8 @@ $results = $app
             'onContentAfterTitle',
             $contentEventArguments
         )
-    )->getArgument('result', []);
+    )->getArgument('result', [])
+;
 $afterDisplayTitle = trim(implode("\n", $results));
 
 $results = $app
@@ -67,7 +68,8 @@ $results = $app
             'onContentBeforeDisplay',
             $contentEventArguments
         )
-    )->getArgument('result', []);
+    )->getArgument('result', [])
+;
 $beforeDisplayContent = trim(implode("\n", $results));
 
 $results = $app
@@ -78,7 +80,8 @@ $results = $app
             'onContentAfterDisplay',
             $contentEventArguments
         )
-    )->getArgument('result', []);
+    )->getArgument('result', [])
+;
 $afterDisplayContent = trim(implode("\n", $results));
 
 $htag = $this->params->get('show_page_heading') ? 'h2' : 'h1';
