@@ -107,6 +107,17 @@ $htag = $this->params->get('show_page_heading') ? 'h2' : 'h1';
 
     <?php echo $afterDisplayTitle; ?>
 
+    <?php if ($this->category->getParams()->get('access-create')) : ?>
+        <?php echo LayoutHelper::render(
+            'govbr.content.icons.create',
+            [
+                'category' => $this->category,
+                'params'   => $this->category->params,
+                'attribs'  => ['class' => 'mt-2'],
+            ]
+        ); ?>
+    <?php endif; ?>
+
     <?php if ($this->params->get('show_cat_tags', 1) && !empty($this->category->tags->itemTags)) : ?>
         <?php $this->category->tagLayout = new FileLayout('joomla.content.tags'); ?>
         <?php echo $this->category->tagLayout->render($this->category->tags->itemTags); ?>
@@ -185,18 +196,6 @@ $htag = $this->params->get('show_page_heading') ? 'h2' : 'h1';
         <div class="br-list" role="list">
             <?php echo $this->loadTemplate('children'); ?>
         </div>
-    <?php endif; ?>
-    <?php // Code to add a link to submit an article.
-    ?>
-    <?php if ($this->category->getParams()->get('access-create')) : ?>
-        <?php echo LayoutHelper::render(
-            'govbr.content.icons.create',
-            [
-                'category' => $this->category,
-                'params'   => $this->category->params,
-                'attribs'  => ['class' => 'mt-2'],
-            ]
-        ); ?>
     <?php endif; ?>
 
     <?php if (($this->params->def('show_pagination', 1) == 1 || ($this->params->get('show_pagination') == 2)) && ($this->pagination->pagesTotal > 1)) : ?>
