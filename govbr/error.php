@@ -61,7 +61,9 @@ $pageclass = $menu !== null ? $menu->getParams()->get('pageclass_sfx', '') : '';
 
 $logo = HTMLHelper::_(
     'image',
-    'govbr.svg',
+    $this->params->get('logo')
+    ? Uri::root(false) . htmlspecialchars($this->params->get('logo'), ENT_QUOTES)
+    : 'govbr.svg',
     $sitename,
     [
         'height'   => '40px',
@@ -71,25 +73,12 @@ $logo = HTMLHelper::_(
     true,
     0
 );
-
-if ($this->params->get('logo')) {
-    $logo = HTMLHelper::_(
-        'image',
-        Uri::root(false) . htmlspecialchars($this->params->get('logo'), ENT_QUOTES),
-        $sitename,
-        [
-            'height'   => '40px',
-            'loading'  => 'eager',
-            'decoding' => 'async',
-        ],
-        true,
-        0
-    );
-}
 
 $footerLogo = HTMLHelper::_(
     'image',
-    'govbr-negativa.svg',
+    $this->params->get('logo')
+    ? Uri::root(false) . htmlspecialchars($this->params->get('logo'), ENT_QUOTES)
+    : 'govbr-negativa.svg',
     $sitename,
     [
         'height'   => '40px',
@@ -99,21 +88,6 @@ $footerLogo = HTMLHelper::_(
     true,
     0
 );
-
-if ($this->params->get('logo')) {
-    $logo = HTMLHelper::_(
-        'image',
-        Uri::root(false) . htmlspecialchars($this->params->get('logo'), ENT_QUOTES),
-        $sitename,
-        [
-            'height'   => '40px',
-            'loading'  => 'eager',
-            'decoding' => 'async',
-        ],
-        true,
-        0
-    );
-}
 
 $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 
