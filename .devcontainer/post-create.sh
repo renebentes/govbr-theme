@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
+shopt -s globstar nullglob
 
 USERNAME="vscode"
-BASE_DIR=$(pwd)/govbr
+BASE_DIR=$(pwd)
 WEB_DIR=/var/www/html
-TEMPLATE_PATH="${WEB_DIR}/templates/govbr"
 JOOMLA_CLI="${WEB_DIR}/cli/joomla.php"
 
 echo "--> Waiting for MariaDB server to be available..."
@@ -17,6 +17,23 @@ echo "--> Installing Composer and NPM dependencies..."
 composer install
 npm install
 echo "✅ Dependencies installed."
+
+echo "--> Adding symbolic links for files and directories..."
+sudo ln -snf "${BASE_DIR}/plugins/sampledata/testing" "${WEB_DIR}//plugins/sampledata/testing"
+sudo ln -snf "${BASE_DIR}/govbr" "${WEB_DIR}/templates/govbr"
+sudo ln -snf "${BASE_DIR}/media" "${WEB_DIR}/media/templates/site/govbr"
+
+language_files=("${BASE_DIR}"/**/language/*.ini)
+
+for relative_path in "${language_files[@]}"; do
+    echo $relative_path
+    clean_path="${relative_path#${BASE_DIR}/language/}"
+    lang_code=$(dirname "${clean_path}")
+    # sudo mkdir -p "${WEB_DIR}/language/${lang_code}"
+    # sudo ln -sf "${BASE_DIR}/language/${clean_path}" "$WEB_DIR/language/${clean_path}"
+done
+echo "✅ Symbolic links added."
+exit
 
 echo "--> Installing Joomla using the official package downloaded..."
 sudo php "${WEB_DIR}/installation/joomla.php" install \
@@ -38,18 +55,6 @@ echo "✅ Joomla installed."
 echo "--> Building the template..."
 npm run build
 echo "✅ Build completed."
-
-echo "--> Adding symbolic links for files and directories..."
-sudo ln -snf "${BASE_DIR}" "${WEB_DIR}/templates/govbr"
-sudo ln -snf "${BASE_DIR}/media" "${WEB_DIR}/media/templates/site/govbr"
-
-for relative_path in $(find "${BASE_DIR}/language/" -type f); do
-    clean_path="${relative_path#${BASE_DIR}/language/}"
-    lang_code=$(dirname "${clean_path}")
-    sudo mkdir -p "${WEB_DIR}/language/${lang_code}"
-    sudo ln -sf "${BASE_DIR}/language/${clean_path}" "$WEB_DIR/language/${clean_path}"
-done
-echo "✅ Symbolic links added."
 
 echo "--> Installing the GovBR template..."
 sudo php "${JOOMLA_CLI}" extension:discover

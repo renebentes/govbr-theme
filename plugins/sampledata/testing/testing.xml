@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" group="sampledata" method="upgrade">
+  <name>plg_sampledata_testing</name>
+  <creationDate>2026-10</creationDate>
+  <author>Rene Bentes Pinto</author>
+  <authorEmail>renebentes@yahoo.com.br</authorEmail>
+  <copyright>Copyright (c) 2026 Rene Bentes Pinto. All rights reserved.</copyright>
+  <license>GNU General Public License version 2 or later; see LICENSE</license>
+  <version>0.1.0</version>
+  <description>PLG_SAMPLEDATA_TESTING_XML_DESCRIPTION</description>
+  <namespace path="src">ReneBentes\Plugin\SampleData\Testing</namespace>
+  <files>
+    <folder plugin="testing">services</folder>
+    <folder>src</folder>
+  </files>
+
+  <languages folder="language">
+    <language tag="en-GB">en-GB/plg_sampledata_testing.ini</language>
+    <language tag="en-GB">en-GB/plg_sampledata_testing.sys.ini</language>
+    <language tag="pt-BR">pt-BR/plg_sampledata_testing.ini</language>
+    <language tag="pt-BR">pt-BR/plg_sampledata_testing.sys.ini</language>
+  </languages>
+</extension>
