@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
+shopt -s globstar nullglob
 
 USERNAME="vscode"
-BASE_DIR=$(pwd)/govbr
+BASE_DIR=$(pwd)
 WEB_DIR=/var/www/html
-TEMPLATE_PATH="${WEB_DIR}/templates/govbr"
 JOOMLA_CLI="${WEB_DIR}/cli/joomla.php"
 
 echo "--> Waiting for MariaDB server to be available..."
@@ -40,21 +40,33 @@ npm run build
 echo "✅ Build completed."
 
 echo "--> Adding symbolic links for files and directories..."
-sudo ln -snf "${BASE_DIR}" "${WEB_DIR}/templates/govbr"
-sudo ln -snf "${BASE_DIR}/media" "${WEB_DIR}/media/templates/site/govbr"
+sudo ln -snf "${BASE_DIR}/govbr" "${WEB_DIR}/templates/govbr"
+sudo ln -snf "${BASE_DIR}/govbr/media" "${WEB_DIR}/media/templates/site/govbr"
+sudo ln -snf "${BASE_DIR}/cli" "${WEB_DIR}/plugins/console/govbr"
 
-for relative_path in $(find "${BASE_DIR}/language/" -type f); do
-    clean_path="${relative_path#${BASE_DIR}/language/}"
+language_files=(
+    "${BASE_DIR}"/cli/language/**/*.ini
+    "${BASE_DIR}"/govbr/language/**/*.ini
+)
+
+for language_file in "${language_files[@]}"; do
+    target_dir="${WEB_DIR}/language"
+    clean_path="${language_file#*/language/}"
     lang_code=$(dirname "${clean_path}")
-    sudo mkdir -p "${WEB_DIR}/language/${lang_code}"
-    sudo ln -sf "${BASE_DIR}/language/${clean_path}" "$WEB_DIR/language/${clean_path}"
+
+    if [[ "$language_file" == *"/cli/language/"* ]]; then
+        target_dir="${WEB_DIR}/administrator/language"
+    fi
+
+    sudo mkdir -p "${target_dir}/${lang_code}"
+    sudo ln -sf "${language_file}" "${target_dir}/${clean_path}"
 done
 echo "✅ Symbolic links added."
 
-echo "--> Installing the GovBR template..."
+echo "--> Installing the GovBR extensions..."
 sudo php "${JOOMLA_CLI}" extension:discover
 sudo php "${JOOMLA_CLI}" extension:discover:install
-echo "✅ GovBR template installed."
+echo "✅ GovBR extensions installed."
 
 echo "--> Applying development settings..."
 sudo php "${JOOMLA_CLI}" config:set debug=true
