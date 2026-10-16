@@ -59,6 +59,7 @@
         "EditorConfig.EditorConfig",
         "esbenp.prettier-vscode",
         "junstyle.php-cs-fixer",
+        "mads-hartmann.bash-ide-vscode",
         "ms-azuretools.vscode-containers",
         "redhat.vscode-xml",
         "stylelint.vscode-stylelint",
