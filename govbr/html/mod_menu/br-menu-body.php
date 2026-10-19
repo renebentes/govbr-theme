@@ -28,6 +28,7 @@ if ($tagId = $params->get('tag_id', '')) {
 }
 
 $attributes['role'] = 'tree';
+$startLevel         = (int) $params->get('startLevel', 1);
 
 ?>
 <nav <?php echo ArrayHelper::toString($attributes); ?>>
@@ -36,7 +37,13 @@ $attributes['role'] = 'tree';
         $attributes['class'] = 'menu-item';
         $attributes['role']  = 'treeitem';
 
-        echo $item->deeper ? '<li class="menu-folder">' : '<li>';
+        if ($item->deeper && (int) $item->level === $startLevel) {
+            echo '<li class="menu-folder">';
+        } elseif ($item->deeper && (int) $item->level > $startLevel) {
+            echo '<li class="side-menu">';
+        } else {
+            echo '<li>';
+        }
 
         switch ($item->type) :
             case 'separator':
