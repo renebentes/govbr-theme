@@ -31,13 +31,12 @@ $attributes['role'] = 'tree';
 
 ?>
 <nav <?php echo ArrayHelper::toString($attributes); ?>>
+    <ul>
     <?php foreach ($list as $i => &$item) {
         $attributes['class'] = 'menu-item';
         $attributes['role']  = 'treeitem';
 
-        if ($item->deeper) {
-            echo '<div class="menu-folder">';
-        }
+        echo $item->deeper ? '<li class="menu-folder">' : '<li>';
 
         switch ($item->type) :
             case 'separator':
@@ -57,13 +56,15 @@ $attributes['role'] = 'tree';
         // The next item is deeper.
         if ($item->deeper) {
             echo '<ul>';
-            echo '<li>';
         } elseif ($item->shallower) {
             // The next item is shallower.
             echo '</li>';
             echo str_repeat('</ul></li>', $item->level_diff);
-            echo '</div>';
+        } else {
+            // The next item is on the same level.
+            echo '</li>';
         }
     }
 ?>
+    </ul>
 </nav>
