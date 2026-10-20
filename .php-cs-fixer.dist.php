@@ -51,12 +51,14 @@ $headerContent = [
         for Joomla! Content Management System.
         CONTENT,
     <<<'CONTENT'
+        @author      Rene Bentes Pinto <renebentes@yahoo.com.br>
         @copyright   Copyright (c) 2026 Rene Bentes Pinto. All rights reserved.
         @license     GNU General Public License version 2 or later; see LICENSE
         CONTENT,
     <<<'CONTENT'
         @since       __DEPLOY_VERSION__
-        CONTENT];
+        CONTENT
+];
 
 $headerValidator = [
     '/',
@@ -69,7 +71,8 @@ $headerValidator = [
         preg_quote($headerContent[1])
     ),
     '\s*@since\s*(?:__DEPLOY_VERSION__|\d+\.\d+(?:\.\d+)?).*',
-    '/s'];
+    '/s'
+];
 
 // Add all the source folders
 $finder = Finder::create()
@@ -79,8 +82,7 @@ $finder = Finder::create()
     ->exclude([
         'node_modules',
         'vendor',
-    ])
-;
+    ]);
 
 $config = new Config();
 $config
