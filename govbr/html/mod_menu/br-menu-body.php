@@ -28,15 +28,21 @@ if ($tagId = $params->get('tag_id', '')) {
 }
 
 $attributes['role'] = 'tree';
+$startLevel         = (int) $params->get('startLevel', 1);
 
 ?>
 <nav <?php echo ArrayHelper::toString($attributes); ?>>
+    <ul>
     <?php foreach ($list as $i => &$item) {
         $attributes['class'] = 'menu-item';
         $attributes['role']  = 'treeitem';
 
-        if ($item->deeper) {
-            echo '<div class="menu-folder">';
+        if ($item->deeper && (int) $item->level === $startLevel) {
+            echo '<li class="menu-folder">';
+        } elseif ($item->deeper && (int) $item->level > $startLevel) {
+            echo '<li class="side-menu">';
+        } else {
+            echo '<li>';
         }
 
         switch ($item->type) :
@@ -57,13 +63,15 @@ $attributes['role'] = 'tree';
         // The next item is deeper.
         if ($item->deeper) {
             echo '<ul>';
-            echo '<li>';
         } elseif ($item->shallower) {
             // The next item is shallower.
             echo '</li>';
             echo str_repeat('</ul></li>', $item->level_diff);
-            echo '</div>';
+        } else {
+            // The next item is on the same level.
+            echo '</li>';
         }
     }
 ?>
+    </ul>
 </nav>
